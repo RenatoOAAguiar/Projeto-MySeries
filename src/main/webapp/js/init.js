@@ -1,6 +1,6 @@
 (function($){
   $(function(){
-    Materialize.updateTextFields();
+    $('.modal').modal();
     $('.barralateral').sideNav('hide');
     $('.barralateral').sideNav({
        menuWidth: 300, // Default is 240

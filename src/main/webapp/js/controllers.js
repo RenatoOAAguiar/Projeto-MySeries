@@ -1,3 +1,6 @@
+angular.module('MySeries').controller('SideNavCtrl', function($scope){
+});
+
 angular.module('MySeries').controller('CarolselCtrl', function($scope){
     $scope.titulo = "Top Series";
 });
@@ -16,4 +19,14 @@ angular.module('MySeries').controller('SerieCtrl', function($scope, $http){
     }, function errorCallback(response) {
        console.log(response);
     });
+});
+
+angular.module('MySeries').controller('LoginCtrl', function($scope, $timeout, cfpLoadingBar){
+    $scope.login = function(){
+        cfpLoadingBar.start();
+        $timeout(function () {
+            cfpLoadingBar.complete();
+            $('#userSettings').removeClass('hide');
+        }, 3000);
+    }
 });

@@ -1,1 +1,1 @@
-angular.module("MySeries",[]);
+angular.module("MySeries",['angular-loading-bar']);

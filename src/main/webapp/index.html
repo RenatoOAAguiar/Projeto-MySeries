@@ -9,61 +9,27 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel='stylesheet' href='css/angular/loading-bar.min.css' type='text/css' media='all' />
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
+  <nav class="light-blue lighten-1" role="navigation" ng-controller="SideNavCtrl">
     <ul id="slide-out" class="side-nav">
-        <li><div class="userView">
-          <div class="background">
-            <img src="img/back.jpg">
-          </div>
-          <a href="#!user"><img class="circle" src="img/avatar.jpg"></a>
-          <a href="#!name"><span class="white-text name">Jake Sully</span></a>
-          <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
-      </div></li> 
+          <div id="userSettings" class="hide">
+            <li><div class="userView">
+            <div class="background">
+              <img src="img/back.jpg">
+            </div>
+              <a href="#!user"><img class="circle" src="img/avatar.jpg"></a>
+              <a href="#!name"><span class="white-text name">Jake Sully</span></a>
+              <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
+            </div>
+          </div></li> 
         <li class="bold"><a href="#!" class="waves-effect waves-teal">Menu</a></li>
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li>
-              <a class="collapsible-header waves-effect waves-teal">Login<i class="mdi-navigation-arrow-drop-down"></i></a>
+              <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Login</a>
               <div class="collapsible-body">
-               <div id="login-page" class="row">
-                  <div class="col s12 z-depth-4 card-panel">
-                    <form class="login-form">
-                      <div class="row">
-                        <div class="input-field col s10">
-                          <i class="small material-icons red-text">perm_identity</i>
-                          <input id="username" placeholder="Usuário" type="text" class="validate">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s10">
-                        <i class="small material-icons red-text">lock_outline</i></i>
-                          <input id="password" placeholder="Senha" type="password" class="validate">
-                        </div>
-                      </div>
-                      <div class="row">          
-                        <div class="input-field col s12 m12 l12  login-text">
-                            <input type="checkbox" id="remember-me">
-                            <label for="remember-me">Lembrar</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s6 m6 l6">
-                          <p class="margin medium-small red-text"><a href="page-register.html">Se registre!</a></p>
-                        </div>
-                        <div class="col s6 m6 l6">
-                            <span class="margin right-align medium-small red-text"><a href="page-forgot-password.html">Esqueceu a senha?</a></span>
-                        </div>          
-                      </div>
-                    </form>
-                  </div>
-                </div>
               </div>
             </li>
           </ul>
@@ -129,12 +95,59 @@
       </div>
     </div>
   </footer>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer" ng-controller="LoginCtrl">
+    <div class="modal-content">
+      
+               <div id="login-page" class="row">
+                  <div class="col s12 z-depth-4 card-panel">
+                    <form class="login-form">
+                      <div class="row">
+                        <div class="input-field col s10">
+                          <i class="small material-icons">perm_identity</i>
+                          <input id="username" placeholder="Usuário" type="text" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s10">
+                        <i class="small material-icons">lock_outline</i>
+                          <input id="password" placeholder="Senha" type="password" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">          
+                        <div class="input-field col s12 m12 l12">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Lembrar</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <a class="btn waves-effect waves-light col s12" ng-click="login()">Login</a>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6 m6 l6">
+                          <p class="margin medium-small"><a href="page-register.html">Se registre!</a></p>
+                        </div>
+                        <div class="input-field col s6 m6 l6">
+                            <p class="margin right-align medium-small"><a href="page-forgot-password.html">Esqueceu a senha?</a></p>
+                        </div>          
+                      </div>
+                    </form>
+                  </div>
+                </div>
+    </div>
+    <div class="modal-footer">
+          <div id="loading-bar-container"></div>
+    </div>
+  </div>
 
 
   <!--  Scripts-->
   <script src="js/jquery/jquery-3.2.0.min.js"></script>
   <script src="js/materialize/materialize.min.js"></script>
   <script src="js/angular/angular.min.js"></script>
+  <script src='js/angular/loading-bar.min.js'></script>
   <script src="js/init.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers.js"></script>

@@ -4,3 +4,4 @@
 /.vscode/
 /src/main/webapp/node_modules/
 /.settings/
+/node_modules/
