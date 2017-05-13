@@ -1,40 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="MySeries">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <title>My Series</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
   <nav class="light-blue lighten-1" role="navigation">
-    <ul id="slide-out" class="side-nav full">
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="">Item List</a></li>
-  </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons"></i></a>
-  <div class="preloader-wrapper big active">
-      <div class="spinner-layer spinner-blue">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
+    <ul id="slide-out" class="side-nav">
+        <li><div class="userView">
+          <div class="background">
+            <img src="img/back.jpg">
+          </div>
+          <a href="#!user"><img class="circle" src="img/avatar.jpg"></a>
+          <a href="#!name"><span class="white-text name">Jake Sully</span></a>
+          <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
+      </div></li> 
+        <li class="bold"><a href="#!" class="waves-effect waves-teal">Menu</a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header waves-effect waves-teal">Login<i class="mdi-navigation-arrow-drop-down"></i></a>
+              <div class="collapsible-body">
+               <div id="login-page" class="row">
+                  <div class="col s12 z-depth-4 card-panel">
+                    <form class="login-form">
+                      <div class="row">
+                        <div class="input-field col s10">
+                          <i class="small material-icons red-text">perm_identity</i>
+                          <input id="username" placeholder="Usuário" type="text" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s10">
+                        <i class="small material-icons red-text">lock_outline</i></i>
+                          <input id="password" placeholder="Senha" type="password" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">          
+                        <div class="input-field col s12 m12 l12  login-text">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Lembrar</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6 m6 l6">
+                          <p class="margin medium-small red-text"><a href="page-register.html">Se registre!</a></p>
+                        </div>
+                        <div class="col s6 m6 l6">
+                            <span class="margin right-align medium-small red-text"><a href="page-forgot-password.html">Esqueceu a senha?</a></span>
+                        </div>          
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="nav-content right">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a href="#test1">Minhas Series</a></li>
+        <li class="tab"><a class="active" href="#test2">Top Series</a></li>
+        <li class="tab"><a href="#test4">Criticas</a></li>
+      </ul>
+    </div>
+    <a class="btn btn-floating blue pulse recuo barralateral" href="#" data-activates="slide-out"><i class="material-icons">menu</i></a>
   </nav>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
       <h1 class="header center orange-text">My Series</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-      </div>
       <br><br>
 
     </div>
@@ -42,21 +89,20 @@
 
 
   <div class="container">
-    <div class="section">
+    <div class="section" ng-controller="CarolselCtrl">
+        <h4 ng-bind="titulo" class="center blue-text"></h4>
         <div class="container">
-        <div class="carousel">
-          <a class="carousel-item" href="#one!"><img src="img/clint.png"></a>
-          <a class="carousel-item" href="#two!"><img src="img/startrek.jpg"></a>
-          <a class="carousel-item" href="#three!"><img src="img/super.jpg"></a>
-          <a class="carousel-item" href="#four!"><img src="img/tango-filme_cartaz.jpg"></a>
+          <div class="carousel">
+            <a class="carousel-item" href="#one!" value=""><img src="img/clint.png"></a>
+            <a class="carousel-item" href="#two!" value="startrek"><img src="img/startrek.jpg"></a>
+            <a class="carousel-item" href="#three!"><img src="img/super.jpg"></a>
+            <a class="carousel-item" href="#four!"><img src="img/tango-filme_cartaz.jpg"></a>
+          </div>
         </div>
-    </div>
-
     </div>
     <br><br>
 
     <div class="section">
-
     </div>
   </div>
 
@@ -64,43 +110,33 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">My Series</h5>
+          <p class="grey-text text-lighten-4">Site destinado ao mundo de series, aqui você encontra informações sobre as series, sinopse, lista de episódios e muito mais!</p>
 
 
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <h5 class="white-text">Contato</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">myseries@myseries.com</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Todos direitos reservados <a class="orange-text text-lighten-3" href="index.html">MySeries</a>
       </div>
     </div>
   </footer>
 
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
+  <script src="js/jquery/jquery-3.2.0.min.js"></script>
+  <script src="js/materialize/materialize.min.js"></script>
+  <script src="js/angular/angular.min.js"></script>
   <script src="js/init.js"></script>
-
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
   </body>
 </html>

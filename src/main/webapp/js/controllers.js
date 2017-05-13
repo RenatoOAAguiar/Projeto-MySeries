@@ -1,0 +1,19 @@
+angular.module('MySeries').controller('CarolselCtrl', function($scope){
+    $scope.titulo = "Top Series";
+});
+
+angular.module('MySeries').controller('SerieCtrl', function($scope, $http){
+    $scope.titulo = "Top Series";
+    $scope.poster = '';
+    var url = "http://www.omdbapi.com/?t=Lost&plot=full";
+    var poster = '';
+    $http({
+        method: 'GET',
+        url: url
+    }).then(function successCallback(response) {
+       poster = response.data.Poster;
+       $scope.poster = poster;
+    }, function errorCallback(response) {
+       console.log(response);
+    });
+});
