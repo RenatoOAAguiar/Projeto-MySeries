@@ -27,7 +27,7 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
             $('#userSettings').removeClass('hide');
             $('#linkLogin').addClass('hide');
             $scope.habilitarPerfil();
-            $('.conteudo').addClass('hide');
+            //$('.conteudo').addClass('hide');
         }, 3000);
         delete $scope.usuario;
         delete $scope.senha;

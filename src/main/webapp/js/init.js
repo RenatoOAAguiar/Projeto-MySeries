@@ -8,7 +8,12 @@
        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     });
     $('.collapsible').collapsible();
-    $('.carousel').carousel();
-    window.setInterval(function(){$('.carousel').carousel('next')},5000)
+    $('.carousel').carousel({
+      full_width: true,
+      dist: 60
+    });
+    window.setInterval(function(){
+      $('.carousel').carousel('next')
+    },5000)
   }); // end of document ready
 })(jQuery); // end of jQuery name space
