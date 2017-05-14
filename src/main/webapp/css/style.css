@@ -38,4 +38,15 @@ main {
     flex: 1 0 auto;
 }
 
-div.video {}
+main h2.header {
+    text-align: center;
+}
+
+main h4.descricao {
+    font-size: 20px;
+    color: #606060;
+}
+
+div.video {
+    position: relative;
+}
