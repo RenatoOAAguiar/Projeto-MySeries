@@ -3,9 +3,92 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel='stylesheet' href='css/angular/loading-bar.min.css' type='text/css' media='all' />
 </head>
 
 <body>
+    <header>
+        <nav class="light-blue lighten-1" role="navigation" ng-controller="SideNavCtrl">
+            <ul id="slide-out" class="side-nav">
+                <div id="userSettings" class="hide">
+                    <li>
+                        <div class="userView">
+                            <div class="background">
+                                <img src="img/back.jpg">
+                            </div>
+                            <a href="#!user"><img class="circle" src="img/avatar.jpg"></a>
+                            <a href="#!name"><span class="white-text name">Jake Sully</span></a>
+                            <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
+                        </div>
+                </div>
+                </li>
+                <li class="bold"><a href="#!" class="waves-effect waves-teal">Menu</a></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="modal-trigger waves-effect waves-light btn" id="linkLogin" href="#modal1">Login</a>
+                            <div class="collapsible-body">
+                            </div>
+                            <div dadosPerfil>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="nav-content right">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab"><a href="#test1">Minhas Series</a></li>
+                    <li class="tab"><a class="active" href="#test2">Top Series</a></li>
+                    <li class="tab"><a href="#test4">Criticas</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-floating blue pulse recuo barralateral" href="#" data-activates="slide-out"><i class="material-icons">menu</i></a>
+        </nav>
+    </header>
+    <main class="conteudo">
+        <div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="../img/got/got1.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="../img/got/got2.jpg"></a>
+            <a class="carousel-item" href="#three!"><img src="../img/got/got3.jpg"></a>
+            <a class="carousel-item" href="#four!"><img src="../img/got/got4.png"></a>
+            <a class="carousel-item" href="#five!"><img src="../img/got/got5.jpg"></a>
+        </div>
+    </main>>
+    <footer class="page-footer orange">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">My Series</h5>
+                    <p class="grey-text text-lighten-4">Site destinado ao mundo de series, aqui você encontra informações sobre as series, sinopse, lista de episódios e muito mais!</p>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Contato</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">myseries@myseries.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Todos direitos reservados <a class="orange-text text-lighten-3" href="index.html">MySeries</a>
+            </div>
+        </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="../js/jquery/jquery-3.2.0.min.js"></script>
+    <script src="../js/materialize/materialize.min.js"></script>
+    <script src="../js/angular/angular.min.js"></script>
+    <script src='../js/angular/loading-bar.min.js'></script>
+    <script src="../js/init.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controllers.js"></script>
 </body>
 
 </html>
