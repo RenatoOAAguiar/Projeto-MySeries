@@ -10,8 +10,10 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
         method: 'GET',
         url: url
     }).then(function successCallback(response) {
-       poster = response.data.Poster;
-       $scope.poster = poster;
+       $scope.poster = response.data.Poster;
+       $scope.titulo = response.data.Title;
+       $scope.descricao = response.data.Plot;
+       $scope.nota = response.data.Ratings[0].Value;
     }, function errorCallback(response) {
        console.log(response);
     });
