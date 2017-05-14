@@ -12,65 +12,71 @@
   <link rel='stylesheet' href='css/angular/loading-bar.min.css' type='text/css' media='all' />
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation" ng-controller="SideNavCtrl">
-    <ul id="slide-out" class="side-nav">
-          <div id="userSettings" class="hide">
-            <li><div class="userView">
-            <div class="background">
-              <img src="img/back.jpg">
-            </div>
-              <a href="#!user"><img class="circle" src="img/avatar.jpg"></a>
-              <a href="#!name"><span class="white-text name">Jake Sully</span></a>
-              <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
-            </div>
-          </div></li> 
-        <li class="bold"><a href="#!" class="waves-effect waves-teal">Menu</a></li>
-        <li class="no-padding">
-          <ul class="collapsible collapsible-accordion">
-            <li>
-              <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Login</a>
-              <div class="collapsible-body">
+  <header>
+    <nav class="light-blue lighten-1" role="navigation" ng-controller="SideNavCtrl">
+      <ul id="slide-out" class="side-nav">
+            <div id="userSettings" class="hide">
+              <li><div class="userView">
+              <div class="background">
+                <img src="img/back.jpg">
               </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <div class="nav-content right">
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="#test1">Minhas Series</a></li>
-        <li class="tab"><a class="active" href="#test2">Top Series</a></li>
-        <li class="tab"><a href="#test4">Criticas</a></li>
-      </ul>
-    </div>
-    <a class="btn btn-floating blue pulse recuo barralateral" href="#" data-activates="slide-out"><i class="material-icons">menu</i></a>
-  </nav>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">My Series</h1>
-      <br><br>
-
-    </div>
-  </div>
-
-
-  <div class="container">
-    <div class="section" ng-controller="CarolselCtrl">
-        <h4 ng-bind="titulo" class="center blue-text"></h4>
+                <a href="#!user"><img class="circle" src="img/avatar.jpg"></a>
+                <a href="#!name"><span class="white-text name">Jake Sully</span></a>
+                <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
+              </div>
+            </div></li> 
+          <li class="bold"><a href="#!" class="waves-effect waves-teal">Menu</a></li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="modal-trigger waves-effect waves-light btn" id="linkLogin" href="#modal1">Login</a>
+                  <div class="collapsible-body">
+                </div>
+                <div dadosPerfil>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="nav-content right">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a href="#test1">Minhas Series</a></li>
+          <li class="tab"><a class="active" href="#test2">Top Series</a></li>
+          <li class="tab"><a href="#test4">Criticas</a></li>
+        </ul>
+      </div>
+      <a class="btn btn-floating blue pulse recuo barralateral" href="#" data-activates="slide-out"><i class="material-icons">menu</i></a>
+    </nav>
+  </header>
+  <main class="conteudo">
+      <div class="section no-pad-bot" id="index-banner">
         <div class="container">
-          <div class="carousel">
-            <a class="carousel-item" href="#one!" value=""><img src="img/clint.png"></a>
-            <a class="carousel-item" href="#two!" value="startrek"><img src="img/startrek.jpg"></a>
-            <a class="carousel-item" href="#three!"><img src="img/super.jpg"></a>
-            <a class="carousel-item" href="#four!"><img src="img/tango-filme_cartaz.jpg"></a>
+          <br><br>
+          <h1 class="header center orange-text">My Series</h1>
+          <br><br>
+
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="section" ng-controller="DetalhesSerie">
+          <h4 ng-bind="titulo" class="center blue-text"></h4>
+            <div class="container">
+              <div class="carousel">
+                <a class="carousel-item" ng-click="abrirDetalhes()" value=""><img src="img/clint.png"><p class="center-right">Clint</p></a>
+                <a class="carousel-item" ng-click="abrirDetalhes()" value="startrek"><img src="img/startrek.jpg"><p class="center-right">Startrek</p></a>
+                <a class="carousel-item" ng-click="abrirDetalhes()" value="super"><img src="img/super.jpg"><p class="center-right">Superman</p></a>
+                <a class="carousel-item" ng-click="abrirDetalhes()" value="tango"><img src="img/tango-filme_cartaz.jpg"><p class="center-right">Tango</p></a>
+              </div>
+            </div>
+          <div class="dadosSerie">
           </div>
         </div>
-    </div>
-    <br><br>
+        <br><br>
 
-    <div class="section">
-    </div>
-  </div>
+      </div>
+  </main>
 
   <footer class="page-footer orange">
     <div class="container">
@@ -105,13 +111,13 @@
                       <div class="row">
                         <div class="input-field col s10">
                           <i class="small material-icons">perm_identity</i>
-                          <input id="username" placeholder="Usuário" type="text" class="validate">
+                          <input id="username" placeholder="Usuário" type="text" ng-model="usuario" class="validate">
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s10">
                         <i class="small material-icons">lock_outline</i>
-                          <input id="password" placeholder="Senha" type="password" class="validate">
+                          <input id="password" placeholder="Senha" type="password" ng-model="senha" class="validate">
                         </div>
                       </div>
                       <div class="row">          
@@ -122,7 +128,9 @@
                       </div>
                       <div class="row">
                         <div class="input-field col s12">
-                          <a class="btn waves-effect waves-light col s12" ng-click="login()">Login</a>
+                          <a class="btn waves-effect waves-light col s12" ng-click="login()" ng-disabled="validaCampos()">Login</a>
+                          {{usuario}}
+                          {{senha}}
                         </div>
                       </div>
                       <div class="row">
