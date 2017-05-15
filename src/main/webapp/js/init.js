@@ -9,11 +9,11 @@
         });
         $('.collapsible').collapsible();
         $('.carousel').carousel({
-            full_width: true,
-            dist: 50,
+            dist: 50
         });
         window.setInterval(function() {
             $('.carousel').carousel('next')
-        }, 5000)
+        }, 5000);
+        $('#comentario').trigger('autoresize');
     }); // end of document ready
 })(jQuery); // end of jQuery name space

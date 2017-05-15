@@ -50,3 +50,20 @@ main h4.descricao {
 div.video {
     position: relative;
 }
+
+.recuoEsquerdo {
+    padding-left: 20px;
+}
+
+.starColor{
+    color:goldenrod;
+}
+
+.widthComentario {
+    width: 200px;
+}
+
+.bordaCard {
+    border: 2px;
+    border-color: black;
+}
