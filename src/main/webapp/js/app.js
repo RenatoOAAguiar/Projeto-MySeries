@@ -1,1 +1,1 @@
-angular.module("MySeries",['angular-loading-bar']);
+angular.module("MySeries",['angular-loading-bar','ngRoute', 'ui.materialize']);

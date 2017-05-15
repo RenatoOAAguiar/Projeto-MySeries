@@ -46,12 +46,12 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
     }
 })
 
-.controller('DetalhesSerie', function ($scope, $compile){
+.controller('DetalhesSerieCtrl', function ($scope, $compile){
      $scope.titulo = "Top Series";
-     $scope.abrirDetalhes = function(){
-      alert("Aqui")
-      var compiledeHTML = $compile("<div dadosSerie></div>");
-      console.log(compiledeHTML)
-      $("#dadosSerie").append(compiledeHTML);
-    };
+     $('.carousel').carousel({
+            dist: 50
+        });
+        window.setInterval(function() {
+            $('.carousel').carousel('next')
+      }, 5000);
 });

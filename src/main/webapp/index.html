@@ -25,6 +25,7 @@
                 <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
               </div>
             </div></li> 
+          <li class="bold"><a href="#" class="waves-effect waves-teal">Home</a></li>
           <li class="bold"><a href="#!" class="waves-effect waves-teal">Menu</a></li>
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
@@ -39,43 +40,19 @@
           </li>
         </ul>
         <div class="nav-content right">
-        <ul class="tabs tabs-transparent">
-          <li class="tab"><a href="#test1">Minhas Series</a></li>
-          <li class="tab"><a class="active" href="#test2">Top Series</a></li>
-          <li class="tab"><a href="#test4">Criticas</a></li>
-        </ul>
+        <div class="row">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="#serie">Minhas Series</a></li>
+            <li class="tab"><a href="#test2">Top Series</a></li>
+            <li class="tab"><a href="#test4">Criticas</a></li>
+          </ul>
+        </div>
       </div>
       <a class="btn btn-floating blue pulse recuo barralateral" href="#" data-activates="slide-out"><i class="material-icons">menu</i></a>
     </nav>
   </header>
   <main class="conteudo">
-      <div class="section no-pad-bot" id="index-banner">
-        <div class="container">
-          <br><br>
-          <h1 class="header center orange-text">My Series</h1>
-          <br><br>
-
-        </div>
-      </div>
-
-
-      <div class="container">
-        <div class="section" ng-controller="DetalhesSerie">
-          <h4 ng-bind="titulo" class="center blue-text"></h4>
-            <div class="container">
-              <div class="carousel">
-                <a class="carousel-item" ng-click="abrirDetalhes()" value=""><img src="img/clint.png"><p class="center-right">Clint</p></a>
-                <a class="carousel-item" ng-click="abrirDetalhes()" value="startrek"><img src="img/startrek.jpg"><p class="center-right">Startrek</p></a>
-                <a class="carousel-item" ng-click="abrirDetalhes()" value="super"><img src="img/super.jpg"><p class="center-right">Superman</p></a>
-                <a class="carousel-item" ng-click="abrirDetalhes()" value="tango"><img src="img/tango-filme_cartaz.jpg"><p class="center-right">Tango</p></a>
-              </div>
-            </div>
-          <div class="dadosSerie">
-          </div>
-        </div>
-        <br><br>
-
-      </div>
+    <div ng-view></div> 
   </main>
 
   <footer class="page-footer orange">
@@ -153,9 +130,14 @@
   <script src="js/jquery/jquery-3.2.0.min.js"></script>
   <script src="js/materialize/materialize.min.js"></script>
   <script src="js/angular/angular.min.js"></script>
+  <script src="js/angular/angular-route.min.js"></script>
   <script src='js/angular/loading-bar.min.js'></script>
-  <script src="js/init.js"></script>
+  <script src='js/angular/angular-materialize.js'></script>
   <script src="js/app.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/route.js"></script>
   <script src="js/controllers.js"></script>
+  <script src="js/init.js"></script>
   </body>
 </html>

@@ -1,48 +1,134 @@
-<div class="section" ng-controller="SerieCtrl">
-    <h4 ng-bind="titulo" class="center blue-text"></h4>
-    <img ng-src="{{poster}}" class="align-center" alt="Description" />
-    <div class="row">
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img ng-src="{{poster}}">
-              <span class="card-title">{{titulo}}</span>
-            </div>
-            <div class="card-content">
-              <p>{{descricao}}</p>
+<div class="col s12 m7 recuoEsquerdo">
+    <h2 class="header teal-text text-darken-3">Game Of Thrones</h2>
+    <div class="card horizontal bordaCard">
+        <div class="card-image">
+            <img class="hoverable" src="img/got/logo.jpg">
+        </div>
+        <div class="card-stacked">
+            <div class="card-content grey darken-4">
+                <div class="row">
+                    <div class="input-field col s1">
+                        <i class="material-icons large starColor">star</i>
+                    </div>
+                    <div class="input-field col s1">
+                        <h2 class="recuoEsquerdo grey-text text-lighten-5">8.4</h2>
+                    </div>
+                </div>
+                <h4 class="descricao grey-text text-lighten-5"> Sinopse: </h4>
+                <p class="grey-text text-lighten-5"> Nove famílias nobres lutam pelo controle das míticas terras de Westeros; Uma raça esquecida retorna depois
+                    de estar adormecida por milhares de anos.</p>
             </div>
             <div class="card-action">
-                <i class="material-icons">stars</i> <span>{{nota}}</span>
+                <a href="http://www.imdb.com/title/tt0944947/?ref_=nv_sr_1" target="blak">Imbd</a>
             </div>
-          </div>
         </div>
-      </div>
-        <ul class="collapsible" data-collapsible="accordion">
-            <li>
+    </div>
+    <ul class="collapsible popout" data-collapsible="accordion" watch>
+        <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Premiações</div>
-            <div class="collapsible-body"><span>{{premiacoes}}</span></div>
-            </li>
-            <li>
+            <div class="collapsible-body"><span>Premiações</span></div>
+        </li>
+        <li>
             <div class="collapsible-header"><i class="material-icons">place</i>Atores</div>
             <div class="collapsible-body"><span>Lista de atores</span></div>
-            </li>
-            <li>
+        </li>
+        <li>
             <div class="collapsible-header"><i class="material-icons">whatshot</i>Episódios</div>
             <div class="collapsible-body"><span>Lista de episódios.</span></div>
-            </li>
-        </ul>
-      
-    <h1>Comentários</h1>
+        </li>
+    </ul>
+</div>
+<div class="divider"></div>
+<div carousel>
+    <a class="carousel-item" href="#one!"><img src="img/got/got1.jpg"></a>
+    <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
+    <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
+    <a class="carousel-item" href="#four!"><img src="img/got/got4.png"></a>
+    <a class="carousel-item" href="#five!"><img src="img/got/got5.jpg"></a>
+</div>
+<div class="divider"></div>
+<div class="container center-align">
+    <h1 class="teal-text text-darken-3">Vídeos</h1>
+    <div class="video">
+        <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+<div class="divider"></div>
+<div class="container">
+    <h1 class="amber-text text-accent-4">Comentários</h1>
+    <ul class="collection">
+        <li class="collection-item avatar">
+            <img src="img/avatar.jpg" alt="" class="circle">
+            </br>
+            </br>
+            <span class="title">Game of Thrones</span>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+            </p>
+            <a href="#!" class="secondary-content starColor"><i class="material-icons">grade</i><span class="badge">1</span></a>
+        </li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle">folder</i>
+            <span class="title">Game of Thrones</span>
+            </br>
+            </br>
+            <p>nteger dapibus pulvinar placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                Curae; Donec in sollicitudin arcu, quis convallis sapien. Aliquam tincidunt felis ac fermentum volutpat.
+                Maecenas accumsan, ante nec auctor iaculis, velit enim pretium neque, sed porttitor lacus turpis nec metus.
+                Etiam quis aliquam arcu. Etiam sit amet massa justo.
+            </p>
+            <a href="#!" class="secondary-content starColor"><i class="material-icons">grade</i><span class="badge">5</span></a>
+        </li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle green">insert_chart</i>
+            <span class="title">Game of Thrones</span>
+            </br>
+            </br>
+            <p>Nullam faucibus sem eget metus aliquam, eu bibendum mauris porta. Phasellus pretium dignissim quam non accumsan.
+                Ut rhoncus arcu id hendrerit rhoncus. Aenean ac posuere tellus, at eleifend orci. Fusce porta urna at erat
+                viverra condimentum. Suspendisse pharetra risus vitae mauris placerat, sed tempor dui pharetra. Fusce rutrum,
+                mauris et ultrices varius, purus tortor volutpat magna, sit amet vehicula turpis est ut ipsum. Praesent ut
+                orci vitae urna malesuada ullamcorper. Donec vitae lacus ac libero dapibus vehicula non ut ligula.
+            </p>
+            <a href="#!" class="secondary-content starColor"><i class="material-icons">grade</i><span class="badge">2</span></a>
+        </li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle red">play_arrow</i>
+            <span class="title">Game of Thrones</span>
+            </br>
+            </br>
+            <p>Vivamus commodo nisl ac leo sagittis consectetur. Donec facilisis dapibus sodales. Cras imperdiet consectetur
+                egestas. Integer dui mi, ullamcorper vel aliquet venenatis, venenatis et ante. Maecenas convallis massa non
+                laoreet suscipit. Phasellus semper sapien quis dolor mollis condimentum. Mauris tristique ligula et ante
+                volutpat accumsan. Donec vehicula porttitor justo ac ultrices. Nulla facilisi. Aliquam lobortis orci ut metus
+                semper lobortis.
+            </p>
+            <a href="#!" class="secondary-content starColor"><i class="material-icons">grade</i><span class="badge">14</span></a>
+        </li>
+    </ul>
+    <legend class="teal-text text-darken-3">Inserir Comentário</legend>
+    </br>
+    </br>
     <div class="row">
         <form class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Comentário</label>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
+                    <label for="comentario">Comentário</label>
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                            <i class="material-icons right">send</i>
+                    </button>
+            </div>
         </form>
     </div>
-        
-    
+
+
 </div>
