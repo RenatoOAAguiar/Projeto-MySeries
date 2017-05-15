@@ -48,10 +48,5 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
 
 .controller('DetalhesSerieCtrl', function ($scope, $compile){
      $scope.titulo = "Top Series";
-     $('.carousel').carousel({
-            dist: 50
-        });
-        window.setInterval(function() {
-            $('.carousel').carousel('next')
-      }, 5000);
+     $('#comentario').trigger('autoresize');
 });
