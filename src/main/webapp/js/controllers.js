@@ -40,6 +40,7 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
             cfpLoadingBar.complete();
             $('#userSettings').removeClass('hide');
             $('#linkLogin').addClass('hide');
+            $('#modal1').modal('close');
             $scope.habilitarPerfil();
             //$('.conteudo').addClass('hide');
         }, 3000);
@@ -66,4 +67,8 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
      window.setInterval(function() {
             $('.carousel').carousel('next')
      }, 5000);
-});
+})
+
+.controller('CriticasCtrl', function($scope){
+    $scope.titulo = "Critícas";
+})

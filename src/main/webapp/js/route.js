@@ -10,6 +10,10 @@ angular.module("MySeries")
     templateUrl : "templates/serie.html",
     controller : "SerieCtrl"
   })
+  .when("/criticas", {
+    templateUrl : "templates/criticas.html",
+    controller : "CriticasCtrl"
+  })
   .otherwise({redirectTo :'/'});
 });
 })();

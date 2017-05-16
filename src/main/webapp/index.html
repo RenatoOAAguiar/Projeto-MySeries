@@ -44,8 +44,8 @@
           <ul class="tabs tabs-transparent">
             <li class="tab"><a href="#/">Home</a></li>
             <li class="tab"><a href="#serie">Minhas Series</a></li>
-            <li class="tab"><a href="#test2">Top Series</a></li>
-            <li class="tab"><a href="#test4">Criticas</a></li>
+            <li class="tab"><a href="#/">Top Series</a></li>
+            <li class="tab"><a href="#/criticas">Criticas</a></li>
           </ul>
         </div>
       </div>
@@ -53,7 +53,14 @@
     </nav>
   </header>
   <main class="conteudo">
-    <div ng-view></div> 
+    <div class="parallax-container" style="height: 400px">
+      <div parallax><img src="img/para1.jpg"></div>
+    </div>
+          <!-- ng-view -->
+          <div ng-view></div> 
+  <div class="parallax-container">
+    <div parallax><img src="img/para2.jpg"></div>
+  </div>
   </main>
 
   <footer class="page-footer orange">
@@ -82,7 +89,6 @@
   <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer" ng-controller="LoginCtrl">
     <div class="modal-content">
-      
                <div id="login-page" class="row">
                   <div class="col s12 z-depth-4 card-panel">
                     <form class="login-form">
@@ -120,9 +126,6 @@
                     </form>
                   </div>
                 </div>
-    </div>
-    <div class="modal-footer">
-          <div id="loading-bar-container"></div>
     </div>
   </div>
 
