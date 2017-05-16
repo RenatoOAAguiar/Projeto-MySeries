@@ -8,6 +8,7 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
     var url = "http://www.omdbapi.com/?t="+ nome +"&plot=full";
     var dadosSeason = [];
     var dados = {};
+    $scope.badge = 10;
     
     $('#comentario').trigger('autoresize');
     UrlGetService.getUrl(url).then(function (response){
@@ -31,6 +32,13 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
         $scope.episodios = episodios;
 
        });
+     $scope.calculaAvaliacao = function(aval){
+         if(aval == 1){
+             $scope.badge ++;
+         } else {
+             $scope.badge --;
+         }
+     }
 
 })
 
