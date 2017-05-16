@@ -37,6 +37,12 @@
             <div class="collapsible-header"><i class="material-icons">view_list</i>Episódios</div>
             <div class="collapsible-body">
                 <div ng-repeat="temporada in episodios">
+                    </br>
+                    <div class="divider"></div>
+                    </br>
+                    <div class="divider"></div>
+                    <span class="flow-text teal-text text-darken-3">{{$index + 1}} ° Temporada</span>
+                    </br>
                     <div ng-repeat="episodio in temporada" >
                         <span>{{episodio.Episode}} - {{episodio.Title}} - <i class="material-icons starColor">grade</i> {{episodio.imdbRating}}</span>
                     </div>

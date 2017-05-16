@@ -10,24 +10,25 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
     var dados = {};
     
     $('#comentario').trigger('autoresize');
-       UrlGetService.getUrl(url).then(function (response){
-            dados = response.data;
-            $scope.poster = dados.Poster;
-            $scope.titulo = dados.Title;
-            $scope.descricao = dados.Plot;
-            $scope.nota = dados.Ratings[0].Value;
-            $scope.atores = dados.Actors;
-            var totalSeason = dados.totalSeasons;
-            $scope.premiacao = dados.Awards;
-            $scope.id = dados.imdbID;
-            var episodios = [];
-            for(i = 1 ; i < totalSeason; i ++){
-                var urlSeason = "http://www.omdbapi.com/?t="+$routeParams.nome+"&Season="+i;
-                EpisodesService.getUrl(urlSeason).then(function (response){
-                    episodios.push(response.data.Episodes)
-                })
-            }
-            $scope.episodios = episodios;
+    UrlGetService.getUrl(url).then(function (response){
+        dados = response.data;
+        $scope.poster = dados.Poster;
+        $scope.titulo = dados.Title;
+        $scope.descricao = dados.Plot;
+        $scope.nota = dados.Ratings[0].Value;
+        $scope.atores = dados.Actors;
+        var totalSeason = dados.totalSeasons;
+        $scope.premiacao = dados.Awards;
+        $scope.id = dados.imdbID;
+        var episodios = [];
+        for(i = 1 ; i < totalSeason; i ++){
+            var urlSeason = "http://www.omdbapi.com/?t="+$routeParams.nome+"&Season="+i;
+            EpisodesService.getUrl(urlSeason).then(function (response){
+                episodios.push(response.data.Episodes)
+            })
+        }
+        console.log(episodios);
+        $scope.episodios = episodios;
 
        });
 
@@ -70,5 +71,5 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
 })
 
 .controller('CriticasCtrl', function($scope){
-    $scope.titulo = "Critícas";
+    $scope.titulo = "Críticas";
 })
