@@ -1,30 +1,35 @@
 angular.module('MySeries').controller('SideNavCtrl', function($scope){
 })
 
-.controller('SerieCtrl', function($scope, $http, $routeParams, $rootScope){
+.controller('SerieCtrl', function($scope, $http, $routeParams, $rootScope, UrlGetService, EpisodesService){
     $scope.titulo = "Top Series";
     $scope.poster = '';
     var nome = $routeParams.nome;
     var url = "http://www.omdbapi.com/?t="+ nome +"&plot=full";
     var dadosSeason = [];
+    var dados = {};
     
     $('#comentario').trigger('autoresize');
-    $http({
-        method: 'GET',
-        url: url
-    }).then(function successCallback(response) {
-       
-       $scope.poster = response.data.Poster;
-       $scope.titulo = response.data.Title;
-       $scope.descricao = response.data.Plot;
-       $scope.nota = response.data.Ratings[0].Value;
-       $scope.atores = response.data.Actors;
-       $rootScope.totalSeason = response.data.totalSeasons;
-       $scope.premiacao = response.data.Awards;
-       $scope.id = response.data.imdbID;
-    }, function errorCallback(response) {
-       console.log(response);
-    });
+       UrlGetService.getUrl(url).then(function (response){
+            dados = response.data;
+            $scope.poster = dados.Poster;
+            $scope.titulo = dados.Title;
+            $scope.descricao = dados.Plot;
+            $scope.nota = dados.Ratings[0].Value;
+            $scope.atores = dados.Actors;
+            var totalSeason = dados.totalSeasons;
+            $scope.premiacao = dados.Awards;
+            $scope.id = dados.imdbID;
+            var episodios = [];
+            for(i = 1 ; i < totalSeason; i ++){
+                var urlSeason = "http://www.omdbapi.com/?t="+$routeParams.nome+"&Season="+i;
+                EpisodesService.getUrl(urlSeason).then(function (response){
+                    episodios.push(response.data.Episodes)
+                })
+            }
+            $scope.episodios = episodios;
+
+       });
 
 })
 
@@ -61,19 +66,4 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
      window.setInterval(function() {
             $('.carousel').carousel('next')
      }, 5000);
-})
-
-.controller('EpisodiosCtrl', function ($scope, $http, $routeParams, $rootScope){
-    for(i = 0; $rootScope.totalSeason > i; i++){
-        var urlSeason = "http://www.omdbapi.com/?t="+$routeParams.nome+"&Season="+i;
-            $http({
-                method: 'GET',
-                url: urlSeason
-            }).then(function successCallback(response) {
-                dadosSeason.push(response.data.Episodes);
-                console.log(i);
-            }, function errorCallback(response) {
-            console.log(response);
-            });
-    }
 });

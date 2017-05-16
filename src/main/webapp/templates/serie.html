@@ -34,8 +34,14 @@
             </div>
         </li>
         <li>
-            <div class="collapsible-header" ng-controller="EpisodiosCtrl"><i class="material-icons">view_list</i>Episódios</div>
-            <div class="collapsible-body"><span>Lista de episódios.</span></div>
+            <div class="collapsible-header"><i class="material-icons">view_list</i>Episódios</div>
+            <div class="collapsible-body">
+                <div ng-repeat="temporada in episodios">
+                    <div ng-repeat="episodio in temporada" >
+                        <span>{{episodio.Episode}} - {{episodio.Title}} - <i class="material-icons starColor">grade</i> {{episodio.imdbRating}}</span>
+                    </div>
+                </div>
+            </div>
         </li>
     </ul>
 </div>
@@ -71,44 +77,6 @@
                 including versions of Lorem Ipsum.
             </p>
             <a href="#!" class="secondary-content starColor"><i class="material-icons">grade</i><span class="badge">1</span></a>
-        </li>
-        <li class="collection-item avatar">
-            <i class="material-icons circle">folder</i>
-            <span class="title">Game of Thrones</span>
-            </br>
-            </br>
-            <p>nteger dapibus pulvinar placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Donec in sollicitudin arcu, quis convallis sapien. Aliquam tincidunt felis ac fermentum volutpat.
-                Maecenas accumsan, ante nec auctor iaculis, velit enim pretium neque, sed porttitor lacus turpis nec metus.
-                Etiam quis aliquam arcu. Etiam sit amet massa justo.
-            </p>
-            <a href="#!" class="secondary-content starColor"><i class="material-icons">grade</i><span class="badge">5</span></a>
-        </li>
-        <li class="collection-item avatar">
-            <i class="material-icons circle green">insert_chart</i>
-            <span class="title">Game of Thrones</span>
-            </br>
-            </br>
-            <p>Nullam faucibus sem eget metus aliquam, eu bibendum mauris porta. Phasellus pretium dignissim quam non accumsan.
-                Ut rhoncus arcu id hendrerit rhoncus. Aenean ac posuere tellus, at eleifend orci. Fusce porta urna at erat
-                viverra condimentum. Suspendisse pharetra risus vitae mauris placerat, sed tempor dui pharetra. Fusce rutrum,
-                mauris et ultrices varius, purus tortor volutpat magna, sit amet vehicula turpis est ut ipsum. Praesent ut
-                orci vitae urna malesuada ullamcorper. Donec vitae lacus ac libero dapibus vehicula non ut ligula.
-            </p>
-            <a href="#!" class="secondary-content starColor"><i class="material-icons">grade</i><span class="badge">2</span></a>
-        </li>
-        <li class="collection-item avatar">
-            <i class="material-icons circle red">play_arrow</i>
-            <span class="title">Game of Thrones</span>
-            </br>
-            </br>
-            <p>Vivamus commodo nisl ac leo sagittis consectetur. Donec facilisis dapibus sodales. Cras imperdiet consectetur
-                egestas. Integer dui mi, ullamcorper vel aliquet venenatis, venenatis et ante. Maecenas convallis massa non
-                laoreet suscipit. Phasellus semper sapien quis dolor mollis condimentum. Mauris tristique ligula et ante
-                volutpat accumsan. Donec vehicula porttitor justo ac ultrices. Nulla facilisi. Aliquam lobortis orci ut metus
-                semper lobortis.
-            </p>
-            <a href="#!" class="secondary-content starColor"><i class="material-icons">grade</i><span class="badge">14</span></a>
         </li>
     </ul>
     <legend class="teal-text text-darken-3">Inserir Comentário</legend>
