@@ -1,8 +1,8 @@
 <div class="col s12 m7 recuoEsquerdo">
-    <h2 class="header teal-text text-darken-3">Game Of Thrones</h2>
+    <h2 class="header teal-text text-darken-3">{{titulo}}</h2>
     <div class="card horizontal bordaCard">
         <div class="card-image">
-            <img class="hoverable" src="img/got/logo.jpg">
+            <img class="hoverable" src="{{poster}}">
         </div>
         <div class="card-stacked">
             <div class="card-content grey darken-4">
@@ -11,35 +11,36 @@
                         <i class="material-icons large starColor">star</i>
                     </div>
                     <div class="input-field col s1">
-                        <h2 class="recuoEsquerdo grey-text text-lighten-5">8.4</h2>
+                        <h2 class="recuoEsquerdo grey-text text-lighten-5">{{nota}}</h2>
                     </div>
                 </div>
                 <h4 class="descricao grey-text text-lighten-5"> Sinopse: </h4>
-                <p class="grey-text text-lighten-5"> Nove famílias nobres lutam pelo controle das míticas terras de Westeros; Uma raça esquecida retorna depois
-                    de estar adormecida por milhares de anos.</p>
+                <p class="grey-text text-lighten-5"> {{descricao}} </p>
             </div>
             <div class="card-action">
-                <a href="http://www.imdb.com/title/tt0944947/?ref_=nv_sr_1" target="blak">Imbd</a>
+                <a href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
             </div>
         </div>
     </div>
     <ul class="collapsible popout" data-collapsible="accordion" watch>
         <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Premiações</div>
-            <div class="collapsible-body"><span>Premiações</span></div>
+            <div class="collapsible-body"><span>{{premiacao}}</span></div>
         </li>
         <li>
             <div class="collapsible-header"><i class="material-icons">place</i>Atores</div>
-            <div class="collapsible-body"><span>Lista de atores</span></div>
+            <div class="collapsible-body">
+                    <span>{{atores}}</span>
+            </div>
         </li>
         <li>
-            <div class="collapsible-header"><i class="material-icons">whatshot</i>Episódios</div>
+            <div class="collapsible-header" ng-controller="EpisodiosCtrl"><i class="material-icons">view_list</i>Episódios</div>
             <div class="collapsible-body"><span>Lista de episódios.</span></div>
         </li>
     </ul>
 </div>
 <div class="divider"></div>
-<div carousel duration="500" dist="50">
+<div carousel duration="5" dist="50">
     <a class="carousel-item" href="#one!"><img src="img/got/got1.jpg"></a>
     <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
     <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
@@ -59,9 +60,9 @@
     <ul class="collection">
         <li class="collection-item avatar">
             <img src="img/avatar.jpg" alt="" class="circle">
-            </br>
-            </br>
             <span class="title">Game of Thrones</span>
+            </br>
+            </br>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
                 standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
                 to make a type specimen book. It has survived not only five centuries, but also the leap into electronic

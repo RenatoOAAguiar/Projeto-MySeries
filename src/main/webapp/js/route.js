@@ -4,9 +4,9 @@ angular.module("MySeries")
   $routeProvider
   .when("/", {
     templateUrl : "templates/main.html",
-    controller : "DetalhesSerieCtrl"
+    controller : "PrincipalCtrl"
   })
-  .when("/serie", {
+  .when("/serie/:nome", {
     templateUrl : "templates/serie.html",
     controller : "SerieCtrl"
   })
