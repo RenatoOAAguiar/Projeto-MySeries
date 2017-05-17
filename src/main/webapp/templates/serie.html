@@ -23,40 +23,6 @@
                     <a href="" onclick="trocarIcone('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img></a>
                     <a href="" onclick="trocarIcone('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height ="30"></img></a>
                     <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
-
-                <script type="text/javascript">
-                    function trocar(nome) {
-                        if (nome == "img/icons/fullPlus-icon.png") {
-                            if (document.getElementById("iconeAdd").src == "../img/icons/fullPlus-icon.png") {
-                                document.getElementById("iconeAdd").src = "../img/icons/plus-icon.png";
-                            } else {
-                                document.getElementById("iconeAdd").src = nome;
-                            }
-                        } else if (nome == "img/icons/check-icon.png" || nome == "../img/icons/eye-icon.png") {
-                            if (document.getElementById("iconEye").src == "../img/icons/check-icon.png") {
-                                document.getElementById("iconEye").src = "../img/icons/eye-icon.png";
-                            } else {
-                                document.getElementById("iconEye").src = nome;
-                            }
-                        } else if (nome == "img/icons/fullHeart-icon.png" || nome == "..img/icons/empytHeart-icon.png") {
-                            if (document.getElementById("iconeHeart").src == "../img/icons/fullHeart-icon.png") {
-                                document.getElementById("iconeHeart").src = "../img/icons/empytHeart-icon.png";
-                            } else {
-                                document.getElementById("iconeHeart").src = nome;
-                            }
-                        }
-                    }
-                </script>
-
-                <a href="" onclick="trocar('img/icons/fullPlus-icon.png')"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30" title="Adicionar a sua lista de séries"></img>
-                </a>
-                <a href="" onclick="trocar('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30" title="Adicionar as séries assistidas"></img>
-                </a>
-                <a href="" onclick="trocar('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height="30" title="Adicionar as séries favoritas"></img>
-                </a>
-                <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
-
->>>>>>> c094fc2886a9f4158391df1e359a99312f65e17b
             </div>
         </div>
     </div>
