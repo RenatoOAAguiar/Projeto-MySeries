@@ -132,7 +132,24 @@
   <!-- Modal Structure -->
     <div id="modaldetalhe" class="modal" style="width: 1000px; height: 1000px" ng-controller="DetalheSerieCtrl">
         <div class="modal-content">
-            {{tituloEpisodio}}
+            
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image">
+              <img class="hoverable" src="{{posterEpisodio}}">
+              <span class="card-title">{{tituloEpisodio}}</span>
+            </div>
+            <div class="card-content">
+              <p>{{sinopseEpisodio}}</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+            
         </div>
     </div>
 
