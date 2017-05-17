@@ -130,7 +130,7 @@
   </div>
 
   <!-- Modal Structure -->
-    <div id="modaldetalhe" class="modal" style="width: 1000px; height: 1000px" ng-controller="DetalheSerieCtrl">
+    <div id="modaldetalhe" class="modal modal modal-fixed-footer" style="width: 1000px; height: 1000px" ng-controller="DetalheSerieCtrl">
         <div class="modal-content">
             
       <div class="row">
@@ -151,6 +151,9 @@
       </div>
             
         </div>
+        <div class="modal-footer">
+          <a ng-click="fecharModal()" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+      </div>
     </div>
 
 

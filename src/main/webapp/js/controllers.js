@@ -111,4 +111,8 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
             $scope.sinopseEpisodio = response.data.Plot;
          });
      }
+
+     $scope.fecharModal = function(){
+         $('#modaldetalhe').modal('close');
+     }
 })
