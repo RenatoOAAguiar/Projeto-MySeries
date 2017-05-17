@@ -18,40 +18,38 @@
                 <p class="grey-text text-lighten-5"> {{descricao}} </p>
             </div>
             <div class="card-action">
-                 <script type="text/javascript">
-                        function trocar(nome){
-                            if (nome == "img/icons/fullPlus-icon.png"){
-                                if(document.getElementById("iconeAdd").src == "http://localhost:9090/Projeto-MySeries/img/icons/fullPlus-icon.png"){
-                                    document.getElementById("iconeAdd").src = "http://localhost:9090/Projeto-MySeries/img/icons/plus-icon.png";
-                                }
-                                else{
+                <script type="text/javascript">
+                    function trocar(nome) {
+                        if (nome == "img/icons/fullPlus-icon.png") {
+                            if (document.getElementById("iconeAdd").src == "../img/icons/fullPlus-icon.png") {
+                                document.getElementById("iconeAdd").src = "../img/icons/plus-icon.png";
+                            } else {
                                 document.getElementById("iconeAdd").src = nome;
-                                }
-                            } 
-                            else if (nome == "img/icons/check-icon.png" ||nome == "img/icons/eye-icon.png"){
-                                if(document.getElementById("iconEye").src == "http://localhost:9090/Projeto-MySeries/img/icons/check-icon.png"){
-                                    document.getElementById("iconEye").src = "http://localhost:9090/Projeto-MySeries/img/icons/eye-icon.png";
-                                }
-                                else{
+                            }
+                        } else if (nome == "img/icons/check-icon.png" || nome == "../img/icons/eye-icon.png") {
+                            if (document.getElementById("iconEye").src == "../img/icons/check-icon.png") {
+                                document.getElementById("iconEye").src = "../img/icons/eye-icon.png";
+                            } else {
                                 document.getElementById("iconEye").src = nome;
-                                }
-                            } 
-                            else if(nome == "img/icons/fullHeart-icon.png" ||nome == "img/icons/empytHeart-icon.png"){
-                                if(document.getElementById("iconeHeart").src == "http://localhost:9090/Projeto-MySeries/img/icons/fullHeart-icon.png"){
-                                    document.getElementById("iconeHeart").src = "http://localhost:9090/Projeto-MySeries/img/icons/empytHeart-icon.png";
-                                }
-                                else{
+                            }
+                        } else if (nome == "img/icons/fullHeart-icon.png" || nome == "..img/icons/empytHeart-icon.png") {
+                            if (document.getElementById("iconeHeart").src == "../img/icons/fullHeart-icon.png") {
+                                document.getElementById("iconeHeart").src = "../img/icons/empytHeart-icon.png";
+                            } else {
                                 document.getElementById("iconeHeart").src = nome;
-                                }
-                            } 
+                            }
                         }
-                    </script>
-                    
-                    <a href="" onclick="trocar('img/icons/fullPlus-icon.png')"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img></a>
-                    <a href="" onclick="trocar('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img></a>
-                    <a href="" onclick="trocar('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height ="30"></img></a>
-                    <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
-                    
+                    }
+                </script>
+
+                <a href="" onclick="trocar('img/icons/fullPlus-icon.png')"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30" title="Adicionar a sua lista de séries"></img>
+                </a>
+                <a href="" onclick="trocar('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30" title="Adicionar as séries assistidas"></img>
+                </a>
+                <a href="" onclick="trocar('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height="30" title="Adicionar as séries favoritas"></img>
+                </a>
+                <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
+
             </div>
         </div>
     </div>
@@ -93,11 +91,51 @@
                                  <span class="center-align"><i class="material-icons starColor">grade</i> {{episodio.imdbRating}}</span>
                             </div>
                                 
+=======
+            <<<<<<< HEAD <div class="collapsible-header"><i class="material-icons">filter_drama</i></div>
+<div class="collapsible-body"><span></span></div>
+=======
+<div class="collapsible-header"><i class="material-icons">theaters</i>Premiações</div>
+<div class="collapsible-body fbold"><span>{{premiacao}}</span></div>
+>>>>>>> f9f6880591be8c2f58c06e5db7ccd0c1639e466e
+</li>
+<li>
+    <div class="collapsible-header"><i class="material-icons">perm_identity</i>Atores</div>
+    <div class="collapsible-body fbold">
+        <span>{{atores}}</span>
+    </div>
+</li>
+<li>
+    <div class="collapsible-header"><i class="material-icons">view_list</i>Episódios</div>
+    <div class="collapsible-body teal lighten-5 fbold">
+        <div class="row">
+            <div class="col s3 center-align">Episódio</div>
+            <div class="col s1 center-align">Nota</div>
+        </div>
+        <div ng-repeat="temporada in episodios">
+            </br>
+            <div class="divider"></div>
+            </br>
+            <div class="divider"></div>
+            <span class="flow-text teal-text text-darken-3">{{$index + 1}} ° Temporada</span>
+            </br>
+            <div class="divider"></div>
+            </br>
+            <div ng-repeat="episodio in temporada">
+                <div class="row">
+                    <div class="col s3">
+                        {{episodio.Episode}} - {{episodio.Title}}
+>>>>>>> 5e24c8329aaadb0bc080129d6df4284f56aa331d
                     </div>
+                    <div class="col s1">
+                        <span class="center-align"><i class="material-icons starColor">grade</i> {{episodio.imdbRating}}</span>
+                    </div>
+
                 </div>
             </div>
-        </li>
-    </ul>
+        </div>
+</li>
+</ul>
 </div>
 <div class="divider"></div>
 <div carousel duration="5" dist="50">
@@ -123,16 +161,13 @@
             <span class="title">Game of Thrones</span>
             </br>
             </br>
-                <div class="right-align">
-                    <i class="material-icons positive" style="cursor: pointer" ng-click="calculaAvaliacao(1)">thumb_up</i>
-                    <i class="material-icons negative" style="cursor: pointer" ng-click="calculaAvaliacao(0)">thumb_down</i><span class="badge" ng-bind="badge"></span>
-                </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.
+            <div class="right-align">
+                <i class="material-icons positive" style="cursor: pointer" ng-click="calculaAvaliacao(1)">thumb_up</i>
+                <i class="material-icons negative" style="cursor: pointer" ng-click="calculaAvaliacao(0)">thumb_down</i><span class="badge" ng-bind="badge"></span>
+            </div>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
         </li>
     </ul>
@@ -156,8 +191,13 @@
         </form>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </div>
 =======
 <script type="text/javascript" src="js/funçoes-JS.js"></script>
 </div>
 >>>>>>> acf41f7d04b08dfc059252d9feec7fb5ff3e90ed
+=======
+    <script type="text/javascript" src="js/funçoes-JS.js"></script>
+</div>
+>>>>>>> 5e24c8329aaadb0bc080129d6df4284f56aa331d
