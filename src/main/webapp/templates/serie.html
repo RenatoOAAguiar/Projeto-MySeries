@@ -51,7 +51,7 @@
                     </br>
                     <div ng-repeat="episodio in temporada" >
                         <div class="row">
-                            <div class="col s3">
+                            <div class="col s3" ng-click="dadosEpisodio(episodio.imdbID)">
                                  {{episodio.Episode}} - {{episodio.Title}}
                             </div>
                             <div class="col s1">
@@ -120,6 +120,4 @@
             </div>
         </form>
     </div>
-
-
 </div>

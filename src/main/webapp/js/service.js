@@ -15,4 +15,17 @@ angular.module('MySeries')
                 url: url
              });
      }}
+})
+
+.service('IdImdbService', function() {
+  var idImdb = '';
+
+        return {
+            getProperty: function () {
+                return idImdb;
+            },
+            setProperty: function(value) {
+                idImdb = value;
+            }
+        }; 
 });
