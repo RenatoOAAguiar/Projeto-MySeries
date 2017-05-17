@@ -1,4 +1,14 @@
-angular.module('MySeries').controller('SideNavCtrl', function($scope) {})
+angular.module('MySeries')
+
+.controller('SideNavCtrl', function($scope, $location) {
+     $scope.sair = function(){
+        $('#userSettings').addClass('hide');
+        $('#linkLogin').removeClass('hide');
+        $('#linkSair').addClass('hide');
+        $location.url("/");
+        Materialize.toast('Logoff efetuado com sucesso!', 4000);
+    }
+})
 
 .controller('SerieCtrl', function($scope, $http, $routeParams, $rootScope, UrlGetService, EpisodesService, IdImdbService) {
     $scope.titulo = "Top Series";
@@ -28,7 +38,7 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope) {})
         $scope.qtdVotos = dados.imdbVotes;
         $scope.id = dados.imdbID;
         var episodios = [];
-        for (i = 1; i < totalSeason; i++) {
+        for (i = 1; i <= totalSeason; i++) {
             var urlSeason = "http://www.omdbapi.com/?t=" + $routeParams.nome + "&Season=" + i;
             EpisodesService.getUrl(urlSeason).then(function(response) {
                 episodios.push(response.data.Episodes)
@@ -38,6 +48,7 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope) {})
 
     });
     $scope.calculaAvaliacao = function(aval) {
+        Materialize.toast('Comentário Avaliado', 4000);
         if (aval == 1) {
             $scope.badge++;
         } else {
@@ -57,13 +68,14 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope) {})
 
 })
 
-.controller('LoginCtrl', function($scope, $timeout, cfpLoadingBar) {
+.controller('LoginCtrl', function($scope, $timeout, cfpLoadingBar, $location) {
     $scope.login = function() {
         cfpLoadingBar.start();
         $timeout(function() {
             cfpLoadingBar.complete();
             $('#userSettings').removeClass('hide');
             $('#linkLogin').addClass('hide');
+            $('#linkSair').removeClass('hide');
             $('#modal1').modal('close');
             $scope.habilitarPerfil();
             //$('.conteudo').addClass('hide');
@@ -71,7 +83,7 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope) {})
         delete $scope.usuario;
         delete $scope.senha;
     }
-
+   
     $scope.validaCampos = function() {
         if ($scope.usuario == "" || $scope.senha == "" || $scope.usuario == undefined || $scope.senha == undefined) {
             return true;
