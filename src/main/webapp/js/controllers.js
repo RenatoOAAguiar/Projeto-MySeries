@@ -8,28 +8,37 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
     var url = "http://www.omdbapi.com/?t="+ nome +"&plot=full";
     var dadosSeason = [];
     var dados = {};
+    $scope.badge = 10;
     
     $('#comentario').trigger('autoresize');
-       UrlGetService.getUrl(url).then(function (response){
-            dados = response.data;
-            $scope.poster = dados.Poster;
-            $scope.titulo = dados.Title;
-            $scope.descricao = dados.Plot;
-            $scope.nota = dados.Ratings[0].Value;
-            $scope.atores = dados.Actors;
-            var totalSeason = dados.totalSeasons;
-            $scope.premiacao = dados.Awards;
-            $scope.id = dados.imdbID;
-            var episodios = [];
-            for(i = 1 ; i < totalSeason; i ++){
-                var urlSeason = "http://www.omdbapi.com/?t="+$routeParams.nome+"&Season="+i;
-                EpisodesService.getUrl(urlSeason).then(function (response){
-                    episodios.push(response.data.Episodes)
-                })
-            }
-            $scope.episodios = episodios;
+    UrlGetService.getUrl(url).then(function (response){
+        dados = response.data;
+        $scope.poster = dados.Poster;
+        $scope.titulo = dados.Title;
+        $scope.descricao = dados.Plot;
+        $scope.nota = dados.Ratings[0].Value;
+        $scope.atores = dados.Actors;
+        var totalSeason = dados.totalSeasons;
+        $scope.premiacao = dados.Awards;
+        $scope.id = dados.imdbID;
+        var episodios = [];
+        for(i = 1 ; i < totalSeason; i ++){
+            var urlSeason = "http://www.omdbapi.com/?t="+$routeParams.nome+"&Season="+i;
+            EpisodesService.getUrl(urlSeason).then(function (response){
+                episodios.push(response.data.Episodes)
+            })
+        }
+        console.log(episodios);
+        $scope.episodios = episodios;
 
        });
+     $scope.calculaAvaliacao = function(aval){
+         if(aval == 1){
+             $scope.badge ++;
+         } else {
+             $scope.badge --;
+         }
+     }
 
 })
 
@@ -40,6 +49,7 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
             cfpLoadingBar.complete();
             $('#userSettings').removeClass('hide');
             $('#linkLogin').addClass('hide');
+            $('#modal1').modal('close');
             $scope.habilitarPerfil();
             //$('.conteudo').addClass('hide');
         }, 3000);
@@ -66,4 +76,8 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
      window.setInterval(function() {
             $('.carousel').carousel('next')
      }, 5000);
-});
+})
+
+.controller('CriticasCtrl', function($scope){
+    $scope.titulo = "Críticas";
+})

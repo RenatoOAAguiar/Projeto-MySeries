@@ -67,6 +67,21 @@ div.video {
     border: 2px;
     border-color: black;
 }
+<<<<<<< HEAD
 a#imdb{
     
 }
+=======
+
+.fbold {
+    font-weight: bold !important;
+}
+
+.positive{
+    color: green;
+}
+
+.negative{
+    color: red;
+}
+>>>>>>> f9f6880591be8c2f58c06e5db7ccd0c1639e466e
