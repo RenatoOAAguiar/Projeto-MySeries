@@ -8,10 +8,12 @@
             <div class="card-content grey darken-4">
                 <div class="row">
                     <div class="input-field col s1">
-                        <i class="material-icons large starColor">star</i>
+                        <img id="nota" src="img/icons/star.jpeg" width="80" height="80" title="Nota Segundo o Imdb" />
                     </div>
                     <div class="input-field col s1">
-                        <h2 class="recuoEsquerdo grey-text text-lighten-5">{{nota}}</h2>
+                        <h2 class="recuoEsquerdo grey-text text-lighten-5" title="Nota Segundo o Imdb">{{nota}}
+                            <h6 id="qtdVotos" class="recuoEsquerdo grey-text text-lighten-5" title="Quantidade de votos"> ({{qtdVotos}}) </h6>
+                        </h2>
                     </div>
                 </div>
                 <h4 class="descricao grey-text text-lighten-5"> Sinopse: </h4>
@@ -19,24 +21,33 @@
             </div>
             <div class="card-action">
 
-                <a href="" onclick="trocarIcone('img/icons/fullPlus-icon.png')"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img></a>
-                <a href="" onclick="trocarIcone('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img></a>
-                <a href="" onclick="trocarIcone('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height ="30"></img></a>
+                <a href="" onclick="trocarIcone('img/icons/fullPlus-icon.png')" title="Adicionar a suas séries"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img>
+                </a>
+                <a href="" onclick="trocarIcone('img/icons/check-icon.png')" title="Adicionar a séries assistidas"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img>
+                </a>
+                <a href="" onclick="trocarIcone('img/icons/fullHeart-icon.png')" title="Adicionar a séries favoritas"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height="30"></img>
+                </a>
                 <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
             </div>
         </div>
     </div>
     <ul class="collapsible popout" data-collapsible="accordion" watch>
         <li>
-            <div class="collapsible-header"><i class="material-icons">theaters</i>Premiações</div>
-            <div class="collapsible-body fbold"><span>{{premiacao}}</span></div>
+            <div class="collapsible-header"><i class="material-icons">theaters</i>Informações</div>
+            <div class="collapsible-body fbold">
+                <span><h6 class="titulosDescritivos"> Gênero: </h6> {{genero}} </span>
+                <span><h6 class="titulosDescritivos"> Escritor(es): </h6> {{escritor}} </span>
+                <span><h6 class="titulosDescritivos"> País: </h6> {{pais}} </span>
+                <span><h6 class="titulosDescritivos"> Ano: </h6> {{ano}}</span>
+                <span><h6 class="titulosDescritivos"> Duração: </h6> {{duracao}} </span>
+                <span><h6 class="titulosDescritivos"> Premiações: </h6> {{premiacao}}</span></div>
         </li>
-        <li>
+        <!--<li>
             <div class="collapsible-header"><i class="material-icons">perm_identity</i>Atores</div>
             <div class="collapsible-body fbold">
                 <span>{{atores}}</span>
-            </div>
-        </li>
+            </div> 
+        </li> -->
         <li>
             <div class="collapsible-header"><i class="material-icons">view_list</i>Episódios</div>
             <div class="collapsible-body teal lighten-5 fbold">
@@ -65,8 +76,9 @@
         </li>
     </ul>
 </div>
+<h2 class="header teal-text text-darken-3">Imagens</h2>
 <div class="divider"></div>
-<div carousel duration="5" dist="50">
+<div carousel duration="5" dist="30">
     <a class="carousel-item" href="#one!"><img src="img/got/got1.jpg"></a>
     <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
     <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
@@ -94,12 +106,9 @@
                 <i class="material-icons negative" style="cursor: pointer" ng-click="calculaAvaliacao(0)">thumb_down</i>
                 <span class="badge" ng-bind="badge"></span>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
         </li>
     </ul>

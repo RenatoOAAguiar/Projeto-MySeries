@@ -8,6 +8,12 @@
  * Made By MaterializeCSS.com
  */
 
+@charset "UTF-8";
+@font-face {
+    font-family: "FonteLogo";
+    src: url("../fonts/bubblegum-sans-regular.otf");
+}
+
 .icon-block {
     padding: 0 15px;
 }
@@ -47,16 +53,27 @@ main h4.descricao {
     color: #606060;
 }
 
-div.video {
+.starColor {
+    color: gold;
+}
+
+h6#qtdVotos {
+    padding-left: 85px;
+    margin-top: -20px;
+}
+
+h6.titulosDescritivos {
+    font-family: "FonteLogo";
+    font-size: 15pt;
+    color: #606060;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+a#imdb {
+    display: block;
     position: relative;
-}
-
-.recuoEsquerdo {
-    padding-left: 20px;
-}
-
-.starColor{
-    color:goldenrod;
+    text-align: right;
 }
 
 .widthComentario {
@@ -67,18 +84,15 @@ div.video {
     border: 2px;
     border-color: black;
 }
-a#imdb{
-    
-}
 
 .fbold {
     font-weight: bold !important;
 }
 
-.positive{
+.positive {
     color: green;
 }
 
-.negative{
+.negative {
     color: red;
 }
