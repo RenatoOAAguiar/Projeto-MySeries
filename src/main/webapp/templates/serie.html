@@ -18,38 +18,10 @@
                 <p class="grey-text text-lighten-5"> {{descricao}} </p>
             </div>
             <div class="card-action">
-                 <script type="text/javascript">
-                        function trocar(nome){
-                            if (nome == "img/icons/fullPlus-icon.png"){
-                                if(document.getElementById("iconeAdd").src == "http://localhost:9090/Projeto-MySeries/img/icons/fullPlus-icon.png"){
-                                    document.getElementById("iconeAdd").src = "http://localhost:9090/Projeto-MySeries/img/icons/plus-icon.png";
-                                }
-                                else{
-                                document.getElementById("iconeAdd").src = nome;
-                                }
-                            } 
-                            else if (nome == "img/icons/check-icon.png" ||nome == "img/icons/eye-icon.png"){
-                                if(document.getElementById("iconEye").src == "http://localhost:9090/Projeto-MySeries/img/icons/check-icon.png"){
-                                    document.getElementById("iconEye").src = "http://localhost:9090/Projeto-MySeries/img/icons/eye-icon.png";
-                                }
-                                else{
-                                document.getElementById("iconEye").src = nome;
-                                }
-                            } 
-                            else if(nome == "img/icons/fullHeart-icon.png" ||nome == "img/icons/empytHeart-icon.png"){
-                                if(document.getElementById("iconeHeart").src == "http://localhost:9090/Projeto-MySeries/img/icons/fullHeart-icon.png"){
-                                    document.getElementById("iconeHeart").src = "http://localhost:9090/Projeto-MySeries/img/icons/empytHeart-icon.png";
-                                }
-                                else{
-                                document.getElementById("iconeHeart").src = nome;
-                                }
-                            } 
-                        }
-                    </script>
-                    
-                    <a href="" onclick="trocar('img/icons/fullPlus-icon.png')"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img></a>
-                    <a href="" onclick="trocar('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img></a>
-                    <a href="" onclick="trocar('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height ="30"></img></a>
+                
+                    <a href="" onclick="trocarIcone('img/icons/fullPlus-icon.png')"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img></a>
+                    <a href="" onclick="trocarIcone('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img></a>
+                    <a href="" onclick="trocarIcone('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height ="30"></img></a>
                     <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
                     
             </div>
