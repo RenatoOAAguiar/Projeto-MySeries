@@ -1,7 +1,7 @@
 angular.module('MySeries').controller('SideNavCtrl', function($scope){
 })
 
-.controller('SerieCtrl', function($scope, $http, $routeParams, $rootScope, UrlGetService, EpisodesService){
+.controller('SerieCtrl', function($scope, $http, $routeParams, $rootScope, UrlGetService, EpisodesService, IdImdbService){
     $scope.titulo = "Top Series";
     $scope.poster = '';
     var nome = $routeParams.nome;
@@ -28,7 +28,6 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
                 episodios.push(response.data.Episodes)
             })
         }
-        console.log(episodios);
         $scope.episodios = episodios;
 
        });
@@ -39,6 +38,16 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
              $scope.badge --;
          }
      }
+
+    $scope.dadosEpisodio = function(id) {
+        $scope.enviaId(id);
+        $rootScope.$emit("buscarEpisodio", {});
+    }
+
+    $scope.enviaId = function(id){
+        IdImdbService.setProperty(id);
+    };
+    
 
 })
 
@@ -80,4 +89,26 @@ angular.module('MySeries').controller('SideNavCtrl', function($scope){
 
 .controller('CriticasCtrl', function($scope){
     $scope.titulo = "Críticas";
+})
+
+.controller('DetalheSerieCtrl', function($scope, $rootScope, EpisodesService, IdImdbService){
+    $rootScope.$on("buscarEpisodio", function(){
+           $scope.buscarEpisodio();
+    });
+     
+     $scope.buscarEpisodio = function(){
+         id = IdImdbService.getProperty();
+         var url = "http://www.omdbapi.com/?i="+id;
+         EpisodesService.getUrl(url).then(function (response){
+            console.log(url);
+            console.log(response);
+            $('#modaldetalhe').modal('open')
+            $scope.tituloEpisodio = response.data.Title;
+            $scope.lancadoEpisodio = response.data.Released;
+            $scope.seasonEpisodio = response.data.Season;
+            $scope.seasonEp = response.data.Episodio;
+            $scope.posterEpisodio = response.data.Poster;
+            $scope.sinopseEpisodio = response.data.Plot;
+         });
+     }
 })

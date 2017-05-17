@@ -18,29 +18,57 @@
                 <p class="grey-text text-lighten-5"> {{descricao}} </p>
             </div>
             <div class="card-action">
-                
+
                     <a href="" onclick="trocarIcone('img/icons/fullPlus-icon.png')"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img></a>
                     <a href="" onclick="trocarIcone('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img></a>
                     <a href="" onclick="trocarIcone('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height ="30"></img></a>
                     <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
-                    
+
+                <script type="text/javascript">
+                    function trocar(nome) {
+                        if (nome == "img/icons/fullPlus-icon.png") {
+                            if (document.getElementById("iconeAdd").src == "../img/icons/fullPlus-icon.png") {
+                                document.getElementById("iconeAdd").src = "../img/icons/plus-icon.png";
+                            } else {
+                                document.getElementById("iconeAdd").src = nome;
+                            }
+                        } else if (nome == "img/icons/check-icon.png" || nome == "../img/icons/eye-icon.png") {
+                            if (document.getElementById("iconEye").src == "../img/icons/check-icon.png") {
+                                document.getElementById("iconEye").src = "../img/icons/eye-icon.png";
+                            } else {
+                                document.getElementById("iconEye").src = nome;
+                            }
+                        } else if (nome == "img/icons/fullHeart-icon.png" || nome == "..img/icons/empytHeart-icon.png") {
+                            if (document.getElementById("iconeHeart").src == "../img/icons/fullHeart-icon.png") {
+                                document.getElementById("iconeHeart").src = "../img/icons/empytHeart-icon.png";
+                            } else {
+                                document.getElementById("iconeHeart").src = nome;
+                            }
+                        }
+                    }
+                </script>
+
+                <a href="" onclick="trocar('img/icons/fullPlus-icon.png')"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30" title="Adicionar a sua lista de séries"></img>
+                </a>
+                <a href="" onclick="trocar('img/icons/check-icon.png')"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30" title="Adicionar as séries assistidas"></img>
+                </a>
+                <a href="" onclick="trocar('img/icons/fullHeart-icon.png')"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height="30" title="Adicionar as séries favoritas"></img>
+                </a>
+                <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
+
+>>>>>>> c094fc2886a9f4158391df1e359a99312f65e17b
             </div>
         </div>
     </div>
     <ul class="collapsible popout" data-collapsible="accordion" watch>
         <li>
-<<<<<<< HEAD
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i></div>
-            <div class="collapsible-body"><span></span></div>
-=======
             <div class="collapsible-header"><i class="material-icons">theaters</i>Premiações</div>
             <div class="collapsible-body fbold"><span>{{premiacao}}</span></div>
->>>>>>> f9f6880591be8c2f58c06e5db7ccd0c1639e466e
         </li>
         <li>
             <div class="collapsible-header"><i class="material-icons">perm_identity</i>Atores</div>
             <div class="collapsible-body fbold">
-                    <span>{{atores}}</span>
+                <span>{{atores}}</span>
             </div>
         </li>
         <li>
@@ -59,76 +87,74 @@
                     </br>
                     <div class="divider"></div>
                     </br>
-                    <div ng-repeat="episodio in temporada" >
+                    <div ng-repeat="episodio in temporada">
                         <div class="row">
-                            <div class="col s3">
-                                 {{episodio.Episode}} - {{episodio.Title}}
+                            <div class="col s3" ng-click="dadosEpisodio(episodio.imdbID)">
+                                {{episodio.Episode}} - {{episodio.Title}}
                             </div>
                             <div class="col s1">
-                                 <span class="center-align"><i class="material-icons starColor">grade</i> {{episodio.imdbRating}}</span>
+                                <span class="center-align"><i class="material-icons starColor">grade</i> {{episodio.imdbRating}}</span>
                             </div>
-                                
-                    </div>
-                </div>
-            </div>
-        </li>
     </ul>
-</div>
-<div class="divider"></div>
-<div carousel duration="5" dist="50">
-    <a class="carousel-item" href="#one!"><img src="img/got/got1.jpg"></a>
-    <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
-    <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
-    <a class="carousel-item" href="#four!"><img src="img/got/got4.png"></a>
-    <a class="carousel-item" href="#five!"><img src="img/got/got5.jpg"></a>
-</div>
-<div class="divider"></div>
-<div class="container center-align">
-    <h1 class="teal-text text-darken-3">Vídeos</h1>
-    <div class="video">
-        <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
     </div>
-</div>
-<div class="divider"></div>
-<div class="container">
-    <h1 class="amber-text text-accent-4">Comentários</h1>
-    <ul class="collection">
-        <li class="collection-item avatar">
-            <img src="img/avatar.jpg" alt="" class="circle">
-            <span class="title">Game of Thrones</span>
-            </br>
-            </br>
+    <div class="divider"></div>
+    <div carousel duration="5" dist="50">
+        <a class="carousel-item" href="#one!"><img src="img/got/got1.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
+        <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
+        <a class="carousel-item" href="#four!"><img src="img/got/got4.png"></a>
+        <a class="carousel-item" href="#five!"><img src="img/got/got5.jpg"></a>
+    </div>
+    <div class="divider"></div>
+    <div class="container center-align">
+        <h1 class="teal-text text-darken-3">Vídeos</h1>
+        <div class="video">
+            <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="container">
+        <h1 class="amber-text text-accent-4">Comentários</h1>
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <img src="img/avatar.jpg" alt="" class="circle">
+                <span class="title">Game of Thrones</span>
+                </br>
+                </br>
                 <div class="right-align">
                     <i class="material-icons positive" style="cursor: pointer" ng-click="calculaAvaliacao(1)">thumb_up</i>
-                    <i class="material-icons negative" style="cursor: pointer" ng-click="calculaAvaliacao(0)">thumb_down</i><span class="badge" ng-bind="badge"></span>
+                    <i class="material-icons negative" style="cursor: pointer" ng-click="calculaAvaliacao(0)">thumb_down</i>
+                    <span
+                        class="badge" ng-bind="badge"></span>
                 </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.
-            </p>
-        </li>
-    </ul>
-    <legend class="teal-text text-darken-3">Inserir Comentário</legend>
-    </br>
-    </br>
-    <div class="row">
-        <form class="col s12">
-            <div class="row">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">mode_edit</i>
-                    <textarea id="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
-                    <label for="comentario">Comentário</label>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                    it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.
+                </p>
+            </li>
+        </ul>
+        <legend class="teal-text text-darken-3">Inserir Comentário</legend>
+        </br>
+        </br>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
+                        <label for="comentario">Comentário</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                <div class="row">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
                             <i class="material-icons right">send</i>
                     </button>
-            </div>
-        </form>
+                </div>
+            </form>
+        </div>
     </div>
-<script type="text/javascript" src="js/funçoes-JS.js"></script>
-</div>
+    </div>
+    </div>
