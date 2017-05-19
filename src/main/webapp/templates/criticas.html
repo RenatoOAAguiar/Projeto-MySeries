@@ -11,17 +11,29 @@
                     <div class="card">
                         <div class="card-image">
                         <img src="{{critica.poster}}" class="imgCritica">
-                        <a class="btn-floating halfway-fab waves-effect waves-light red" ng-click="abrirCritica(critica.idCritica)"><i class="material-icons">subtitles</i></a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red pulse" ng-click="abrirCritica(critica.idCritica)"><i class="material-icons">subtitles</i></a>
                         </div>
                         <div class="card-content">
-                        <p>Temporada: {{critica.temporada}}</p>    
-                        <p><i class="material-icons">grade</i>Nota: {{critica.nota}}</p>
-                        <p>Resumo: {{critica.resumo}}</p>
+                            <p>Temporada: {{critica.temporada}}</p>    
+                            <p><i class="material-icons starColor">grade</i>{{critica.nota}}</p>
+                            <p class="truncate">Resumo: {{critica.resumo}}</p>
                         </div>
                     </div>
                     </div>
                 </div>
             </div>
+                <pagination
+                            class="center-align"
+                            page="1"
+                            page-size="10"
+                            total="80"
+                            show-prev-next="true"
+                            use-simple-prev-next="false"
+                            dots="...."
+                            hide-if-empty="false"
+                            adjacent="2"
+                            scroll-top="false"
+                            pagination-action="changePage(page)" />
         </div>
     </div>
 </div>
