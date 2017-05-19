@@ -1,0 +1,29 @@
+[
+{
+    "idCritica": 1,
+    "tituloCritica" : "The Walking Dead",
+    "poster" : "https://images-na.ssl-images-amazon.com/images/M/MV5BMTczMDk1NDYyMV5BMl5BanBnXkFtZTgwNjE1NDU4MDI@._V1_SX300.jpg",
+    "resumo" : "The Walking Dead The Walking Dead The Walking Dead",
+    "temporada" : 7, 
+    "nota" : "4.5/10"
+},
+
+{
+    "idCritica": 2,
+    "tituloCritica" : "Billions",
+    "poster" : "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ5MzE3NzkwMV5BMl5BanBnXkFtZTgwMDEzNDA5MDI@._V1_SX300.jpg",
+    "resumo" : "Billions Billions Billions Billions Billions Billions Billions Billions Billions Billions Billions ",
+    "temporada" : 2,
+    "nota" : "9.0/10"
+},
+
+{
+    "idCritica": 3,
+    "tituloCritica" : "The Last Kingdom",
+    "poster" : "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE1MzYzNjk3OF5BMl5BanBnXkFtZTgwMzk0MzYwNzE@._V1_SX300.jpg",
+    "resumo" : "The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom",
+    "temporada" : 2,
+    "nota" : "8.5/10"
+}
+
+]

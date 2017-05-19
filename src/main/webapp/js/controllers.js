@@ -105,8 +105,12 @@ angular.module('MySeries')
     }, 5000);
 })
 
-.controller('CriticasCtrl', function($scope) {
+.controller('CriticasCtrl', function($scope, UrlGetService) {
     $scope.titulo = "Críticas";
+    var json = "http://localhost:9090/Projeto-MySeries/mock/dadosCritica.json";
+    UrlGetService.getUrl(json).then(function(response) {
+        $scope.listaCritica = response.data;
+    });
 })
 
 .controller('DetalheSerieCtrl', function($scope, $rootScope, EpisodesService, IdImdbService) {

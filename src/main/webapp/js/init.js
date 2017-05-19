@@ -8,9 +8,6 @@
             closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         });
         $('.collapsible').collapsible();
-        $('.carousel').carousel({
-            dist: 50
-        });
         $('#comentario').trigger('autoresize');
     }); // end of document ready
 })(jQuery); // end of jQuery name space

@@ -1,3 +1,27 @@
 <div class="container">
-    <h4 ng-bind="titulo" class="center blue-text"></h4>
+    <div class="section z-depth-5 teal lighten-2 topSeries">
+        <h4 ng-bind="titulo" class="center white-text text-accent-4"></h4>
+        <div class="divider"></div>
+        </br>
+        <div class="container">
+            <div class="row">
+                <div ng-repeat="critica in listaCritica">
+                    <div class="col s12 m6">
+                    <h6 ng-bind="critica.tituloCritica" class="center white-text text-accent-4"></h6>
+                    <div class="card">
+                        <div class="card-image">
+                        <img src="{{critica.poster}}" class="imgCritica">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" ng-click="abrirCritica(critica.idCritica)"><i class="material-icons">subtitles</i></a>
+                        </div>
+                        <div class="card-content">
+                        <p>Temporada: {{critica.temporada}}</p>    
+                        <p><i class="material-icons">grade</i>Nota: {{critica.nota}}</p>
+                        <p>Resumo: {{critica.resumo}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
