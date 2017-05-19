@@ -96,3 +96,12 @@ a#imdb {
 .negative {
     color: red;
 }
+
+.modal {
+    overflow-y:hidden;
+}
+
+.topSeries {
+    border-style: solid;
+    border-width:0.2px;
+}
