@@ -1,180 +1,185 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="MySeries">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>My Series</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>My Series</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/paginator.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel='stylesheet' href='css/angular/loading-bar.min.css' type='text/css' media='all' />
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/paginator.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel='stylesheet' href='css/angular/loading-bar.min.css' type='text/css' media='all' />
 </head>
+
 <body>
-  <header>
-    <nav class="light-blue lighten-1" role="navigation" ng-controller="SideNavCtrl">
-      <ul id="slide-out" class="side-nav">
-            <div id="userSettings" class="hide">
-              <li><div class="userView">
-              <div class="background">
-                <img src="img/back.jpg">
-              </div>
-                <a href="#!user"><img class="circle" src="img/avatar.jpg"></a>
-                <a href="#!name"><span class="white-text name">Jake Sully</span></a>
-                <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
-              </div>
-            </div></li> 
-          <li class="bold"><a href="#/" class="waves-effect waves-teal">Home</a></li>
-          <li class="bold"><a href="#!" class="waves-effect waves-teal">Menu</a></li>
-          <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-              <li>
-                <a class="modal-trigger waves-effect waves-light btn" id="linkLogin" href="#modal1">Login</a>
-                <a class="modal-trigger waves-effect waves-light btn hide" id="linkSair" ng-click="sair()">Sair</a>
-                
-                  <div class="collapsible-body">
+    <header>
+        <nav class="light-blue lighten-1" role="navigation" ng-controller="SideNavCtrl">
+            <ul id="slide-out" class="side-nav">
+                <div id="userSettings" class="hide">
+                    <li>
+                        <div class="userView">
+                            <div class="background">
+                                <img src="img/back.jpg">
+                            </div>
+                            <a href="#!user"><img class="circle" src="img/avatar.jpg"></a>
+                            <a href="#!name"><span class="white-text name">Jake Sully</span></a>
+                            <a href="#!email"><span class="white-text email">jakesullyk@myseries.com</span></a>
+                        </div>
                 </div>
-                <div dadosPerfil>
-                </div>
-              </li>
+                </li>
+                <li class="bold"><a href="#/" class="waves-effect waves-teal">Home</a></li>
+                <li class="bold"><a href="#!" class="waves-effect waves-teal">Menu</a></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="modal-trigger waves-effect waves-light btn" id="linkLogin" href="#modal1">Login</a>
+                            <a class="modal-trigger waves-effect waves-light btn hide" id="linkSair" ng-click="sair()">Sair</a>
+
+                            <div class="collapsible-body">
+                            </div>
+                            <div dadosPerfil>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-          </li>
-        </ul>
-        <div class="nav-content right">
-        <div class="row">
-          <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="#/">Home</a></li>
-            <li class="tab"><a href="#serie">Minhas Series</a></li>
-            <li class="tab"><a href="#/">Top Series</a></li>
-            <li class="tab"><a href="#/criticas">Criticas</a></li>
-          </ul>
-        </div>
-      </div>
-      <a class="btn btn-floating blue pulse recuo barralateral" href="#" data-activates="slide-out"><i class="material-icons">menu</i></a>
-    </nav>
-  </header>
-  <main class="conteudo">
-    <div class="parallax-container" style="height: 400px">
-      <div parallax><img src="img/para1Titulo.jpg"></div>
-    </div>
-          <!-- ng-view -->
-          <div ng-view></div> 
-  <div class="parallax-container">
-    <div parallax><img src="img/para2.jpg"></div>
-  </div>
-  </main>
-
-  <footer class="page-footer orange">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">My Series</h5>
-          <p class="grey-text text-lighten-4">Site destinado ao mundo de series, aqui você encontra informações sobre as series, sinopse, lista de episódios e muito mais!</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Contato</h5>
-          <ul>
-            <li><a class="white-text" href="#!">myseries@myseries.com</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Todos direitos reservados <a class="orange-text text-lighten-3" href="index.html">MySeries</a>
-      </div>
-    </div>
-  </footer>
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal" ng-controller="LoginCtrl">
-    <div class="modal-content">
-               <div id="login-page" class="row">
-                  <div class="col s12 z-depth-4">
-                    <form class="login-form">
-                      <div class="row">
-                        <div class="input-field col s10">
-                          <i class="small material-icons">perm_identity</i>
-                          <input id="username" placeholder="Usuário" type="text" ng-model="usuario" class="validate">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s10">
-                        <i class="small material-icons">lock_outline</i>
-                          <input id="password" placeholder="Senha" type="password" ng-model="senha" class="validate">
-                        </div>
-                      </div>
-                      <div class="row">          
-                        <div class="input-field col s12 m12 l12">
-                            <input type="checkbox" id="remember-me">
-                            <label for="remember-me">Lembrar</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <a class="btn waves-effect waves-light col s12" ng-click="login()" ng-disabled="validaCampos()">Login</a>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s6 m6 l6">
-                          <p class="margin medium-small"><a href="page-register.html">Se registre!</a></p>
-                        </div>
-                        <div class="input-field col s6 m6 l6">
-                            <p class="margin right-align medium-small"><a href="page-forgot-password.html">Esqueceu a senha?</a></p>
-                        </div>          
-                      </div>
-                    </form>
-                  </div>
+            <div class="nav-content right">
+                <div class="row">
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a href="#/">Home</a></li>
+                        <li class="tab"><a href="#serie">Minhas Series</a></li>
+                        <li class="tab"><a href="#/">Top Series</a></li>
+                        <li class="tab"><a href="#/criticas">Criticas</a></li>
+                    </ul>
                 </div>
-    </div>
-  </div>
+            </div>
+            <a class="btn btn-floating blue pulse recuo barralateral" href="#" data-activates="slide-out"><i class="material-icons">menu</i></a>
+        </nav>
+    </header>
+    <main class="conteudo">
+        <div class="parallax-container" style="height: 400px">
+            <div parallax><img src="img/para1Titulo.jpg"></div>
+        </div>
+        <!-- ng-view -->
+        <div ng-view></div>
+        <div class="parallax-container">
+            <div parallax><img src="img/para2.jpg"></div>
+        </div>
+    </main>
 
-  <!-- Modal Structure -->
+    <footer class="page-footer orange">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">My Series</h5>
+                    <p class="grey-text text-lighten-4">Site destinado ao mundo de series, aqui você encontra informações sobre as series, sinopse, lista de episódios e muito mais!</p>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Contato</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">myseries@myseries.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Todos direitos reservados <a class="orange-text text-lighten-3" href="index.html">MySeries</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal" ng-controller="LoginCtrl">
+        <div class="modal-content">
+            <div id="login-page" class="row">
+                <div class="col s12 z-depth-4">
+                    <form class="login-form">
+                        <div class="row">
+                            <div class="input-field col s10">
+                                <i class="small material-icons">perm_identity</i>
+                                <input id="username" placeholder="Usuário" type="text" ng-model="usuario" class="validate">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s10">
+                                <i class="small material-icons">lock_outline</i>
+                                <input id="password" placeholder="Senha" type="password" ng-model="senha" class="validate">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <input type="checkbox" id="remember-me">
+                                <label for="remember-me">Lembrar</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <a class="btn waves-effect waves-light col s12" ng-click="login()" ng-disabled="validaCampos()">Login</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6 m6 l6">
+                                <p class="margin medium-small"><a href="page-register.html">Se registre!</a></p>
+                            </div>
+                            <div class="input-field col s6 m6 l6">
+                                <p class="margin right-align medium-small"><a href="page-forgot-password.html">Esqueceu a senha?</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
     <div id="modaldetalhe" class="modal modal modal-fixed-footer" style="width: 1000px; height: 1000px" ng-controller="DetalheSerieCtrl">
         <div class="modal-content">
-            
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card">
-            <div class="card-image">
-              <img class="hoverable" src="{{posterEpisodio}}">
-              <span class="card-title">{{tituloEpisodio}}</span>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="hoverable" src="{{posterEpisodio}}">
+                            <span class="card-title">{{tituloEpisodio}}</span>
+                        </div>
+                        <div class="card-content">
+                            <span><h6 class="titulosDescritivos"> Sinopse: </h6>{{sinopseEpisodio}}</span>
+                        </div>
+                        <div class="card-action">
+                            <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-              <p>{{sinopseEpisodio}}</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Link</a>
-            </div>
-          </div>
-        </div>
-      </div>
-            
+
         </div>
         <div class="modal-footer">
-          <a ng-click="fecharModal()" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
-      </div>
+            <a ng-click="fecharModal()" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+        </div>
     </div>
 
 
-  <!--  Scripts-->
-  <script src="js/jquery/jquery-3.2.0.min.js"></script>
-  <script src="js/materialize/materialize.min.js"></script>
-  <script src="js/angular/angular.min.js"></script>
-  <script src="js/angular/angular-route.min.js"></script>
-  <script src='js/angular/loading-bar.min.js'></script>
-  <script src='js/angular/angular-materialize.js'></script>
-  <script src="js/app.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="js/route.js"></script>
-  <script src="js/service.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/funcoes.js"></script>
+    <!--  Scripts-->
+    <script src="js/jquery/jquery-3.2.0.min.js"></script>
+    <script src="js/materialize/materialize.min.js"></script>
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-route.min.js"></script>
+    <script src='js/angular/loading-bar.min.js'></script>
+    <script src='js/angular/angular-materialize.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/funcoes.js"></script>
 
-  </body>
+</body>
+
 </html>
