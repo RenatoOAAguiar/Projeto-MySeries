@@ -57,6 +57,7 @@
                         <thead>
                             <th>Episódio</th>
                             <th>Nota</th>
+                            <th class="center-align">Assistido</th>
                         </thead>
                         <tbody>
                             </br>
@@ -66,9 +67,10 @@
                             <div class="divider"></div>
                             </br>
                             </br>
-                            <tr ng-repeat="episodio in temporada" ng-click="dadosEpisodio(episodio.imdbID)">
-                                <td> {{episodio.Episode}} - {{episodio.Title}} </td>
+                            <tr ng-repeat="episodio in temporada" >
+                                <td ng-click="dadosEpisodio(episodio.imdbID)"> {{episodio.Episode}} - {{episodio.Title}} </td>
                                 <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}} </td>
+                                <td class="center-align"> <a href="" onclick="trocarIcone('img/icons/check-icon.png')" title="Adicionar a séries assistidas"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img> </a></td>
                             </tr>
                         </tbody>
                     </table>

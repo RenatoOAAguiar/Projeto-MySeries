@@ -62,7 +62,7 @@ h6#qtdVotos {
     margin-top: -20px;
 }
 
-h6.titulosDescritivos {
+.titulosDescritivos {
     font-family: "FonteLogo";
     font-size: 15pt;
     color: #606060;
@@ -107,5 +107,5 @@ a#imdb {
 }
 
 .imgCritica {
-    height: 300px;
+    height: 400px;
 }

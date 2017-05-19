@@ -131,6 +131,7 @@ angular.module('MySeries')
             $scope.seasonEp = response.data.Episodio;
             $scope.posterEpisodio = response.data.Poster;
             $scope.sinopseEpisodio = response.data.Plot;
+            $scope.idImdb = id;
         });
     }
 

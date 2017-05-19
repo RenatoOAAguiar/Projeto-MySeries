@@ -24,6 +24,15 @@
     "resumo" : "The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom",
     "temporada" : 2,
     "nota" : "8.5/10"
+},
+
+{
+    "idCritica": 4,
+    "tituloCritica" : "Demolidor",
+    "poster" : "https://images-na.ssl-images-amazon.com/images/M/MV5BNzUwMDEyMTIxM15BMl5BanBnXkFtZTgwNDU3OTYyODE@._V1_SX300.jpg",
+    "resumo" : "Matt Murdock, with his other senses superhumanly enhanced, fights crime as a blind lawyer by day, and vigilante by night.",
+    "temporada" : 2,
+    "nota" : "8.5/10"
 }
 
 ]
