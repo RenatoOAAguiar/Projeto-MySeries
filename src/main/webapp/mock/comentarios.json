@@ -1,0 +1,28 @@
+[
+    {
+        "idComentario": 1,
+        "usuario" : "João",
+        "avatar" : "img/avatar.jpg",
+        "badges" : 0,
+        "comentario" : "Esse é um comentário de teste!",
+        "avaliaram": [1,2,3]
+    },
+
+    {
+        "idComentario": 2,
+        "usuario" : "Marcella",
+        "avatar" : "img/avatar.jpg",
+        "badges" : -2,
+        "comentario" : "Esse é um comentário de teste2!",
+        "avaliaram": [2,3]
+    },
+
+    {
+        "idComentario": 3,
+        "usuario" : "Groot",
+        "avatar" : "img/avatar.jpg",
+        "badges" : 10,
+        "comentario" : "Esse é um comentário de teste3!",
+        "avaliaram": [2,3]
+    }
+]

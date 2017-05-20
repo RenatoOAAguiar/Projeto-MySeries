@@ -23,7 +23,7 @@
 
                 <a href="" onclick="trocarIcone('img/icons/fullPlus-icon.png')" title="Adicionar a suas séries"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img>
                 </a>
-                <a href="" onclick="trocarIcone('img/icons/check-icon.png')" title="Adicionar a séries assistidas"><img id="iconEye" src="img/icons/eye-icon.png" width="30" height="30"></img>
+                <a href="" title="Adicionar a séries assistidas"><img id="marcarTodos" value="0" ng-click="marcarDesmarcarTodos()" src="img/icons/eye-icon.png" width="30" height="30"></img>
                 </a>
                 <a href="" onclick="trocarIcone('img/icons/fullHeart-icon.png')" title="Adicionar a séries favoritas"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height="30"></img>
                 </a>
@@ -43,12 +43,6 @@
                 <span><h6 class="titulosDescritivos">Atores: </h6><span>{{atores}}</span>
                 <span><h6 class="titulosDescritivos"> Premiações: </h6> {{premiacao}}</span></div>
         </li>
-        <!--<li>
-            <div class="collapsible-header"><i class="material-icons">perm_identity</i>Atores</div>
-            <div class="collapsible-body fbold">
-                <span>{{atores}}</span>
-            </div> 
-        </li> -->
         <li>
             <div class="collapsible-header"><i class="material-icons">view_list</i>Episódios</div>
             <div class="collapsible-body teal lighten-5 fbold">
@@ -70,7 +64,7 @@
                             <tr ng-repeat="episodio in temporada" >
                                 <td ng-click="dadosEpisodio(episodio.imdbID)"> {{episodio.Episode}} - {{episodio.Title}} </td>
                                 <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}} </td>
-                                <td class="center-align"> <a href="" onclick="trocarIcone('img/icons/checkEP-icon.png')" title="Adicionar a episodios assistido"><img id="iconeEP" src="img/icons/eyeEP-icon.png" width="30" height="30"></img> </a></td>
+                                <td class="center-align"><a href="" ng-click="marcarAssistido($index)" title="Marcar como assistida."> <img id="assistido{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a> </td>
                             </tr>
                         </tbody>
                     </table>
@@ -79,10 +73,10 @@
         </li>
     </ul>
 </div>
-<h2 class="header teal-text text-darken-3">Imagens</h2>
+<h2 class="header teal-text text-darken-3" ng-click="enviarComentario()">Imagens</h2>
 <div class="divider"></div>
 <div carousel duration="5" dist="30">
-    <a class="carousel-item" href="#one!"><img src="img/got/got1.jpg"></a>
+    <a class="carousel-item" href=""><img src="img/got/got1.jpg"></a>
     <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
     <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
     <a class="carousel-item" href="#four!"><img src="img/got/got4.png"></a>
@@ -99,40 +93,48 @@
 <div class="container">
     <h1 class="amber-text text-accent-4">Comentários</h1>
     <ul class="collection">
-        <li class="collection-item avatar">
-            <img src="img/avatar.jpg" alt="" class="circle">
-            <span class="title">Game of Thrones</span>
+        <li class="collection-item avatar" ng-repeat="comentario in listaComentarios">
+            <img src="{{comentario.avatar}}" alt="" class="circle">
+            <span class="title">{{comentario.usuario}}</span>
             </br>
             </br>
             <div class="right-align">
-                <i class="material-icons positive" style="cursor: pointer" ng-click="calculaAvaliacao(1)">thumb_up</i>
-                <i class="material-icons negative" style="cursor: pointer" ng-click="calculaAvaliacao(0)">thumb_down</i>
-                <span class="badge" ng-bind="badge"></span>
+                <i class="material-icons positive" style="cursor: pointer" id="avalPos{{$index}}" ng-click="calculaAvaliacao(1, $index)">thumb_up</i>
+                <i class="material-icons negative" style="cursor: pointer" id="avalNeg{{$index}}" ng-click="calculaAvaliacao(0, $index)">thumb_down</i>
+                <span class="badge">{{comentario.badges}}</span>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+            <p>{{comentario.comentario}}</p>
         </li>
     </ul>
+        <pagination
+                            class="center-align"
+                            page="1"
+                            page-size="10"
+                            total="qtdComentarios"
+                            show-prev-next="true"
+                            use-simple-prev-next="false"
+                            dots="...."
+                            hide-if-empty="false"
+                            adjacent="2"
+                            scroll-top="false"
+                            pagination-action="changePage(page)" />
+    <div class="divider"></div>
     <legend class="teal-text text-darken-3">Inserir Comentário</legend>
     </br>
     </br>
     <div class="row">
-        <form class="col s12">
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">mode_edit</i>
-                    <textarea id="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
+                    <textarea id="comentario" ng-model="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
                     <label for="comentario">Comentário</label>
                 </div>
             </div>
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                <a class="btn waves-effect waves-light" ng-click="enviarComentario()" ng-disabled="validaComentario()">Enviar
                             <i class="material-icons right">send</i>
-                    </button>
+                    </a>
             </div>
-        </form>
     </div>
 </div>
 </div>
