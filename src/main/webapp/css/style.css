@@ -109,3 +109,7 @@ a#imdb {
 .imgCritica {
     height: 400px;
 }
+
+.bgColor {
+    background-color: white !important;
+}

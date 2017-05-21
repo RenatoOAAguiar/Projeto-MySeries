@@ -1,141 +1,143 @@
-<div class="col s12 m7 recuoEsquerdo">
-    <h2 class="header teal-text text-darken-3">{{titulo}}</h2>
-    <div class="card horizontal bordaCard">
-        <div class="card-image">
-            <img class="hoverable" src="{{poster}}">
-        </div>
-        <div class="card-stacked">
-            <div class="card-content grey darken-4">
-                <div class="row">
-                    <div class="input-field col s1">
-                        <img id="nota" src="img/icons/star.jpeg" width="80" height="80" title="Nota Segundo o Imdb" />
-                    </div>
-                    <div class="input-field col s1">
-                        <h2 class="recuoEsquerdo grey-text text-lighten-5" title="Nota Segundo o Imdb">{{nota}}
-                            <h6 id="qtdVotos" class="recuoEsquerdo grey-text text-lighten-5" title="Quantidade de votos"> ({{qtdVotos}}) </h6>
-                        </h2>
-                    </div>
-                </div>
-                <h4 class="descricao grey-text text-lighten-5"> Sinopse: </h4>
-                <p class="grey-text text-lighten-5"> {{descricao}} </p>
+<div class="bgColor">
+    <div class="col s12 m7 recuoEsquerdo">
+        <h2 class="header teal-text text-darken-3">{{titulo}}</h2>
+        <div class="card horizontal bordaCard">
+            <div class="card-image">
+                <img class="hoverable" src="{{poster}}">
             </div>
-            <div class="card-action">
+            <div class="card-stacked">
+                <div class="card-content grey darken-4">
+                    <div class="row">
+                        <div class="input-field col s1">
+                            <img id="nota" src="img/icons/star.jpeg" width="80" height="80" title="Nota Segundo o Imdb" />
+                        </div>
+                        <div class="input-field col s1">
+                            <h2 class="recuoEsquerdo grey-text text-lighten-5" title="Nota Segundo o Imdb">{{nota}}
+                                <h6 id="qtdVotos" class="recuoEsquerdo grey-text text-lighten-5" title="Quantidade de votos"> ({{qtdVotos}}) </h6>
+                            </h2>
+                        </div>
+                    </div>
+                    <h4 class="descricao grey-text text-lighten-5"> Sinopse: </h4>
+                    <p class="grey-text text-lighten-5"> {{descricao}} </p>
+                </div>
+                <div class="card-action">
 
-                <a href="" onclick="trocarIcone('img/icons/fullPlus-icon.png')" title="Adicionar a suas séries"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img>
-                </a>
-                <a href="" title="Adicionar a séries assistidas"><img id="marcarTodos" value="0" ng-click="marcarDesmarcarTodos()" src="img/icons/eye-icon.png" width="30" height="30"></img>
-                </a>
-                <a href="" onclick="trocarIcone('img/icons/fullHeart-icon.png')" title="Adicionar a séries favoritas"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height="30"></img>
-                </a>
-                <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
+                    <a href="" onclick="trocarIcone('img/icons/fullPlus-icon.png')" title="Adicionar a suas séries"><img id="iconeAdd" src="img/icons/plus-icon.png" width="30" height="30"></img>
+                    </a>
+                    <a href="" title="Adicionar a séries assistidas"><img id="marcarTodos" value="0" ng-click="marcarDesmarcarTodos()" src="img/icons/eye-icon.png" width="30" height="30"></img>
+                    </a>
+                    <a href="" onclick="trocarIcone('img/icons/fullHeart-icon.png')" title="Adicionar a séries favoritas"><img id="iconeHeart" src="img/icons/empytHeart-icon.png" width="30" height="30"></img>
+                    </a>
+                    <a id="imdb" href="http://www.imdb.com/title/{{id}}" target="blak">Imbd</a>
+                </div>
             </div>
         </div>
-    </div>
-    <ul class="collapsible popout" data-collapsible="accordion" watch>
-        <li>
-            <div class="collapsible-header"><i class="material-icons">theaters</i>Informações</div>
-            <div class="collapsible-body fbold">
-                <span><h6 class="titulosDescritivos"> Gênero: </h6> {{genero}} </span>
-                <span><h6 class="titulosDescritivos"> Escritor(es): </h6> {{escritor}} </span>
-                <span><h6 class="titulosDescritivos"> País: </h6> {{pais}} </span>
-                <span><h6 class="titulosDescritivos"> Ano: </h6> {{ano}}</span>
-                <span><h6 class="titulosDescritivos"> Duração: </h6> {{duracao}} </span>
-                <span><h6 class="titulosDescritivos">Atores: </h6><span>{{atores}}</span>
-                <span><h6 class="titulosDescritivos"> Premiações: </h6> {{premiacao}}</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header"><i class="material-icons">view_list</i>Episódios</div>
-            <div class="collapsible-body teal lighten-5 fbold">
-                <div ng-repeat="temporada in episodios">
-                    <table class="bordered highlight responsive-table">
-                        <thead>
-                            <th>Episódio</th>
-                            <th>Nota</th>
-                            <th class="center-align">Assistido</th>
-                        </thead>
-                        <tbody>
-                            </br>
-                            </br>
-                            <div class="divider"></div>
-                            <span class="flow-text teal-text text-darken-3">{{$index + 1}} ° Temporada</span>
-                            <div class="divider"></div>
-                            </br>
-                            </br>
-                            <tr ng-repeat="episodio in temporada" >
-                                <td ng-click="dadosEpisodio(episodio.imdbID)"> {{episodio.Episode}} - {{episodio.Title}} </td>
-                                <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}} </td>
-                                <td class="center-align"><a href="" ng-click="marcarAssistido($index)" title="Marcar como assistida."> <img id="assistido{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a> </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <ul class="collapsible popout" data-collapsible="accordion" watch>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">theaters</i>Informações</div>
+                <div class="collapsible-body fbold">
+                    <span><h6 class="titulosDescritivos"> Gênero: </h6> {{genero}} </span>
+                    <span><h6 class="titulosDescritivos"> Escritor(es): </h6> {{escritor}} </span>
+                    <span><h6 class="titulosDescritivos"> País: </h6> {{pais}} </span>
+                    <span><h6 class="titulosDescritivos"> Ano: </h6> {{ano}}</span>
+                    <span><h6 class="titulosDescritivos"> Duração: </h6> {{duracao}} </span>
+                    <span><h6 class="titulosDescritivos">Atores: </h6><span>{{atores}}</span>
+                    <span><h6 class="titulosDescritivos"> Premiações: </h6> {{premiacao}}</span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">view_list</i>Episódios</div>
+                <div class="collapsible-body teal lighten-5 fbold">
+                    <div ng-repeat="temporada in episodios">
+                        <table class="bordered highlight responsive-table">
+                            <thead>
+                                <th>Episódio</th>
+                                <th>Nota</th>
+                                <th class="center-align">Assistido</th>
+                            </thead>
+                            <tbody>
+                                </br>
+                                </br>
+                                <div class="divider"></div>
+                                <span class="flow-text teal-text text-darken-3">{{$index + 1}} ° Temporada</span>
+                                <div class="divider"></div>
+                                </br>
+                                </br>
+                                <tr ng-repeat="episodio in temporada" >
+                                    <td ng-click="dadosEpisodio(episodio.imdbID)"> {{episodio.Episode}} - {{episodio.Title}} </td>
+                                    <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}} </td>
+                                    <td class="center-align"><a href="" ng-click="marcarAssistido($index)" title="Marcar como assistida."> <img id="assistido{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<h2 class="header teal-text text-darken-3" ng-click="enviarComentario()">Imagens</h2>
-<div class="divider"></div>
-<div carousel duration="5" dist="30">
-    <a class="carousel-item" href=""><img src="img/got/got1.jpg"></a>
-    <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
-    <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
-    <a class="carousel-item" href="#four!"><img src="img/got/got4.png"></a>
-    <a class="carousel-item" href="#five!"><img src="img/got/got5.jpg"></a>
-</div>
-<div class="divider"></div>
-<div class="container center-align">
-    <h1 class="teal-text text-darken-3">Vídeos</h1>
-    <div class="video">
-        <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
+            </li>
+        </ul>
     </div>
-</div>
-<div class="divider"></div>
-<div class="container">
-    <h1 class="amber-text text-accent-4">Comentários</h1>
-    <ul class="collection">
-        <li class="collection-item avatar" ng-repeat="comentario in listaComentarios">
-            <img src="{{comentario.avatar}}" alt="" class="circle">
-            <span class="title">{{comentario.usuario}}</span>
-            </br>
-            </br>
-            <div class="right-align">
-                <i class="material-icons positive" style="cursor: pointer" id="avalPos{{$index}}" ng-click="calculaAvaliacao(1, $index)">thumb_up</i>
-                <i class="material-icons negative" style="cursor: pointer" id="avalNeg{{$index}}" ng-click="calculaAvaliacao(0, $index)">thumb_down</i>
-                <span class="badge">{{comentario.badges}}</span>
-            </div>
-            <p>{{comentario.comentario}}</p>
-        </li>
-    </ul>
-        <pagination
-                            class="center-align"
-                            page="1"
-                            page-size="10"
-                            total="qtdComentarios"
-                            show-prev-next="true"
-                            use-simple-prev-next="false"
-                            dots="...."
-                            hide-if-empty="false"
-                            adjacent="2"
-                            scroll-top="false"
-                            pagination-action="changePage(page)" />
+    <h2 class="header teal-text text-darken-3">Imagens</h2>
     <div class="divider"></div>
-    <legend class="teal-text text-darken-3">Inserir Comentário</legend>
-    </br>
-    </br>
-    <div class="row">
-            <div class="row">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">mode_edit</i>
-                    <textarea id="comentario" ng-model="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
-                    <label for="comentario">Comentário</label>
-                </div>
-            </div>
-            <div class="row">
-                <a class="btn waves-effect waves-light" ng-click="enviarComentario()" ng-disabled="validaComentario()">Enviar
-                            <i class="material-icons right">send</i>
-                    </a>
-            </div>
+    <div carousel duration="5" dist="30">
+        <a class="carousel-item" href=""><img src="img/got/got1.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
+        <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
+        <a class="carousel-item" href="#four!"><img src="img/got/got4.png"></a>
+        <a class="carousel-item" href="#five!"><img src="img/got/got5.jpg"></a>
     </div>
-</div>
-</div>
+    <div class="divider"></div>
+    <div class="container center-align">
+        <h1 class="teal-text text-darken-3">Vídeos</h1>
+        <div class="video">
+            <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="container">
+        <h1 class="amber-text text-accent-4">Comentários</h1>
+        <ul class="collection">
+            <li class="collection-item avatar" ng-repeat="comentario in listaComentarios">
+                <img src="{{comentario.avatar}}" alt="" class="circle">
+                <span class="title">{{comentario.usuario}}</span>
+                </br>
+                </br>
+                <div class="right-align">
+                    <i class="material-icons positive" style="cursor: pointer" id="avalPos{{$index}}" ng-click="calculaAvaliacao(1, $index)">thumb_up</i>
+                    <i class="material-icons negative" style="cursor: pointer" id="avalNeg{{$index}}" ng-click="calculaAvaliacao(0, $index)">thumb_down</i>
+                    <span class="badge">{{comentario.badges}}</span>
+                </div>
+                <p>{{comentario.comentario}}</p>
+            </li>
+        </ul>
+            <pagination
+                                class="center-align"
+                                page="1"
+                                page-size="10"
+                                total="qtdComentarios"
+                                show-prev-next="true"
+                                use-simple-prev-next="false"
+                                dots="...."
+                                hide-if-empty="false"
+                                adjacent="2"
+                                scroll-top="false"
+                                pagination-action="changePage(page)" />
+        <div class="divider"></div>
+        <legend class="teal-text text-darken-3">Inserir Comentário</legend>
+        </br>
+        </br>
+        <div class="row">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="comentario" ng-model="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
+                        <label for="comentario">Comentário</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="btn waves-effect waves-light" ng-click="enviarComentario()" ng-disabled="validaComentario()">Enviar
+                                <i class="material-icons right">send</i>
+                        </a>
+                </div>
+        </div>
+    </div>
+    </div>
+    </div>
 </div>

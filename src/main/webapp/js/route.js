@@ -14,6 +14,10 @@ angular.module("MySeries")
     templateUrl : "templates/criticas.html",
     controller : "CriticasCtrl"
   })
+  .when("/cadastro", {
+    templateUrl : "templates/cadastro.html",
+    controller : "CadastroCtrl"
+  })
   .otherwise({redirectTo :'/'});
 });
 })();
