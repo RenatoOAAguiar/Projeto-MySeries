@@ -113,3 +113,13 @@ a#imdb {
 .bgColor {
     background-color: white !important;
 }
+
+@font-face {
+  font-family: fontTitle;
+  src: URL('fonts/FFF_Tusj.ttf');
+}
+
+.titleEffect{
+    font-family: fontTitle !important;
+    font-size: 70pt;
+}
