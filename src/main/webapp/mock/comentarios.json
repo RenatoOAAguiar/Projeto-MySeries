@@ -1,7 +1,7 @@
 [
     {
         "idComentario": 1,
-        "usuario" : "João",
+        "usuario" : "Jake",
         "avatar" : "img/avatar.jpg",
         "badges" : 0,
         "comentario" : "Esse é um comentário de teste!",
@@ -10,8 +10,8 @@
 
     {
         "idComentario": 2,
-        "usuario" : "Marcella",
-        "avatar" : "img/avatar.jpg",
+        "usuario" : "Rocket",
+        "avatar" : "img/rocket.jpg",
         "badges" : -2,
         "comentario" : "Esse é um comentário de teste2!",
         "avaliaram": [2,3]
@@ -20,9 +20,9 @@
     {
         "idComentario": 3,
         "usuario" : "Groot",
-        "avatar" : "img/avatar.jpg",
+        "avatar" : "img/groot.jpg",
         "badges" : 10,
-        "comentario" : "Esse é um comentário de teste3!",
+        "comentario" : "I'm groot!",
         "avaliaram": [2,3]
     }
 ]

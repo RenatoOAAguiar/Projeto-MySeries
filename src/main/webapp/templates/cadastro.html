@@ -1,64 +1,57 @@
 <div class="bgColor">
-    {{titulo}}
-    <div class="row container">
-    <form class="col s12">
-      <div class="row">
+  <div class="container center-align">
+    <span class="titleEffectSub amber-text text-accent-4">{{titulo}}</span>
+  </div>
+  <div class="divider"></div>
+  <div class="row col s8 container center-align">
+    <form name="formcadastro">
+      <div class="row s8">
         <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
+          <input id="first_name" type="text" class="validate" ng-model="vm.nome" required>
           <label for="first_name">Nome</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" type="text" class="validate" ng-model="vm.sobrenome" required>
           <label for="last_name">Sobrenome</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Disabled</label>
+          <input id="disabled" type="text" class="validate" ng-model="vm.endereco" required>
+          <label for="disabled">Endereço</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Senha</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s12">
+      <div class="row left-align">
+        <div class="col s6">
           <div class="input-field inline">
-            <input id="email" type="email" class="validate">
-            <label for="email" data-error="wrong" data-success="right">Email</label>
+            <input id="email" type="email" class="validate" name="email" ng-model="vm.email" required>
+            <label for="email" data-error="Email incorreto!" data-success="Ok">Email</label>
           </div>
         </div>
         <div class="input-field col s6">
+          <input type="date" class="datepicker" name="datanasc" ng-model="datanasc">
           <label for="inputCreated">Data Nascimento:</label>
-            <input input-date
-                type="text"
-                name="created"
-                id="inputCreated"
-                ng-model="currentTime"
-                container=""
-                format="dd/mm/yyyy"
-                months-full="{{ month }}"
-                months-short="{{ monthShort }}"
-                weekdays-full="{{ weekdaysFull }}"
-                weekdays-short="{{ weekdaysShort }}"
-                weekdays-letter="{{ weekdaysLetter }}"
-                min="{{ minDate }}"
-                max="{{ maxDate }}"
-                today="today"
-                first-day="1"
-                clear="clear"
-                close="close"
-                select-years="15"
-                on-start="onStart()"
-                on-render="onRender()"
-                on-open="onOpen()"
-                on-close="onClose()"
-                on-set="onSet()"
-                on-stop="onStop()" />
         </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="login" type="text" name="login" minlength="5" maxlength="15" ng-model="vm.login" class="validate" required>
+          <label for="login">Login</label>
+        </div>
+      </div>
+      <p class="red-text" ng-show="formcadastro.login.$error.minlength">Login é muito curto, minimo 5 caracteres.</p>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="senha" type="password" name="senha" minlength="5" ng-model="vm.senha" class="validate" required>
+          <label for="senha">Senha</label>
+        </div>
+      </div>
+      <p class="red-text" ng-show="formcadastro.senha.$error.minlength">Senha muito curta, minimo 5 caracteres.</p>
+      <div class="row">
+        <button class="btn waves-effect waves-light" ng-click="enviarCadastro()" ng-disabled="formcadastro.$invalid && formcadastro.datanasc.$valid">Enviar
+            <i class="material-icons right">done</i></button>
+        <a class="btn waves-effect waves-light" ng-click="limpar()" >Limpar
+            <i class="material-icons right">delete</i></a>
       </div>
     </form>
   </div>

@@ -255,37 +255,34 @@ angular.module('MySeries')
     }
 })
 
-.controller('CadastroCtrl', function ($scope){
+.controller('CadastroCtrl', function ($scope, $timeout, cfpLoadingBar, $location, $rootScope){
     $scope.titulo = "Cadastro";
-    var currentTime = new Date();
-    $scope.currentTime = currentTime;
-    $scope.month = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-    $scope.monthShort = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-    $scope.weekdaysFull = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'];
-    $scope.weekdaysLetter = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
-    $scope.disable = [false, 1, 7];
-    $scope.today = 'Hoje';
-    $scope.clear = 'Limpar';
-    $scope.close = 'Fechar';
-    var days = 15;
-    $scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
-    $scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
-    $scope.onStart = function () {
-        console.log('onStart');
-    };
-    $scope.onRender = function () {
-        console.log('onRender');
-    };
-    $scope.onOpen = function () {
-        console.log('onOpen');
-    };
-    $scope.onClose = function () {
-        console.log('onClose');
-    };
-    $scope.onSet = function () {
-        console.log('onSet');
-    };
-    $scope.onStop = function () {
-        console.log('onStop');
-    };
+    var vm = this;
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 100, // Creates a dropdown of 15 years to control year
+        monthsFull:['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        weekdaysFull: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+        weekdaysShort: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+        today: 'Hoje',
+        clear: 'Limpar',
+        close: 'Fechar',
+        format: 'dd/mm/yyyy'
+    })
+
+    $scope.enviarCadastro = function(){
+        cfpLoadingBar.start();
+        $timeout(function () {
+            cfpLoadingBar.complete();
+            $location.url("/");
+            Materialize.toast('Usuário cadastrado com sucesso!', 4000);
+        }, 3000);
+        delete vm;
+
+    }
+
+    $scope.limpar = function(){
+        vm = {};
+    }
 })
