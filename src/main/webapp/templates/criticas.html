@@ -1,13 +1,13 @@
 <div class="container">
     <div class="section z-depth-5 teal lighten-2 topSeries">
-        <h4 ng-bind="titulo" class="center white-text text-accent-4"></h4>
+        <h4 ng-bind="titulo" class="center titleEffect"></h4>
         <div class="divider"></div>
         </br>
         <div class="container">
             <div class="row">
                 <div ng-repeat="critica in listaCritica">
                     <div class="col s12 m6">
-                    <h6 ng-bind="critica.tituloCritica" class="center white-text text-accent-4"></h6>
+                    <h6 ng-bind="critica.tituloCritica" class="center white-text text-accent-4 titleEffectSub"></h6>
                     <div class="card">
                         <div class="card-image">
                         <img src="{{critica.poster}}" class="imgCritica">

@@ -62,10 +62,10 @@
                                 <div class="divider"></div>
                                 </br>
                                 </br>
-                                <tr ng-repeat="episodio in temporada" >
+                                <tr ng-repeat="episodio in temporada">
                                     <td ng-click="dadosEpisodio(episodio.imdbID)"> {{episodio.Episode}} - {{episodio.Title}} </td>
                                     <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}} </td>
-                                    <td class="center-align"><a href="" ng-click="marcarAssistido($index)" title="Marcar como assistida."> <img id="assistido{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a> </td>
+                                    <td class="center-align"><a href="" ng-click="marcarAssistido($index)" title="Marcar como assistida."> <img id="assistido{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a>                                        </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -74,25 +74,44 @@
             </li>
         </ul>
     </div>
-    <h2 class="header teal-text text-darken-3">Imagens</h2>
+    <h2 class="header teal-text text-darken-3 titleEffect">Imagens</h2>
     <div class="divider"></div>
-    <div carousel duration="5" dist="30">
-        <a class="carousel-item" href=""><img src="img/got/got1.jpg"></a>
-        <a class="carousel-item" href="#two!"><img src="img/got/got2.jpg"></a>
-        <a class="carousel-item" href="#three!"><img src="img/got/got3.jpg"></a>
-        <a class="carousel-item" href="#four!"><img src="img/got/got4.png"></a>
-        <a class="carousel-item" href="#five!"><img src="img/got/got5.jpg"></a>
+    <div slider height='500' transition='400' class="container center-align sliderTamanho">
+        <ul class="slides">
+            <li>
+                <img src="img/got/got1.jpg">
+            </li>
+            <li>
+                <img src="img/got/got2.jpg">
+            </li>
+            <li>
+                <img src="img/got/got3.jpg">
+            </li>
+            <li>
+                <img src="img/got/got4.png">
+            </li>
+            <li>
+                <img src="img/got/got5.jpg">
+            </li>
+        </ul>
     </div>
     <div class="divider"></div>
     <div class="container center-align">
-        <h1 class="teal-text text-darken-3">Vídeos</h1>
-        <div class="video">
-            <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
-        </div>
+        <h1 class="teal-text text-darken-3 titleEffect">Vídeos</h1>
+         <div slider height='300' transition='400' class="container center-align sliderTamanhoVideo">
+             <ul class="slides">
+                <li>
+                <div class="video">
+                    <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                </li>
+             </ul>
+         </div>
+
     </div>
     <div class="divider"></div>
     <div class="container">
-        <h1 class="amber-text text-accent-4">Comentários</h1>
+        <h1 class="amber-text text-accent-4 titleEffect">Comentários</h1>
         <ul class="collection">
             <li class="collection-item avatar" ng-repeat="comentario in listaComentarios">
                 <img src="{{comentario.avatar}}" alt="" class="circle">
@@ -107,37 +126,27 @@
                 <p>{{comentario.comentario}}</p>
             </li>
         </ul>
-            <pagination
-                                class="center-align"
-                                page="1"
-                                page-size="10"
-                                total="qtdComentarios"
-                                show-prev-next="true"
-                                use-simple-prev-next="false"
-                                dots="...."
-                                hide-if-empty="false"
-                                adjacent="2"
-                                scroll-top="false"
-                                pagination-action="changePage(page)" />
+        <pagination class="center-align" page="1" page-size="10" total="qtdComentarios" show-prev-next="true" use-simple-prev-next="false"
+            dots="...." hide-if-empty="false" adjacent="2" scroll-top="false" pagination-action="changePage(page)" />
         <div class="divider"></div>
         <legend class="teal-text text-darken-3">Inserir Comentário</legend>
         </br>
         </br>
         <div class="row">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">mode_edit</i>
-                        <textarea id="comentario" ng-model="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
-                        <label for="comentario">Comentário</label>
-                    </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="comentario" ng-model="comentario" class="materialize-textarea" maxlength="250" data-length="250"></textarea>
+                    <label for="comentario">Comentário</label>
                 </div>
-                <div class="row">
-                    <a class="btn waves-effect waves-light" ng-click="enviarComentario()" ng-disabled="validaComentario()">Enviar
+            </div>
+            <div class="row">
+                <a class="btn waves-effect waves-light" ng-click="enviarComentario()" ng-disabled="validaComentario()">Enviar
                                 <i class="material-icons right">send</i>
                         </a>
-                </div>
+            </div>
         </div>
     </div>
-    </div>
-    </div>
+</div>
+</div>
 </div>

@@ -123,3 +123,21 @@ a#imdb {
     font-family: fontTitle !important;
     font-size: 70pt;
 }
+
+.titleEffectSub{
+     font-family: fontTitle !important;
+     font-size: 30pt;
+}
+
+.imgSerie {
+    height: 500px !important;
+    width: 600px !important;
+}
+
+.sliderTamanho {
+    width:600px !important;
+}
+
+.sliderTamanhoVideo {
+    width: 500px !important;
+}
