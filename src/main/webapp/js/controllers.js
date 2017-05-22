@@ -282,6 +282,7 @@ angular.module('MySeries')
             $location.url("/");
             Materialize.toast('Usuário cadastrado com sucesso!', 4000);
         }, 3000);
+        $scope.formcadastro.$setPristine();
         delete vm;
 
     }

@@ -7,31 +7,34 @@
     <form name="formcadastro">
       <div class="row s8">
         <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate" ng-model="vm.nome" required>
+          <input id="first_name" name="first_name"type="text" class="validate" ng-model="vm.nome" required="true">
           <label for="first_name">Nome</label>
+          <p class="red-text" ng-show="formcadastro.first_name.$dirty && formcadastro.first_name.$error.required">Por favor preencha o nome.</p>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate" ng-model="vm.sobrenome" required>
+          <input id="last_name" name="last_name" type="text" class="validate" ng-model="vm.sobrenome" required="true">
           <label for="last_name">Sobrenome</label>
+          <p class="red-text" ng-show="formcadastro.last_name.$dirty && formcadastro.last_name.$error.required">Por favor preencha o sobrenome.</p>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="disabled" type="text" class="validate" ng-model="vm.endereco" required>
+          <input id="disabled" name="disabled" type="text" class="validate" ng-model="vm.endereco" required="true">
           <label for="disabled">Endereço</label>
+          <p class="red-text" ng-show="formcadastro.disabled.$dirty && formcadastro.disabled.$error.required">Por favor preencha o endereço.</p>
         </div>
       </div>
       <div class="row left-align">
         <div class="col s6">
           <div class="input-field inline">
-            <input id="email" type="email" class="validate" name="email" ng-model="vm.email" required>
+            <input id="email" type="email" class="validate" name="email" ng-model="vm.email" required="true">
             <label for="email" data-error="Email incorreto!" data-success="Ok">Email</label>
           </div>
         </div>
         <div class="input-field col s6">
           <input type="date" class="datepicker" name="datanasc" ng-model="datanasc">
           <label for="inputCreated">Data Nascimento:</label>
-        </div>
+       </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
@@ -42,17 +45,15 @@
       <p class="red-text" ng-show="formcadastro.login.$error.minlength">Login é muito curto, minimo 5 caracteres.</p>
       <div class="row">
         <div class="input-field col s6">
-          <input id="senha" type="password" name="senha" minlength="5" ng-model="vm.senha" class="validate" required>
+          <input id="senha" type="password" name="senha" minlength="5" ng-model="vm.senha" class="validate" required="true">
           <label for="senha">Senha</label>
         </div>
       </div>
       <p class="red-text" ng-show="formcadastro.senha.$error.minlength">Senha muito curta, minimo 5 caracteres.</p>
-      <div class="row">
-        <button class="btn waves-effect waves-light" ng-click="enviarCadastro()" ng-disabled="formcadastro.$invalid && formcadastro.datanasc.$valid">Enviar
-            <i class="material-icons right">done</i></button>
-        <a class="btn waves-effect waves-light" ng-click="limpar()" >Limpar
-            <i class="material-icons right">delete</i></a>
-      </div>
     </form>
+  
+        <button class="btn waves-effect waves-light" ng-click="enviarCadastro()" ng-disabled="formcadastro.$invalid && formcadastro.datanasc.$valid">Enviar<i class="material-icons right">done</i></button>
+        <button class="btn waves-effect waves-light" ng-click="limpar()">Limpar<i class="material-icons right">delete</i></button>
+
   </div>
 </div>

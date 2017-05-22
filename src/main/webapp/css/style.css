@@ -128,6 +128,10 @@ a#imdb {
      font-family: fontTitle !important;
      font-size: 30pt;
 }
+.subtitleEffect{
+     font-family: fontTitle !important;
+     font-size: 30pt;
+}
 
 .imgSerie {
     height: 500px !important;
