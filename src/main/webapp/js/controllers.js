@@ -15,7 +15,7 @@ angular.module('MySeries')
     $scope.titulo = "Top Series";
     $scope.poster = '';
     var nome = $routeParams.nome;
-    var url = "http://www.omdbapi.com/?t=" + nome + "&plot=full";
+    var url = "http://www.omdbapi.com/?apikey=6b754581&t=" + nome + "&plot=full";
     var dadosSeason = [];
     var dados = {};
     $scope.badge = 10;
@@ -25,6 +25,7 @@ angular.module('MySeries')
 
     $('#comentario').trigger('autoresize');
     UrlGetService.getUrl(url).then(function (response) {
+        console.log(response.data);
         dados = response.data;
         $scope.poster = dados.Poster;
         $scope.titulo = dados.Title;
@@ -46,14 +47,16 @@ angular.module('MySeries')
         var assistidos = [];
 
         for (i = 1; i <= totalSeason; i++) {
-            var urlSeason = "http://www.omdbapi.com/?t=" + $routeParams.nome + "&Season=" + i;
+            var urlSeason = "http://www.omdbapi.com/?apikey=6b754581&t=" + $routeParams.nome + "&Season=" + i;
             EpisodesService.getUrl(urlSeason).then(function (response) {
                 episodios.push(response.data.Episodes);
+                episodios.Season = response.data.Season;
                 qtdEpisodios += response.data.Episodes.length;
                 for (i = 0; i < response.data.Episodes.length; i++) {
                     assistidos.push(0);
                 }
             })
+                console.log(episodios);
         }
         $scope.assistidos = assistidos;
         $scope.episodios = episodios;
@@ -105,6 +108,7 @@ angular.module('MySeries')
         } else {
             $scope.assistidos[index] = 0;
         }
+        console.log($scope.assistidos);
     }
 
     //Banco de dados deve ter atributo inputando se o usuário já assistiu ou não todos episódios
@@ -235,7 +239,7 @@ angular.module('MySeries')
 
     $scope.buscarEpisodio = function () {
         id = IdImdbService.getProperty();
-        var url = "http://www.omdbapi.com/?i=" + id;
+        var url = "http://www.omdbapi.com/?apikey=6b754581&i=" + id;
         EpisodesService.getUrl(url).then(function (response) {
             console.log(url);
             console.log(response);

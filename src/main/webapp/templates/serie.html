@@ -65,7 +65,7 @@
                                 <tr ng-repeat="episodio in temporada">
                                     <td ng-click="dadosEpisodio(episodio.imdbID)"> {{episodio.Episode}} - {{episodio.Title}} </td>
                                     <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}} </td>
-                                    <td class="center-align"><a href="" ng-click="marcarAssistido($index)" title="Marcar como assistida."> <img id="assistido{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a>                                        </td>
+                                    <td class="center-align"><a href="" ng-click="marcarAssistido($index)" title="Marcar como assistido."> <img id="assistido{{episodios.Season}}{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a>                                        </td>
                                 </tr>
                             </tbody>
                         </table>
