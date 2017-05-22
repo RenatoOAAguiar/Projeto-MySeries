@@ -157,7 +157,7 @@ angular.module('MySeries')
             avaliaram : []
         }
         $scope.listaComentarios.push(objComentario);
-        $("#comentario").val("");
+        $scope.comentario = null;
         Materialize.toast('Comentário Inserido com sucesso!', 4000);
     }
 
@@ -170,21 +170,32 @@ angular.module('MySeries')
 
 })
 
-.controller('LoginCtrl', function ($scope, $timeout, cfpLoadingBar, $location, $rootScope) {
+.controller('LoginCtrl', function ($scope, $timeout, cfpLoadingBar, $location, $rootScope, UrlGetService) {
     $scope.login = function () {
         cfpLoadingBar.start();
-        $timeout(function () {
-            cfpLoadingBar.complete();
-            $('#userSettings').removeClass('hide');
-            $('#linkLogin').addClass('hide');
-            $('#linkSair').removeClass('hide');
-            $('#modal1').modal('close');
-            $scope.habilitarPerfil();
-            $rootScope.statusLogin = false;
-            //$('.conteudo').addClass('hide');
-        }, 3000);
-        delete $scope.usuario;
-        delete $scope.senha;
+        var json = "http://localhost:9090/Projeto-MySeries/mock/usuarios.json";
+        UrlGetService.getUrl(json).then(function (response) {
+            usuario = response.data;
+            for(i =0; i < usuario.length; i++){
+                if($scope.usuario == usuario[i].login && $scope.senha == usuario[i].senha){
+                    var nome = usuario[i].nome;
+                    $timeout(function () {
+                        cfpLoadingBar.complete();
+                        $('#userSettings').removeClass('hide');
+                        $('#linkLogin').addClass('hide');
+                        $('#linkSair').removeClass('hide');
+                        $('#modal1').modal('close');
+                        $scope.habilitarPerfil();
+                        $rootScope.statusLogin = false;
+                        Materialize.toast('Logado com sucesso! senha bem vindo ' + nome + '!', 4000);
+                    }, 3000);
+                    delete $scope.usuario;
+                    delete $scope.senha;
+                } else {
+                    Materialize.toast('Usuário ou senha incorretos!', 4000);
+                }
+            }
+        })
     }
 
     $scope.validaCampos = function () {

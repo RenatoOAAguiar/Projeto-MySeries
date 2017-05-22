@@ -102,13 +102,13 @@
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="small material-icons">perm_identity</i>
-                                <input id="username" placeholder="Usuário" type="text" ng-model="usuario" class="validate">
+                                <input id="username" placeholder="Usuário" type="text" ng-model="usuario" minlength="5" maxlength="15" class="validate" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="small material-icons">lock_outline</i>
-                                <input id="password" placeholder="Senha" type="password" ng-model="senha" class="validate">
+                                <input id="password" placeholder="Senha" type="password" ng-model="senha" minlength="5" maxlength="20" class="validate" required>
                             </div>
                         </div>
                         <div class="row">

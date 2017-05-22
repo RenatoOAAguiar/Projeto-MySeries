@@ -45,7 +45,7 @@
       <p class="red-text" ng-show="formcadastro.login.$error.minlength">Login é muito curto, minimo 5 caracteres.</p>
       <div class="row">
         <div class="input-field col s6">
-          <input id="senha" type="password" name="senha" minlength="5" ng-model="cadastro.senha" class="validate" required>
+          <input id="senha" type="password" name="senha" minlength="5" maxlength="20" ng-model="cadastro.senha" class="validate" required>
           <label for="senha"><span class="red-text">*</span> Senha</label>
         </div>
       </div>
