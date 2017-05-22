@@ -45,12 +45,13 @@ angular.module('MySeries')
         var episodios = [];
         var qtdEpisodios = 0;
         var assistidos = [];
+        $scope.indexAtual = -1;
 
         for (i = 1; i <= totalSeason; i++) {
             var urlSeason = "http://www.omdbapi.com/?apikey=6b754581&t=" + $routeParams.nome + "&Season=" + i;
             EpisodesService.getUrl(urlSeason).then(function (response) {
+                response.data.Episodes.Season = response.data.Season;
                 episodios.push(response.data.Episodes);
-                episodios.Season = response.data.Season;
                 qtdEpisodios += response.data.Episodes.length;
                 for (i = 0; i < response.data.Episodes.length; i++) {
                     assistidos.push(0);
@@ -102,13 +103,12 @@ angular.module('MySeries')
     }
 
     $scope.marcarAssistido = function (index) {
-        var elemento = $('#assistido' + index);
         if ($scope.assistidos[index] == 0) {
             $scope.assistidos[index] = 1;
         } else {
             $scope.assistidos[index] = 0;
         }
-        console.log($scope.assistidos);
+        console.log($scope.assistidos[index]);
     }
 
     //Banco de dados deve ter atributo inputando se o usuário já assistiu ou não todos episódios

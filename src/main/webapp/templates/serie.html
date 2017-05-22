@@ -47,7 +47,7 @@
             <li>
                 <div class="collapsible-header"><i class="material-icons">view_list</i>Episódios</div>
                 <div class="collapsible-body teal lighten-5 fbold">
-                    <div ng-repeat="temporada in episodios">
+                    <div ng-repeat="temporada in episodios | orderBy: 'Season'">
                         <table class="bordered highlight responsive-table">
                             <thead>
                                 <th>Episódio</th>
@@ -64,8 +64,8 @@
                                 </br>
                                 <tr ng-repeat="episodio in temporada">
                                     <td ng-click="dadosEpisodio(episodio.imdbID)"> {{episodio.Episode}} - {{episodio.Title}} </td>
-                                    <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}} </td>
-                                    <td class="center-align"><a href="" ng-click="marcarAssistido($index)" title="Marcar como assistido."> <img id="assistido{{episodios.Season}}{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a>                                        </td>
+                                    <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}}</td>
+                                    <td class="center-align"><a href="" ng-click="marcarAssistido(indexAtual)" title="Marcar como assistido."> <img id="assistido{{temporada.Season}}{{$index}}" src="{{assistidos[$index] == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a>                                        </td>
                                 </tr>
                             </tbody>
                         </table>
