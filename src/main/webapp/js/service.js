@@ -28,4 +28,17 @@ angular.module('MySeries')
                 idImdb = value;
             }
         }; 
+})
+
+.service('ListaEpisodiosService', function() {
+  var listEp = [];
+
+        return {
+            getProperty: function () {
+                return listEp;
+            },
+            setProperty: function(value) {
+                listEp.push(value);
+            }
+        }; 
 });

@@ -25,7 +25,6 @@ angular.module('MySeries')
 
     $('#comentario').trigger('autoresize');
     UrlGetService.getUrl(url).then(function (response) {
-        console.log(response.data);
         dados = response.data;
         $scope.poster = dados.Poster;
         $scope.titulo = dados.Title;
@@ -43,7 +42,7 @@ angular.module('MySeries')
         $scope.qtdVotos = dados.imdbVotes;
         $scope.id = dados.imdbID;
         var episodios = [];
-        var qtdEpisodios = 0;
+        $scope.qtdEpisodios = 0;
         var assistidos = [];
         $scope.indexAtual = -1;
 
@@ -51,13 +50,13 @@ angular.module('MySeries')
             var urlSeason = "http://www.omdbapi.com/?apikey=6b754581&t=" + $routeParams.nome + "&Season=" + i;
             EpisodesService.getUrl(urlSeason).then(function (response) {
                 response.data.Episodes.Season = response.data.Season;
-                episodios.push(response.data.Episodes);
-                qtdEpisodios += response.data.Episodes.length;
+                var tempArray = [];
                 for (i = 0; i < response.data.Episodes.length; i++) {
-                    assistidos.push(0);
+                    response.data.Episodes[i].assistido = 0; 
                 }
+                episodios.push(response.data.Episodes);
+                $scope.qtdEpisodios += response.data.Episodes.length;
             })
-                console.log(episodios);
         }
         $scope.assistidos = assistidos;
         $scope.episodios = episodios;
@@ -102,23 +101,32 @@ angular.module('MySeries')
         IdImdbService.setProperty(id);
     }
 
-    $scope.marcarAssistido = function (index) {
-        if ($scope.assistidos[index] == 0) {
-            $scope.assistidos[index] = 1;
+    $scope.marcarAssistido = function (index, temporada) {
+        if (temporada[index].assistido == 0) {
+            temporada[index].assistido = 1;
         } else {
-            $scope.assistidos[index] = 0;
+            temporada[index].assistido = 0;
         }
-        console.log($scope.assistidos[index]);
     }
 
     //Banco de dados deve ter atributo inputando se o usuário já assistiu ou não todos episódios
     $scope.marcarDesmarcarTodos = function () {
+        var that = this;
         var valor = $('#marcarTodos').val();
-        for (i = 0; i < $scope.assistidos.length; i++) {
-            if (valor == 0) {
-                $scope.assistidos[i] = 1;
-            } else {
-                $scope.assistidos[i] = 0;
+        if(valor == ''){
+            valor = 0;
+        }
+        for (i = 0; i < this.episodios.length; i++) {
+            for(y = 0; y < this.episodios[i].length; y++){
+                var assit = this.episodios[i][y].assistido;
+                if (assit == 0) {
+                    this.episodios[i][y].assistido = 1;
+                    $('#marcarTodos').val(1);
+                    valor = 1;
+                } else {
+                    this.episodios[i][y].assistido = 0;
+                    $('#marcarTodos').val(0);
+                }
             }
         }
         if (valor == 0) {
@@ -241,8 +249,6 @@ angular.module('MySeries')
         id = IdImdbService.getProperty();
         var url = "http://www.omdbapi.com/?apikey=6b754581&i=" + id;
         EpisodesService.getUrl(url).then(function (response) {
-            console.log(url);
-            console.log(response);
             $('#modaldetalhe').modal('open')
             $scope.tituloEpisodio = response.data.Title;
             $scope.lancadoEpisodio = response.data.Released;
@@ -261,7 +267,7 @@ angular.module('MySeries')
 
 .controller('CadastroCtrl', function ($scope, $timeout, cfpLoadingBar, $location, $rootScope){
     $scope.titulo = "Cadastro";
-    var vm = this;
+    $scope.cadastro = {};
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 100, // Creates a dropdown of 15 years to control year
@@ -286,8 +292,11 @@ angular.module('MySeries')
         delete vm;
 
     }
+    var cad = angular.copy($scope.cadastro);
 
     $scope.limpar = function(){
-        vm = {};
+        $scope.cadastro = angular.copy(cad);
+        $scope.formcadastro.$setPristine();
+        $('.datepicker').pickadate('clear');
     }
 })
