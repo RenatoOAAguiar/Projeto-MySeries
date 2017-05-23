@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-image">
                         <img src="{{critica.poster}}" class="imgCritica">
-                        <a class="btn-floating halfway-fab waves-effect waves-light red pulse" ng-click="abrirCritica(critica.idCritica)"><i class="material-icons">subtitles</i></a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red pulse" data-target='modalCritica' modal ng-click="abrirCritica(critica.idCritica)"><i class="material-icons">subtitles</i></a>
                         </div>
                         <div class="card-content">
                             <p>Temporada: {{critica.temporada}}</p>    
@@ -35,5 +35,32 @@
                             scroll-top="false"
                             pagination-action="changePage(page)" />
         </div>
+    </div>
+</div>
+
+<!-- Modal Critica -->
+<div id="modalCritica" class="modal modal modal-fixed-footer teal lighten-5" style="width: 1000px; height: 1000px">
+    <div class="modal-content">
+        <div class="container center-align">
+            <h4 class="amber-text text-accent-4 titleEffect">Crítica</h4>
+        </div>
+        <div class="divider"></div>
+        </br>
+        <div class="row">
+            <img materialboxed class="materialboxed" width="250" src="{{descricao.poster}}">
+        </div>
+        <div class="row">
+            <span class="titulosDescritivos">Nota: {{descricao.nota}}</span>
+        </div>
+        <div class="row">
+            <p class="titulosDescritivos">Usuário: {{descricao.usuario}}</p>
+        </div>
+            <div class="row container">
+                <span class="justified-align flow-text"><h6 class="titulosDescritivos"> Texto: </h6>{{descricao.texto}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="" ng-click="fecharModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
     </div>
 </div>

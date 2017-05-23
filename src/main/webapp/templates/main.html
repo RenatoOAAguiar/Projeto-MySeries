@@ -6,35 +6,22 @@
 
 <div class="container">
     <div class="section z-depth-5 teal lighten-2 topSeries">
-        <h4 ng-bind="titulo" class="center titleEffect"></h4>
-        <div class="divider"></div>
-        <div class="container">
-            <div carousel duration="500" dist="50" >
-                <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="Game of Thrones" href="#/serie/Game of Thrones"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjEwOTcxODc2Ml5BMl5BanBnXkFtZTgwMjMyMDk2MTI@._V1_SX300.jpg">
-                </a>
-                <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="Lost" href="#/serie/Lost"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NzMyMzU1MV5BMl5BanBnXkFtZTcwNjc1ODUwMg@@._V1_SX300.jpg">
-                </a>
-                <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="Band of Brothers" href="#/serie/Band of Brothers"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTI3ODc2ODc0M15BMl5BanBnXkFtZTYwMjgzNjc3._V1_SX300.jpg">
-                </a>
-                <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="13 Reasons Why" href="#/serie/13 Reasons Why"><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BYTFmNzRlNWYtMmFmNi00ZTFiLWJhODgtOGM5ODQ5NTgxZWUwL2ltYWdlXkEyXkFqcGdeQXVyMTExNDQ2MTI@._V1_SX300.jpg">
-                </a>
-            </div>
-        </div>
         <div ng-repeat="listaSerie in listaSeries" >
                 <h4 ng-bind="listaSerie.titulo" class="center subtitleEffect"></h4>
                 <div class="divider"></div>
+                <div class="divider"></div>
                 <div class="container">
                     <div carousel duration="500" dist="50">
-                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie1}}" href="#/serie/{{listaSerie.serie1}} "><img src="{{listaSerie.img1}}">
-                    </a>
-                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie2}}" href="#/serie/{{listaSerie.serie2}}"><img src="{{listaSerie.img2}}">
-                    </a>
-                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie3}}" href="#/serie/{{listaSerie.serie3}}"><img src="{{listaSerie.img3}}">
-                    </a>
-                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie4}}" href="#/serie/{{listaSerie.serie4}}"><img src="{{listaSerie.img4}}">
-                    </a>
-                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie5}}" href="#/serie/{{listaSerie.serie5}}"><img src="{{listaSerie.img5}}">
-                    </a>
+                        <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie1}}" href="#/serie/{{listaSerie.serie1}} "><img src="{{listaSerie.img1}}">
+                        </a>
+                        <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie2}}" href="#/serie/{{listaSerie.serie2}}"><img src="{{listaSerie.img2}}">
+                        </a>
+                        <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie3}}" href="#/serie/{{listaSerie.serie3}}"><img src="{{listaSerie.img3}}">
+                        </a>
+                        <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie4}}" href="#/serie/{{listaSerie.serie4}}"><img src="{{listaSerie.img4}}">
+                        </a>
+                        <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie5}}" href="#/serie/{{listaSerie.serie5}}"><img src="{{listaSerie.img5}}">
+                        </a>
                     </div>
                 </div>  
         </div>

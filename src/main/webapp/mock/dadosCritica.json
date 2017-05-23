@@ -1,38 +1,45 @@
-[
-{
-    "idCritica": 1,
-    "tituloCritica" : "The Walking Dead",
-    "poster" : "https://images-na.ssl-images-amazon.com/images/M/MV5BMTczMDk1NDYyMV5BMl5BanBnXkFtZTgwNjE1NDU4MDI@._V1_SX300.jpg",
-    "resumo" : "The Walking Dead The Walking Dead The Walking Dead",
-    "temporada" : 7, 
-    "nota" : "4.5/10"
-},
+[{
+        "idCritica": 1,
+        "usuario": "Alberto",
+        "tituloCritica": "The Walking Dead",
+        "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTczMDk1NDYyMV5BMl5BanBnXkFtZTgwNjE1NDU4MDI@._V1_SX300.jpg",
+        "resumo": "The Walking Dead The Walking Dead The Walking Dead",
+        "temporada": 7,
+        "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante lectus, blandit ut erat a, dapibus fermentum metus. Integer vehicula erat rhoncus velit commodo elementum. Vestibulum id diam felis. Nam vitae felis ex. Nunc sit amet bibendum nisi. Maecenas rutrum faucibus turpis a pulvinar. Praesent finibus luctus consectetur. Sed sed varius magna. Quisque lacinia eleifend ante id porttitor. Proin metus urna, sodales ut pulvinar pellentesque, bibendum at ipsum. Integer tempus, nunc et pellentesque fermentum, nunc risus tincidunt arcu, vel tincidunt eros ipsum ullamcorper sapien. Sed non diam dapibus, lobortis tortor eu, gravida elit. Integer ornare arcu ac convallis bibendum. Pellentesque cursus nibh ex, sed lobortis eros facilisis sit amet. Ut eu elit turpis. Phasellus commodo ut risus ut ullamcorper. Donec consectetur elit id magna malesuada ullamcorper. Vestibulum sodales bibendum leo, ac placerat magna sollicitudin ac. Mauris aliquam sollicitudin dui, at rutrum metus ullamcorper vitae. Integer nec pharetra risus. In sodales quis est et ultricies. Quisque iaculis sodales sem. Mauris nec neque eget lacus ultricies bibendum. Sed interdum imperdiet eros, ac semper orci.Vivamus sit amet ipsum vitae metus placerat condimentum. Ut aliquet quam ut porttitor blandit. Maecenas ut dapibus metus. Cras turpis ex, sagittis a tristique id, fringilla convallis erat. Mauris vel pretium dui. Phasellus efficitur quis orci auctor viverra. Suspendisse semper tempus nisi, maximus lobortis libero tincidunt non. Duis vitae orci vel tellus ultrices bibendum sit amet et nisi. Mauris quis pulvinar nisl, nec commodo odio. Curabitur vulputate enim a ligula mattis congue. Nunc viverra ipsum et quam gravida, et vehicula ipsum ullamcorper. Praesent pharetra tortor sit amet erat suscipit, vitae iaculis felis euismod. Sed orci nisl, aliquam sed massa vitae, eleifend iaculis tellus. Sed bibendum, metus vel molestie maximus, nisl nulla viverra mauris, a cursus dui purus non nunc.Donec in commodo justo. Morbi malesuada nisl ligula, vitae venenatis erat semper posuere. Vestibulum ultrices dolor quis nisi porta tempus. Vestibulum eget viverra nisl. Praesent in molestie neque, vel aliquet elit. Phasellus ut consectetur massa. Ut sem urna, rutrum a finibus sit amet, suscipit a sem. Etiam eget facilisis tellus. Aliquam erat volutpat. Nulla facilisi. Suspendisse nec nisi nulla. Aenean id orci sodales, rutrum turpis ut, ornare nibh. Maecenas elementum ullamcorper pretium.Fusce dolor dui, tristique et venenatis elementum, sodales eu tellus. Mauris eu turpis sed lectus luctus hendrerit pulvinar vel justo. In hac habitasse platea dictumst. Duis bibendum nunc sit amet nunc tincidunt pharetra. Morbi a dignissim nisl, at suscipit diam. Cras nec elementum turpis. Quisque varius ex non felis tempus suscipit. Nam ut velit eu risus placerat vehicula nec eget nulla.",
+        "nota": "4.5/10"
+    },
 
-{
-    "idCritica": 2,
-    "tituloCritica" : "Billions",
-    "poster" : "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ5MzE3NzkwMV5BMl5BanBnXkFtZTgwMDEzNDA5MDI@._V1_SX300.jpg",
-    "resumo" : "Billions Billions Billions Billions Billions Billions Billions Billions Billions Billions Billions ",
-    "temporada" : 2,
-    "nota" : "9.0/10"
-},
+    {
+        "idCritica": 2,
+        "tituloCritica": "Billions",
+        "usuario": "Cassia",
+        "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ5MzE3NzkwMV5BMl5BanBnXkFtZTgwMDEzNDA5MDI@._V1_SX300.jpg",
+        "resumo": "Billions Billions Billions Billions Billions Billions Billions Billions Billions Billions Billions ",
+        "temporada": 2,
+        "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante lectus, blandit ut erat a, dapibus fermentum metus. Integer vehicula erat rhoncus velit commodo elementum. Vestibulum id diam felis. Nam vitae felis ex. Nunc sit amet bibendum nisi. Maecenas rutrum faucibus turpis a pulvinar. Praesent finibus luctus consectetur. Sed sed varius magna. Quisque lacinia eleifend ante id porttitor. Proin metus urna, sodales ut pulvinar pellentesque, bibendum at ipsum. Integer tempus, nunc et pellentesque fermentum, nunc risus tincidunt arcu, vel tincidunt eros ipsum ullamcorper sapien. Sed non diam dapibus, lobortis tortor eu, gravida elit. Integer ornare arcu ac convallis bibendum. Pellentesque cursus nibh ex, sed lobortis eros facilisis sit amet. Ut eu elit turpis. Phasellus commodo ut risus ut ullamcorper. Donec consectetur elit id magna malesuada ullamcorper. Vestibulum sodales bibendum leo, ac placerat magna sollicitudin ac. Mauris aliquam sollicitudin dui, at rutrum metus ullamcorper vitae. Integer nec pharetra risus. In sodales quis est et ultricies. Quisque iaculis sodales sem. Mauris nec neque eget lacus ultricies bibendum. Sed interdum imperdiet eros, ac semper orci.Vivamus sit amet ipsum vitae metus placerat condimentum. Ut aliquet quam ut porttitor blandit. Maecenas ut dapibus metus. Cras turpis ex, sagittis a tristique id, fringilla convallis erat. Mauris vel pretium dui. Phasellus efficitur quis orci auctor viverra. Suspendisse semper tempus nisi, maximus lobortis libero tincidunt non. Duis vitae orci vel tellus ultrices bibendum sit amet et nisi. Mauris quis pulvinar nisl, nec commodo odio. Curabitur vulputate enim a ligula mattis congue. Nunc viverra ipsum et quam gravida, et vehicula ipsum ullamcorper. Praesent pharetra tortor sit amet erat suscipit, vitae iaculis felis euismod. Sed orci nisl, aliquam sed massa vitae, eleifend iaculis tellus. Sed bibendum, metus vel molestie maximus, nisl nulla viverra mauris, a cursus dui purus non nunc.Donec in commodo justo. Morbi malesuada nisl ligula, vitae venenatis erat semper posuere. Vestibulum ultrices dolor quis nisi porta tempus. Vestibulum eget viverra nisl. Praesent in molestie neque, vel aliquet elit. Phasellus ut consectetur massa. Ut sem urna, rutrum a finibus sit amet, suscipit a sem. Etiam eget facilisis tellus. Aliquam erat volutpat. Nulla facilisi. Suspendisse nec nisi nulla. Aenean id orci sodales, rutrum turpis ut, ornare nibh. Maecenas elementum ullamcorper pretium.Fusce dolor dui, tristique et venenatis elementum, sodales eu tellus. Mauris eu turpis sed lectus luctus hendrerit pulvinar vel justo. In hac habitasse platea dictumst. Duis bibendum nunc sit amet nunc tincidunt pharetra. Morbi a dignissim nisl, at suscipit diam. Cras nec elementum turpis. Quisque varius ex non felis tempus suscipit. Nam ut velit eu risus placerat vehicula nec eget nulla.",
+        "nota": "9.0/10"
+    },
 
-{
-    "idCritica": 3,
-    "tituloCritica" : "The Last Kingdom",
-    "poster" : "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE1MzYzNjk3OF5BMl5BanBnXkFtZTgwMzk0MzYwNzE@._V1_SX300.jpg",
-    "resumo" : "The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom",
-    "temporada" : 2,
-    "nota" : "8.5/10"
-},
+    {
+        "idCritica": 3,
+        "usuario": "João",
+        "tituloCritica": "The Last Kingdom",
+        "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE1MzYzNjk3OF5BMl5BanBnXkFtZTgwMzk0MzYwNzE@._V1_SX300.jpg",
+        "resumo": "The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom The Last Kingdom",
+        "temporada": 2,
+        "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante lectus, blandit ut erat a, dapibus fermentum metus. Integer vehicula erat rhoncus velit commodo elementum. Vestibulum id diam felis. Nam vitae felis ex. Nunc sit amet bibendum nisi. Maecenas rutrum faucibus turpis a pulvinar. Praesent finibus luctus consectetur. Sed sed varius magna. Quisque lacinia eleifend ante id porttitor. Proin metus urna, sodales ut pulvinar pellentesque, bibendum at ipsum. Integer tempus, nunc et pellentesque fermentum, nunc risus tincidunt arcu, vel tincidunt eros ipsum ullamcorper sapien. Sed non diam dapibus, lobortis tortor eu, gravida elit. Integer ornare arcu ac convallis bibendum. Pellentesque cursus nibh ex, sed lobortis eros facilisis sit amet. Ut eu elit turpis. Phasellus commodo ut risus ut ullamcorper. Donec consectetur elit id magna malesuada ullamcorper. Vestibulum sodales bibendum leo, ac placerat magna sollicitudin ac. Mauris aliquam sollicitudin dui, at rutrum metus ullamcorper vitae. Integer nec pharetra risus. In sodales quis est et ultricies. Quisque iaculis sodales sem. Mauris nec neque eget lacus ultricies bibendum. Sed interdum imperdiet eros, ac semper orci.Vivamus sit amet ipsum vitae metus placerat condimentum. Ut aliquet quam ut porttitor blandit. Maecenas ut dapibus metus. Cras turpis ex, sagittis a tristique id, fringilla convallis erat. Mauris vel pretium dui. Phasellus efficitur quis orci auctor viverra. Suspendisse semper tempus nisi, maximus lobortis libero tincidunt non. Duis vitae orci vel tellus ultrices bibendum sit amet et nisi. Mauris quis pulvinar nisl, nec commodo odio. Curabitur vulputate enim a ligula mattis congue. Nunc viverra ipsum et quam gravida, et vehicula ipsum ullamcorper. Praesent pharetra tortor sit amet erat suscipit, vitae iaculis felis euismod. Sed orci nisl, aliquam sed massa vitae, eleifend iaculis tellus. Sed bibendum, metus vel molestie maximus, nisl nulla viverra mauris, a cursus dui purus non nunc.Donec in commodo justo. Morbi malesuada nisl ligula, vitae venenatis erat semper posuere. Vestibulum ultrices dolor quis nisi porta tempus. Vestibulum eget viverra nisl. Praesent in molestie neque, vel aliquet elit. Phasellus ut consectetur massa. Ut sem urna, rutrum a finibus sit amet, suscipit a sem. Etiam eget facilisis tellus. Aliquam erat volutpat. Nulla facilisi. Suspendisse nec nisi nulla. Aenean id orci sodales, rutrum turpis ut, ornare nibh. Maecenas elementum ullamcorper pretium.Fusce dolor dui, tristique et venenatis elementum, sodales eu tellus. Mauris eu turpis sed lectus luctus hendrerit pulvinar vel justo. In hac habitasse platea dictumst. Duis bibendum nunc sit amet nunc tincidunt pharetra. Morbi a dignissim nisl, at suscipit diam. Cras nec elementum turpis. Quisque varius ex non felis tempus suscipit. Nam ut velit eu risus placerat vehicula nec eget nulla.",
+        "nota": "8.5/10"
+    },
 
-{
-    "idCritica": 4,
-    "tituloCritica" : "Demolidor",
-    "poster" : "https://images-na.ssl-images-amazon.com/images/M/MV5BNzUwMDEyMTIxM15BMl5BanBnXkFtZTgwNDU3OTYyODE@._V1_SX300.jpg",
-    "resumo" : "Matt Murdock, with his other senses superhumanly enhanced, fights crime as a blind lawyer by day, and vigilante by night.",
-    "temporada" : 2,
-    "nota" : "8.5/10"
-}
+    {
+        "idCritica": 4,
+        "usuario": "Maria",
+        "tituloCritica": "Demolidor",
+        "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BNzUwMDEyMTIxM15BMl5BanBnXkFtZTgwNDU3OTYyODE@._V1_SX300.jpg",
+        "resumo": "Matt Murdock, with his other senses superhumanly enhanced, fights crime as a blind lawyer by day, and vigilante by night.",
+        "temporada": 2,
+        "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante lectus, blandit ut erat a, dapibus fermentum metus. Integer vehicula erat rhoncus velit commodo elementum. Vestibulum id diam felis. Nam vitae felis ex. Nunc sit amet bibendum nisi. Maecenas rutrum faucibus turpis a pulvinar. Praesent finibus luctus consectetur. Sed sed varius magna. Quisque lacinia eleifend ante id porttitor. Proin metus urna, sodales ut pulvinar pellentesque, bibendum at ipsum. Integer tempus, nunc et pellentesque fermentum, nunc risus tincidunt arcu, vel tincidunt eros ipsum ullamcorper sapien. Sed non diam dapibus, lobortis tortor eu, gravida elit. Integer ornare arcu ac convallis bibendum. Pellentesque cursus nibh ex, sed lobortis eros facilisis sit amet. Ut eu elit turpis. Phasellus commodo ut risus ut ullamcorper. Donec consectetur elit id magna malesuada ullamcorper. Vestibulum sodales bibendum leo, ac placerat magna sollicitudin ac. Mauris aliquam sollicitudin dui, at rutrum metus ullamcorper vitae. Integer nec pharetra risus. In sodales quis est et ultricies. Quisque iaculis sodales sem. Mauris nec neque eget lacus ultricies bibendum. Sed interdum imperdiet eros, ac semper orci.Vivamus sit amet ipsum vitae metus placerat condimentum. Ut aliquet quam ut porttitor blandit. Maecenas ut dapibus metus. Cras turpis ex, sagittis a tristique id, fringilla convallis erat. Mauris vel pretium dui. Phasellus efficitur quis orci auctor viverra. Suspendisse semper tempus nisi, maximus lobortis libero tincidunt non. Duis vitae orci vel tellus ultrices bibendum sit amet et nisi. Mauris quis pulvinar nisl, nec commodo odio. Curabitur vulputate enim a ligula mattis congue. Nunc viverra ipsum et quam gravida, et vehicula ipsum ullamcorper. Praesent pharetra tortor sit amet erat suscipit, vitae iaculis felis euismod. Sed orci nisl, aliquam sed massa vitae, eleifend iaculis tellus. Sed bibendum, metus vel molestie maximus, nisl nulla viverra mauris, a cursus dui purus non nunc.Donec in commodo justo. Morbi malesuada nisl ligula, vitae venenatis erat semper posuere. Vestibulum ultrices dolor quis nisi porta tempus. Vestibulum eget viverra nisl. Praesent in molestie neque, vel aliquet elit. Phasellus ut consectetur massa. Ut sem urna, rutrum a finibus sit amet, suscipit a sem. Etiam eget facilisis tellus. Aliquam erat volutpat. Nulla facilisi. Suspendisse nec nisi nulla. Aenean id orci sodales, rutrum turpis ut, ornare nibh. Maecenas elementum ullamcorper pretium.Fusce dolor dui, tristique et venenatis elementum, sodales eu tellus. Mauris eu turpis sed lectus luctus hendrerit pulvinar vel justo. In hac habitasse platea dictumst. Duis bibendum nunc sit amet nunc tincidunt pharetra. Morbi a dignissim nisl, at suscipit diam. Cras nec elementum turpis. Quisque varius ex non felis tempus suscipit. Nam ut velit eu risus placerat vehicula nec eget nulla.",
+        "nota": "8.5/10"
+    }
 
 ]

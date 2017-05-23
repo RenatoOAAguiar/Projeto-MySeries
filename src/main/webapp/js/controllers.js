@@ -6,6 +6,7 @@ angular.module('MySeries')
         $('#userSettings').addClass('hide');
         $('#linkLogin').removeClass('hide');
         $('#linkSair').addClass('hide');
+        $('#tabMinhasSeries').addClass('hide');
         $location.url("/");
         Materialize.toast('Logoff efetuado com sucesso!', 4000);
     }
@@ -121,19 +122,17 @@ angular.module('MySeries')
                 var assit = this.episodios[i][y].assistido;
                 if (assit == 0) {
                     this.episodios[i][y].assistido = 1;
-                    $('#marcarTodos').val(1);
                     valor = 1;
                 } else {
                     this.episodios[i][y].assistido = 0;
-                    $('#marcarTodos').val(0);
                 }
             }
         }
         if (valor == 0) {
-            $('#marcarTodos').attr('src', $scope.marcar);
+            $('#marcarTodos').attr('src', $scope.desmarcar);
             $('#marcarTodos').val(1);
         } else {
-            $('#marcarTodos').attr('src', $scope.desmarcar);
+            $('#marcarTodos').attr('src', $scope.marcar);
             $('#marcarTodos').val(0);
         }
     }
@@ -185,6 +184,7 @@ angular.module('MySeries')
                         $('#linkLogin').addClass('hide');
                         $('#linkSair').removeClass('hide');
                         $('#modal1').modal('close');
+                        $('#tabMinhasSeries').removeClass('hide');
                         $scope.habilitarPerfil();
                         $rootScope.statusLogin = false;
                         Materialize.toast('Logado com sucesso! senha bem vindo ' + nome + '!', 4000);
@@ -211,32 +211,12 @@ angular.module('MySeries')
     }
 })
 
-.controller('PrincipalCtrl', function ($scope, $compile) {
+.controller('PrincipalCtrl', function ($scope, $compile, UrlGetService) {
     $scope.titulo = "Top Series";
-        $scope.listaSeries =[
-    {titulo: "Series de 8.9 até 8.0",
-        serie1:"Black Mirror", img1:"https://images-na.ssl-images-amazon.com/images/M/MV5BMTk5NTk1Mzg3Ml5BMl5BanBnXkFtZTcwNDAyNzY3OA@@._V1._CR25,3,1010,1343_SY1000_CR0,0,752,1000_AL_.jpg",
-        serie2:"Vikings", img2:"https://images-na.ssl-images-amazon.com/images/M/MV5BOTEzNzI3MDc0N15BMl5BanBnXkFtZTgwMzk1MzA5NzE@._V1_.jpg",
-        serie3:"Mr. Robot", img3:"https://images-na.ssl-images-amazon.com/images/M/MV5BMTYzMDE2MzI4MF5BMl5BanBnXkFtZTgwNTkxODgxOTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
-        serie4:"South Park", img4:"https://images-na.ssl-images-amazon.com/images/M/MV5BZWY4ODY3ZTAtODc2NC00ZDQ5LWE2ZTItZWYzOWVhNjU4OTk0XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
-        serie5:"Shingeki no kyojin", img5:"https://images-na.ssl-images-amazon.com/images/M/MV5BMTY5ODk1NzUyMl5BMl5BanBnXkFtZTgwMjUyNzEyMTE@._V1_.jpg"
-    },
-    {titulo: "Series de 7.9 até 7.0",
-        serie1:"Scream Queens ", img1:"https://images-na.ssl-images-amazon.com/images/M/MV5BMjMzNTMyMjEwMV5BMl5BanBnXkFtZTgwMjIxNjE1OTE@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
-        serie2:"Once Upon a Time", img2:"https://images-na.ssl-images-amazon.com/images/M/MV5BNmVjNGRlM2UtNTc3Zi00NDliLTg1NzItZjY1ZDFjNDI0MWFmXkEyXkFqcGdeQXVyMzAzNTY3MDM@._V1_.jpg",
-        serie3:"Scream", img3:"https://images-na.ssl-images-amazon.com/images/M/MV5BMjQ0MDM1MzU2NV5BMl5BanBnXkFtZTgwMjQ5OTkzODE@._V1_SX300.jpg",
-        serie4:"Luke Cage", img4:"https://images-na.ssl-images-amazon.com/images/M/MV5BMTcyMzc1MjI5MF5BMl5BanBnXkFtZTgwMzE4ODY2OTE@._V1_SY1000_CR0,0,704,1000_AL_.jpg",
-        serie5:"Iron Fist", img5:"https://images-na.ssl-images-amazon.com/images/M/MV5BMjI5Mjg1NDcyOV5BMl5BanBnXkFtZTgwMjAxOTQ5MTI@._V1_SX300.jpg"
-    },
-    {titulo: "Series abaixo 7.0",
-        serie1:"Supergirl", img1:"https://images-na.ssl-images-amazon.com/images/M/MV5BMjM5Mjg2MDAxMl5BMl5BanBnXkFtZTgwMjE0NDg4OTE@._V1_SY1000_CR0,0,667,1000_AL_.jpg",
-        serie2:"Terra Nova", img2:"https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxNTQ4OTQ2OV5BMl5BanBnXkFtZTcwMzA3OTQzNg@@._V1_.jpg",
-        serie3:"Revolution", img3:"https://images-na.ssl-images-amazon.com/images/M/MV5BMjI5ODk1NzA2OV5BMl5BanBnXkFtZTgwNzM3NjQ0MDE@._V1_.jpg",
-        serie4:"Under the Dome", img4:"https://images-na.ssl-images-amazon.com/images/M/MV5BMjA3NDk0NzM1MF5BMl5BanBnXkFtZTcwOTYxMTk3OQ@@._V1_.jpg",
-        serie5:"V", img5:"https://images-na.ssl-images-amazon.com/images/M/MV5BMTYxNTQ5NTg2Ml5BMl5BanBnXkFtZTcwODUyNTY5Mg@@._V1_.jpg"
-    }
-];
-    $('#comentario').trigger('autoresize');
+    var json = "http://localhost:9090/Projeto-MySeries/mock/listaSeries.json";
+    UrlGetService.getUrl(json).then(function (response) {
+        $scope.listaSeries = response.data;
+    });
     window.setInterval(function () {
         $('.carousel').carousel('next')
     }, 5000);
@@ -249,6 +229,22 @@ angular.module('MySeries')
         $scope.listaCritica = response.data;
         $scope.qtdCriticas = response.data.length;
     });
+
+    $scope.abrirCritica = function(id){
+        var json = "http://localhost:9090/Projeto-MySeries/mock/dadosCritica.json";
+        UrlGetService.getUrl(json).then(function (response) {
+            for(i = 0; i < response.data.length; i++){
+                if(response.data[i].idCritica == id){
+                    $scope.descricao = response.data[i];
+                    $('#modalCritica').modal('open');
+                }
+            }
+        });
+    }
+
+    $scope.fecharModal = function () {
+        $('#modalCritica').modal('close');
+    }
 })
 
 .controller('DetalheSerieCtrl', function ($scope, $rootScope, EpisodesService, IdImdbService) {
