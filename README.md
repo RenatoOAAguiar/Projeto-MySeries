@@ -2,15 +2,13 @@
 
 Alunos: Renato Oliveira, Matheus França e Rogério
 
-## Para rodar o Porjeto-MySeries.
-
-### Para fazer clone do projeto.
+### Para fazer clone do Projeto-MySeries.
 
 `git clone https://github.com/RenatoOAAguiar/Projeto-MySeries`
 
 ### Para rodar com o Tomcat.
 
-Basta abir o arquivo "Iniciar Projeto". 
+Basta clicar em "Iniciar Projeto". 
 
 ## Para acessar a projeto.
 
