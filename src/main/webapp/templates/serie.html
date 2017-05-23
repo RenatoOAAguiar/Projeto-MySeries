@@ -1,6 +1,6 @@
 <div class="bgColor">
     <div class="col s12 m7 recuoEsquerdo">
-        <h2 class="header teal-text text-darken-3">{{titulo}}</h2>
+        <h2 class="header teal-text text-darken-3 titleEffect">{{titulo}}</h2>
         <div class="card horizontal bordaCard">
             <div class="card-image">
                 <img class="hoverable" src="{{poster}}">
@@ -65,7 +65,10 @@
                                 <tr ng-repeat="episodio in temporada">
                                     <td ng-click="dadosEpisodio(episodio.imdbID)"> {{episodio.Episode}} - {{episodio.Title}} </td>
                                     <td> <i class="material-icons starColor">grade</i> {{episodio.imdbRating}}</td>
-                                    <td class="center-align"><a href="" ng-click="marcarAssistido($index, temporada)" title="Marcar como assistido."> <img id="assistido{{temporada.Season}}{{$index}}" src="{{episodio.assistido == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons"  width="30" height="30"></img></a>                                        </td>
+                                    <td class="center-align">
+                                        <a href="" ng-click="marcarAssistido($index, temporada)" title="Marcar como assistido."> <img id="assistido{{temporada.Season}}{{$index}}" src="{{episodio.assistido == 0? 'img/icons/eye-icon.png' : 'img/icons/check-icon.png'}}" class="material-icons" width="30" height="30"></img>
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -98,15 +101,15 @@
     <div class="divider"></div>
     <div class="container center-align">
         <h1 class="teal-text text-darken-3 titleEffect">Vídeos</h1>
-         <div slider height='300' transition='400' class="container center-align sliderTamanhoVideo">
-             <ul class="slides">
+        <div slider height='300' transition='400' class="container center-align sliderTamanhoVideo">
+            <ul class="slides">
                 <li>
-                <div class="video">
-                    <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
-                </div>
+                    <div class="video">
+                        <iframe width="500" height="300" src="https://www.youtube.com/embed/JxWfvtnHtS0" frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </li>
-             </ul>
-         </div>
+            </ul>
+        </div>
 
     </div>
     <div class="divider"></div>
@@ -126,8 +129,7 @@
                 <p>{{comentario.comentario}}</p>
             </li>
         </ul>
-        <pagination class="center-align" page="1" page-size="10" total="qtdComentarios" show-prev-next="true" use-simple-prev-next="false"
-            dots="...." hide-if-empty="false" adjacent="2" scroll-top="false" pagination-action="changePage(page)" />
+        <pagination class="center-align" page="1" page-size="10" total="qtdComentarios" show-prev-next="true" use-simple-prev-next="false" dots="...." hide-if-empty="false" adjacent="2" scroll-top="false" pagination-action="changePage(page)" />
         <div class="divider"></div>
         <legend class="teal-text text-darken-3">Inserir Comentário</legend>
         </br>
