@@ -6,7 +6,7 @@ function trocarIcone(nome) {
             document.getElementById("iconeAdd").src = nome;
         }
     } else if (nome == "img/icons/check-icon.png") {
-        if (document.getElementById("iconEye").src == "Projeto-MySeries/img/icons/check-icon.png") {
+        if (document.getElementById("iconEye").src == "http://localhost:9090/Projeto-MySeries/img/icons/check-icon.png") {
             document.getElementById("iconEye").src = "http://localhost:9090/Projeto-MySeries/img/icons/eye-icon.png";
         } else {
             document.getElementById("iconEye").src = nome;
