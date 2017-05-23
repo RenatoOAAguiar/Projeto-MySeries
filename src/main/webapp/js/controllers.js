@@ -6,6 +6,7 @@ angular.module('MySeries')
         $('#userSettings').addClass('hide');
         $('#linkLogin').removeClass('hide');
         $('#linkSair').addClass('hide');
+        $('#liUsuario').addClass('hide');
         $('#tabMinhasSeries').addClass('hide');
         $location.url("/");
         Materialize.toast('Logoff efetuado com sucesso!', 4000);
@@ -183,6 +184,7 @@ angular.module('MySeries')
                         $('#userSettings').removeClass('hide');
                         $('#linkLogin').addClass('hide');
                         $('#linkSair').removeClass('hide');
+                        $('#liUsuario').removeClass('hide');
                         $('#modal1').modal('close');
                         $('#tabMinhasSeries').removeClass('hide');
                         $scope.habilitarPerfil();
@@ -214,6 +216,17 @@ angular.module('MySeries')
 .controller('PrincipalCtrl', function($scope, $compile, UrlGetService) {
     $scope.titulo = "Top Series";
     var json = "http://localhost:9090/Projeto-MySeries/mock/listaSeries.json";
+    UrlGetService.getUrl(json).then(function(response) {
+        $scope.listaSeries = response.data;
+    });
+    window.setInterval(function() {
+        $('.carousel').carousel('next')
+    }, 5000);
+})
+
+.controller('UsuarioCtrl', function($scope, $compile, UrlGetService) {
+    $scope.titulo = "Top Series";
+    var json = "http://localhost:9090/Projeto-MySeries/mock/minhasSeries.json";
     UrlGetService.getUrl(json).then(function(response) {
         $scope.listaSeries = response.data;
     });

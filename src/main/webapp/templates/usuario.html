@@ -1,0 +1,34 @@
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="section z-depth-5 teal lighten-2 topSeries">
+        <div ng-repeat="listaSerie in listaSeries">
+            <h4 ng-bind="listaSerie.titulo" class="center subtitleEffect"></h4>
+            <div class="divider"></div>
+            <div class="divider"></div>
+            <div class="container">
+                <div carousel duration="500" dist="50">
+                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie1}}" href="#/serie/{{listaSerie.serie1}} "><img src="{{listaSerie.img1}}">
+                    </a>
+                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie2}}" href="#/serie/{{listaSerie.serie2}}"><img src="{{listaSerie.img2}}">
+                    </a>
+                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie3}}" href="#/serie/{{listaSerie.serie3}}"><img src="{{listaSerie.img3}}">
+                    </a>
+                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie4}}" href="#/serie/{{listaSerie.serie4}}"><img src="{{listaSerie.img4}}">
+                    </a>
+                    <a tooltipped class="carousel-item" data-position="top" data-delay="50" data-tooltip="{{listaSerie.serie5}}" href="#/serie/{{listaSerie.serie5}}"><img src="{{listaSerie.img5}}">
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </br>
+    </br>
+</div>
+<div class="dadosSerie">
+</div>
