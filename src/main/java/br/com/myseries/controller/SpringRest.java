@@ -11,7 +11,14 @@ public class SpringRest {
 
     @RequestMapping("/teste")
     @ResponseBody
-    String home() {
+    public String home() {
         return "index";
+    }
+    
+    @RequestMapping("/cadastroLogin")
+    @ResponseBody
+    public String cadastroLogin(){
+    	
+    	return null;
     }
 }
