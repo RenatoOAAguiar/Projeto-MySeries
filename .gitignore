@@ -3,6 +3,8 @@
 /Projeto-MySeries.iml
 /.vscode/
 /src/main/webapp/node_modules/
+/node_modules/
+/src/main/resources/static/node_modules/
 /.settings/
 .project
 .classpath
