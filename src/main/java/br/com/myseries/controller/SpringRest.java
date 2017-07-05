@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,6 +15,7 @@ import br.com.myseries.model.Critica;
 import br.com.myseries.model.CriticaDao;
 import br.com.myseries.model.Usuario;
 import br.com.myseries.model.UsuarioDao;
+import br.com.myseries.service.UsuarioService;
 
 @Controller
 @EnableAutoConfiguration
@@ -35,14 +37,17 @@ public class SpringRest {
 
 	@RequestMapping("/cadastroLogin")
 	@ResponseBody
-	public String cadastroLogin(Usuario usuario) {
+	public String cadastroLogin(@RequestBody Usuario usuario) {
 		try {
-			usuarioDao.save(usuario);
+			//UsuarioService usuarioService = new UsuarioService();
+			if(usuario != null){
+				usuarioDao.save(usuario);				
+			}
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
-			return "Erro ao salvar o usuário";
+			return "{\"msg\" : \"Erro ao salvar o usuário\"}";
 		}
-		return "Usuário salvo com sucesso";
+		return "{\"msg\" : \"Usuário salvo com sucesso\"}";
 	}
 
 	@RequestMapping("/listaCritica")

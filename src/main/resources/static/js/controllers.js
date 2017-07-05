@@ -285,7 +285,7 @@ angular.module('MySeries')
     }
 })
 
-.controller('CadastroCtrl', function($scope, $timeout, cfpLoadingBar, $location, $rootScope) {
+.controller('CadastroCtrl', function($scope, $timeout, cfpLoadingBar, $location, $rootScope, UrlPostService) {
     $scope.titulo = "Cadastro";
     $scope.cadastro = {};
     $('.datepicker').pickadate({
@@ -303,13 +303,15 @@ angular.module('MySeries')
 
     $scope.enviarCadastro = function() {
         cfpLoadingBar.start();
-        $timeout(function() {
+        var url = "http://localhost:9090/Projeto-MySeries/cadastroLogin";
+        UrlPostService.getUrl(url, JSON.stringify($scope.cadastro)).then(function(response) {
+            console.log(response);
             cfpLoadingBar.complete();
             $location.url("/");
             Materialize.toast('Usuário cadastrado com sucesso!', 4000);
-        }, 3000);
-        $scope.formcadastro.$setPristine();
-        delete vm;
+            $scope.formcadastro.$setPristine();
+            delete $scope.cadastro;
+        });
 
     }
     var cad = angular.copy($scope.cadastro);

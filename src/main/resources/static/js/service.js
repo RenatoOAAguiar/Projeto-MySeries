@@ -8,6 +8,17 @@ angular.module('MySeries')
      }}
 })
 
+.service("UrlPostService", function($http) { 
+     return {getUrl : function(url, data){
+        return $http({
+                method: 'POST',
+                url: url,
+                data: data,
+                headers: { 'Content-Type': 'application/json' }
+                });
+     }}
+})
+
 .service("EpisodesService", function($http){
      return {getUrl : function(url){
              return $http({
