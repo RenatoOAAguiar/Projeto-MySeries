@@ -126,9 +126,11 @@ public class SpringRest {
 
 	@RequestMapping("/alterarCritica")
 	@ResponseBody
-	public String alterarCritica(Critica critica) {
+	public String alterarCritica(@RequestBody Critica critica) {
 		try {
-			criticaDao.save(critica);
+			if(critica != null){
+				criticaDao.save(critica);				
+			}
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
 			return "Erro ao alterar a critica!";

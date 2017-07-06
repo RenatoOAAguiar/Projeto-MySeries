@@ -194,10 +194,12 @@ angular.module('MySeries')
             } else {
                  Materialize.toast("Usuário ou senha incorretos!", 4000);
             }
-        })
+        });
     }
 
     $scope.validaCampos = function() {
+        if($scope.login == undefined)
+            return;
         if ($scope.login.login == "" || $scope.login.senha == "" || $scope.login.login == undefined || $scope.login.senha == undefined) {
             return true;
         } else {
@@ -232,7 +234,7 @@ angular.module('MySeries')
     }, 5000);
 })
 
-.controller('CriticasCtrl', function($scope, UrlGetService, $rootScope) {
+.controller('CriticasCtrl', function($scope, UrlGetService, $rootScope, cfpLoadingBar, UrlPostService) {
     $scope.titulo = "Críticas";
     $scope.critica = {};
     $scope.descricao = {};
@@ -251,7 +253,9 @@ angular.module('MySeries')
     }
 
     $scope.incluirCritica = function(){
+        $('#btnIncluirCritica').removeClass("hide");
         var id = $rootScope.idUser;
+        $scope.critica.usuario = id;
         cfpLoadingBar.start();
         var url = "http://localhost:9090/Projeto-MySeries/cadastroCritica";
         UrlPostService.getUrl(url, JSON.stringify($scope.critica)).then(function(response) {
@@ -265,16 +269,22 @@ angular.module('MySeries')
 
     }
 
-    $scope.alterarCritica = function(idCritica){
+    $scope.abrirAlterarCritica = function(idCritica){
+        var url = "http://localhost:9090/Projeto-MySeries/abrirCritica/"+ idCritica;
+        UrlGetService.getUrl(url).then(function(response) {
+                    $scope.critica = response.data;
+        });
+        $('#btnAlterarCritica').removeClass("hide");
+    }
+
+    $scope.alterarCritica = function(){
         var id = $rootScope.idUser;
-        cfpLoadingBar.start();
+        $scope.critica.usuario = id;
         var url = "http://localhost:9090/Projeto-MySeries/alterarCritica";
         UrlPostService.getUrl(url, JSON.stringify($scope.critica)).then(function(response) {
             console.log(response);
-            cfpLoadingBar.complete();
-            $location.url("/");
+            $scope.fecharModal();
             Materialize.toast('Critica alterada com sucesso!', 4000);
-            $scope.formcadastro.$setPristine();
             delete $scope.critica;
         });
 
@@ -282,6 +292,9 @@ angular.module('MySeries')
 
     $scope.fecharModal = function() {
         $('#modalCritica').modal('close');
+        delete $scope.critica;
+        $('#btnIncluirCritica').addClass("hide");
+        $('#btnAlterarCritica').addClass("hide");
     }
 })
 
