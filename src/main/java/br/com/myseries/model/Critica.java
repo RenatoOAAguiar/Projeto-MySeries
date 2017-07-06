@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "critica", schema = "myseries")
@@ -35,6 +36,9 @@ public class Critica implements Serializable {
 	private Integer temporada;
 
 	private String urlPoster;
+
+	@Transient
+	private String nomeUsuario;
 
 	public Long getId() {
 		return id;
@@ -90,6 +94,14 @@ public class Critica implements Serializable {
 
 	public void setUrlPoster(String urlPoster) {
 		this.urlPoster = urlPoster;
+	}
+
+	public String getNomeUsuario() {
+		return usuario.getNome();
+	}
+
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 
 }

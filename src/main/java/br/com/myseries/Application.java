@@ -11,3 +11,12 @@ public class Application {
     SpringApplication.run(Application.class, args);
   }
 }
+
+/*
+----Utilizar para servidor standalone(Sem spring-boot:run)
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer{
+
+}
+
+*/

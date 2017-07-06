@@ -2,21 +2,27 @@
     <div class="section z-depth-5 teal lighten-2 topSeries">
         <h4 ng-bind="titulo" class="center titleEffect"></h4>
         <div class="divider"></div>
-        </br>
+        <br/>
         <div class="container">
+            <a class="btn-floating btn-large waves-effect waves-light red" data-target='modalIncluirCritica' modal><i class="material-icons">add</i></a>
             <div class="row">
                 <div ng-repeat="critica in listaCritica">
                     <div class="col s12 m6">
                         <h6 ng-bind="critica.tituloCritica" class="center white-text text-accent-4 titleEffectSub" style="font-size: 25pt;"></h6>
                         <div class="card">
                             <div class="card-image">
-                                <img src="{{critica.poster}}" class="imgCritica">
+                                <img src="{{critica.urlPoster}}" class="imgCritica">
                                 <a class="btn-floating halfway-fab waves-effect waves-light red pulse" data-target='modalCritica' modal ng-click="abrirCritica(critica.idCritica)"><i class="material-icons">subtitles</i></a>
                             </div>
                             <div class="card-content">
+                                <a class="btn-floating waves-light blue" data-target='modalIncluirCritica' modal ng-click="alterarCritica(critica.idCritica)"><i class="material-icons">mode_edit</i></a>
+                                <a class="btn-floating waves-light blue" ng-click="excluirCritica(critica.idCritica)"><i class="material-icons">delete</i></a>
+                                <br/>
+                                <br/>
+                                <div class="divider"></div>
                                 <p>Temporada: {{critica.temporada}}</p>
                                 <p><i class="material-icons starColor">grade</i>{{critica.nota}}</p>
-                                <p class="truncate">Resumo: {{critica.resumo}}</p>
+                                <p class="truncate">Resumo: {{critica.texto}}</p>
                             </div>
                         </div>
                     </div>
@@ -42,13 +48,60 @@
             <span class="titulosDescritivos">Nota: {{descricao.nota}}</span>
         </div>
         <div class="row">
-            <p class="titulosDescritivos">Usuário: {{descricao.usuario}}</p>
+            <p class="titulosDescritivos">Usuário: {{descricao.usuario.nome}}</p>
         </div>
         <div class="row container">
             <span class="justified-align flow-text"><h6 class="titulosDescritivos"> Texto: </h6>{{descricao.texto}}</span>
         </div>
     </div>
     <div class="modal-footer">
+        <a href="" ng-click="fecharModal()" class="modal-action modal-close waves-effect waves-green btn">Fechar</a>
+    </div>
+</div>
+
+<!-- Incluir Critica -->
+<div id="modalIncluirCritica" class="modal modal modal-fixed-footer teal lighten-5" style="width: 1000px; height: 1000px">
+    <div class="modal-content">
+        <div class="container center-align">
+            <h4 class="amber-text text-accent-4 titleEffect">Crítica</h4>
+        </div>
+        <div class="divider"></div>
+        <div class="container">
+            <div class="row">
+                <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s4">
+                    <input placeholder="Serie" id="serie" ng-model="critica.serie" type="text" class="validate">
+                    <label for="serie">Serie:</label>
+                    </div>
+                    <div class="input-field col s4">
+                    <input placeholder="Temporada" id="temporada" ng-model="critica.temporada" type="text" class="validate">
+                    <label for="temporada">Temporada:</label>
+                    </div>
+                    <div class="input-field col s4">
+                    <input id="nota" type="number" ng-model="critica.nota" class="validate">
+                    <label for="nota">Nota:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                    <input id="urlPoster" type="text" ng-model="critica.urlPoster" class="validate">
+                    <label for="urlPoster">Poster URL:</label>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="texto" ng-model="critica.texto" class="materialize-textarea" ></textarea>
+                    <label for="texto">Seu texto...</label>
+                </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="" ng-click="incluirCritica()" class="modal-action modal-close waves-effect waves-green btn">Incluir</a>
         <a href="" ng-click="fecharModal()" class="modal-action modal-close waves-effect waves-green btn">Fechar</a>
     </div>
 </div>

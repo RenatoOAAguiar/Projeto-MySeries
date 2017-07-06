@@ -103,13 +103,13 @@
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="small material-icons">perm_identity</i>
-                                <input id="username" placeholder="Usuário" type="text" ng-model="usuario" minlength="5" maxlength="15" class="validate" required>
+                                <input id="username" placeholder="Usuário" type="text" ng-model="login.login" minlength="5" maxlength="15" class="validate" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="small material-icons">lock_outline</i>
-                                <input id="password" placeholder="Senha" type="password" ng-model="senha" minlength="5" maxlength="20" class="validate" required>
+                                <input id="password" placeholder="Senha" type="password" ng-model="login.senha" minlength="5" maxlength="20" class="validate" required>
                             </div>
                         </div>
                         <div class="row">
@@ -120,7 +120,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <a class="btn waves-effect waves-light col s12" ng-click="login()" ng-disabled="validaCampos()">Login</a>
+                                <a class="btn waves-effect waves-light col s12" ng-click="doLogin()" ng-disabled="validaCampos()">Login</a>
                             </div>
                         </div>
                         <div class="row">

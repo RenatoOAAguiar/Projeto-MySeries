@@ -170,17 +170,17 @@ angular.module('MySeries')
 
 })
 
-.controller('LoginCtrl', function($scope, $timeout, cfpLoadingBar, $location, $rootScope, UrlGetService) {
-    $scope.login = function() {
+.controller('LoginCtrl', function($scope, $timeout, cfpLoadingBar, $location, $rootScope, UrlPostService) {
+    $scope.login = {};
+    
+    $scope.doLogin = function() {
         cfpLoadingBar.start();
-        var json = "http://localhost:9090/Projeto-MySeries/mock/usuarios.json";
-        UrlGetService.getUrl(json).then(function(response) {
+        var url = "http://localhost:9090/Projeto-MySeries/login";
+        UrlPostService.getUrl(url, JSON.stringify($scope.login)).then(function(response) {
             usuario = response.data;
-            for (i = 0; i < usuario.length; i++) {
-                if ($scope.usuario == usuario[i].login && $scope.senha == usuario[i].senha) {
-                    var nome = usuario[i].nome;
-                    $timeout(function() {
-                        cfpLoadingBar.complete();
+            $rootScope.idUser = usuario.id;
+            if(usuario != null && usuario != undefined){
+                 cfpLoadingBar.complete();
                         $('#userSettings').removeClass('hide');
                         $('#linkLogin').addClass('hide');
                         $('#linkSair').removeClass('hide');
@@ -189,19 +189,16 @@ angular.module('MySeries')
                         $('#tabMinhasSeries').removeClass('hide');
                         $scope.habilitarPerfil();
                         $rootScope.statusLogin = false;
-                        Materialize.toast('Logado com sucesso! seja bem vindo ' + nome + '!', 4000);
-                    }, 3000);
-                    delete $scope.usuario;
-                    delete $scope.senha;
-                } else {
-                    Materialize.toast('Usuário ou senha incorretos!', 4000);
-                }
+                        Materialize.toast("Seja bem vindo " + usuario.nome, 4000);
+                        delete $scope.login;
+            } else {
+                 Materialize.toast("Usuário ou senha incorretos!", 4000);
             }
         })
     }
 
     $scope.validaCampos = function() {
-        if ($scope.usuario == "" || $scope.senha == "" || $scope.usuario == undefined || $scope.senha == undefined) {
+        if ($scope.login.login == "" || $scope.login.senha == "" || $scope.login.login == undefined || $scope.login.senha == undefined) {
             return true;
         } else {
             return false;
@@ -235,10 +232,10 @@ angular.module('MySeries')
     }, 5000);
 })
 
-.controller('CriticasCtrl', function($scope, UrlGetService) {
+.controller('CriticasCtrl', function($scope, UrlGetService, $rootScope) {
     $scope.titulo = "Críticas";
-    var json = "http://localhost:9090/Projeto-MySeries/mock/dadosCritica.json";
-    UrlGetService.getUrl(json).then(function(response) {
+    var url = "http://localhost:9090/Projeto-MySeries/listaCritica";
+    UrlGetService.getUrl(url).then(function(response) {
         $scope.listaCritica = response.data;
         $scope.qtdCriticas = response.data.length;
     });
@@ -253,6 +250,21 @@ angular.module('MySeries')
                 }
             }
         });
+    }
+
+    $scope.incluirCritica = function(){
+        var id = $rootScope.idUser;
+        cfpLoadingBar.start();
+        var url = "http://localhost:9090/Projeto-MySeries/cadastroCritica";
+        UrlPostService.getUrl(url, JSON.stringify($scope.critica)).then(function(response) {
+            console.log(response);
+            cfpLoadingBar.complete();
+            $location.url("/");
+            Materialize.toast('Usuário cadastrado com sucesso!', 4000);
+            $scope.formcadastro.$setPristine();
+            delete $scope.cadastro;
+        });
+
     }
 
     $scope.fecharModal = function() {
@@ -286,6 +298,7 @@ angular.module('MySeries')
 })
 
 .controller('CadastroCtrl', function($scope, $timeout, cfpLoadingBar, $location, $rootScope, UrlPostService) {
+    $('#modal1').modal('close');
     $scope.titulo = "Cadastro";
     $scope.cadastro = {};
     $('.datepicker').pickadate({
