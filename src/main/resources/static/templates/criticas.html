@@ -12,7 +12,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <img src="{{critica.urlPoster}}" class="imgCritica">
-                                <a class="btn-floating halfway-fab waves-effect waves-light red pulse" data-target='modalCritica' modal ng-click="abrirCritica(critica.idCritica)"><i class="material-icons">subtitles</i></a>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red pulse" data-target='modalCritica' modal ng-click="abrirCritica(critica.id)"><i class="material-icons">subtitles</i></a>
                             </div>
                             <div class="card-content">
                                 <a class="btn-floating waves-light blue" data-target='modalIncluirCritica' modal ng-click="alterarCritica(critica.idCritica)"><i class="material-icons">mode_edit</i></a>
@@ -48,7 +48,7 @@
             <span class="titulosDescritivos">Nota: {{descricao.nota}}</span>
         </div>
         <div class="row">
-            <p class="titulosDescritivos">Usuário: {{descricao.usuario.nome}}</p>
+            <p class="titulosDescritivos">Usuário: {{descricao.nomeUsuario}}</p>
         </div>
         <div class="row container">
             <span class="justified-align flow-text"><h6 class="titulosDescritivos"> Texto: </h6>{{descricao.texto}}</span>

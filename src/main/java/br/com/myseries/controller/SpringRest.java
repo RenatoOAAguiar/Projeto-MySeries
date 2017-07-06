@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -93,14 +94,34 @@ public class SpringRest {
 
 	@RequestMapping("/cadastroCritica")
 	@ResponseBody
-	public String cadastroCritica(Critica critica) {
+	public String cadastroCritica(@RequestBody Critica critica) {
 		try {
-			criticaDao.save(critica);
+			if(critica != null){
+				criticaDao.save(critica);
+			}
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
 			return "Erro ao salvar a critica!";
 		}
 		return "Critica cadastrada com sucesso!";
+	}
+	
+	@RequestMapping("/abrirCritica/{id}")
+	@ResponseBody
+	public String abrirCritica(@PathVariable Long id) {
+		Critica critica = null;
+		Gson gson = new Gson();
+		try {
+			if(id != null){
+				critica = criticaDao.findOne(id);
+				critica.setNomeUsuario(usuarioDao.findOne(critica.getUsuario().getId()).getNome());
+				critica.setUsuario(null);
+			}
+		} catch (Exception e) {
+			LOGGER.info(e.getMessage());
+		}
+		String result = gson.toJson(critica);
+		return result;
 	}
 
 	@RequestMapping("/alterarCritica")

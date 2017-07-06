@@ -234,6 +234,8 @@ angular.module('MySeries')
 
 .controller('CriticasCtrl', function($scope, UrlGetService, $rootScope) {
     $scope.titulo = "Críticas";
+    $scope.critica = {};
+    $scope.descricao = {};
     var url = "http://localhost:9090/Projeto-MySeries/listaCritica";
     UrlGetService.getUrl(url).then(function(response) {
         $scope.listaCritica = response.data;
@@ -241,14 +243,10 @@ angular.module('MySeries')
     });
 
     $scope.abrirCritica = function(id) {
-        var json = "http://localhost:9090/Projeto-MySeries/mock/dadosCritica.json";
-        UrlGetService.getUrl(json).then(function(response) {
-            for (i = 0; i < response.data.length; i++) {
-                if (response.data[i].idCritica == id) {
-                    $scope.descricao = response.data[i];
+        var url = "http://localhost:9090/Projeto-MySeries/abrirCritica/"+ id;
+        UrlGetService.getUrl(url).then(function(response) {
+                    $scope.descricao = response.data;
                     $('#modalCritica').modal('open');
-                }
-            }
         });
     }
 
@@ -262,7 +260,22 @@ angular.module('MySeries')
             $location.url("/");
             Materialize.toast('Usuário cadastrado com sucesso!', 4000);
             $scope.formcadastro.$setPristine();
-            delete $scope.cadastro;
+            delete $scope.descricao;
+        });
+
+    }
+
+    $scope.alterarCritica = function(idCritica){
+        var id = $rootScope.idUser;
+        cfpLoadingBar.start();
+        var url = "http://localhost:9090/Projeto-MySeries/alterarCritica";
+        UrlPostService.getUrl(url, JSON.stringify($scope.critica)).then(function(response) {
+            console.log(response);
+            cfpLoadingBar.complete();
+            $location.url("/");
+            Materialize.toast('Critica alterada com sucesso!', 4000);
+            $scope.formcadastro.$setPristine();
+            delete $scope.critica;
         });
 
     }
