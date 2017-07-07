@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -94,16 +96,19 @@ public class SpringRest {
 
 	@RequestMapping("/cadastroCritica")
 	@ResponseBody
-	public String cadastroCritica(@RequestBody Critica critica) {
+	public ResponseEntity<Critica> cadastroCritica(@RequestBody Critica critica) {
 		try {
 			if(critica != null){
+				Usuario usuario = new Usuario();
+				usuario = usuarioDao.findOne(critica.getUsuario().getId());
+				critica.setUsuario(usuario);
 				criticaDao.save(critica);
 			}
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
-			return "Erro ao salvar a critica!";
+			return new ResponseEntity<Critica>(HttpStatus.UNAUTHORIZED);
 		}
-		return "Critica cadastrada com sucesso!";
+		return new ResponseEntity<Critica>(HttpStatus.OK);
 	}
 	
 	@RequestMapping("/abrirCritica/{id}")
@@ -126,27 +131,30 @@ public class SpringRest {
 
 	@RequestMapping("/alterarCritica")
 	@ResponseBody
-	public String alterarCritica(@RequestBody Critica critica) {
+	public ResponseEntity<Critica> alterarCritica(@RequestBody Critica critica) {
 		try {
 			if(critica != null){
+				Usuario usuario = new Usuario();
+				usuario = usuarioDao.findOne(critica.getUsuario().getId());
+				critica.setUsuario(usuario);
 				criticaDao.save(critica);				
 			}
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
-			return "Erro ao alterar a critica!";
+			return new ResponseEntity<Critica>(HttpStatus.NO_CONTENT);
 		}
-		return "Critica alterada com sucesso!";
+		return new ResponseEntity<Critica>(HttpStatus.OK);
 	}
 
-	@RequestMapping("/excluirCritica")
+	@RequestMapping("/excluirCritica/{id}")
 	@ResponseBody
-	public String excluirCritica(Critica critica) {
+	public ResponseEntity<Critica> excluirCritica(@PathVariable Long id) {
 		try {
-			criticaDao.delete(critica);
+			criticaDao.delete(id);;
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
-			return "Erro ao deletar a critica!";
+			return new ResponseEntity<Critica>(HttpStatus.FORBIDDEN);
 		}
-		return "Critica deletada com sucesso!";
+		return new ResponseEntity<Critica>(HttpStatus.OK);
 	}
 }

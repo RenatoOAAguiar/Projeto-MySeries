@@ -234,7 +234,7 @@ angular.module('MySeries')
     }, 5000);
 })
 
-.controller('CriticasCtrl', function($scope, UrlGetService, $rootScope, cfpLoadingBar, UrlPostService) {
+.controller('CriticasCtrl', function($scope, UrlGetService, $rootScope, cfpLoadingBar, UrlPostService, $location, $window) {
     $scope.titulo = "Críticas";
     $scope.critica = {};
     $scope.descricao = {};
@@ -255,16 +255,19 @@ angular.module('MySeries')
     $scope.incluirCritica = function(){
         $('#btnIncluirCritica').removeClass("hide");
         var id = $rootScope.idUser;
-        $scope.critica.usuario = id;
+        var usuario = {};
+        usuario.id = id;
+        $scope.critica.usuario = usuario;
         cfpLoadingBar.start();
         var url = "http://localhost:9090/Projeto-MySeries/cadastroCritica";
         UrlPostService.getUrl(url, JSON.stringify($scope.critica)).then(function(response) {
-            console.log(response);
             cfpLoadingBar.complete();
+            Materialize.toast('Critíca cadastrada com sucesso!', 4000);
+            delete $scope.critica;
+            $('#modalCritica').modal('close');
+            $('.modal-overlay').hide();
             $location.url("/");
-            Materialize.toast('Usuário cadastrado com sucesso!', 4000);
-            $scope.formcadastro.$setPristine();
-            delete $scope.descricao;
+            $('#btnIncluirCritica').addClass("hide");
         });
 
     }
@@ -279,13 +282,36 @@ angular.module('MySeries')
 
     $scope.alterarCritica = function(){
         var id = $rootScope.idUser;
-        $scope.critica.usuario = id;
+        var usuario = {};
+        usuario.id = id;
+        $scope.critica.usuario = usuario;
         var url = "http://localhost:9090/Projeto-MySeries/alterarCritica";
         UrlPostService.getUrl(url, JSON.stringify($scope.critica)).then(function(response) {
-            console.log(response);
-            $scope.fecharModal();
             Materialize.toast('Critica alterada com sucesso!', 4000);
             delete $scope.critica;
+            $('#modalCritica').modal('close');
+            $('.modal-overlay').hide();
+            $window.location.href = "/Projeto-MySeries/#/";
+        });
+
+    }
+
+    $scope.abrirModalIncluir = function(){
+        $('#btnIncluirCritica').removeClass("hide");
+    }
+
+    $scope.modalConfirma = function(id){
+        $rootScope.idExcluir = id;
+    }
+
+    $scope.excluirCritica = function(){
+        var url = "http://localhost:9090/Projeto-MySeries/excluirCritica/" + $rootScope.idExcluir;
+        UrlGetService.getUrl(url, JSON.stringify($scope.critica)).then(function(response) {
+            Materialize.toast('Critica excluída com sucesso!', 4000);
+            delete $scope.critica;
+            $('#modalCritica').modal('close');
+            $('.modal-overlay').hide();
+            $window.location.href = "/Projeto-MySeries/#/";
         });
 
     }

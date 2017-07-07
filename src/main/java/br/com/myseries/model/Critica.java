@@ -26,7 +26,7 @@ public class Critica implements Serializable {
 	@Column(columnDefinition = "text")
 	private String texto;
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne
 	private Usuario usuario;
 
 	private Integer nota;

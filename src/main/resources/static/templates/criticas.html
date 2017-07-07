@@ -4,7 +4,7 @@
         <div class="divider"></div>
         <br/>
         <div class="container">
-            <a class="btn-floating btn-large waves-effect waves-light red" data-target='modalIncluirCritica' modal><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light red" ng-click="abrirModalIncluir()" data-target='modalIncluirCritica' modal><i class="material-icons">add</i></a>
             <div class="row">
                 <div ng-repeat="resumo in listaCritica">
                     <div class="col s12 m6">
@@ -16,7 +16,7 @@
                             </div>
                             <div class="card-content">
                                 <a class="btn-floating waves-light blue" data-target='modalIncluirCritica' modal ng-click="abrirAlterarCritica(resumo.id)"><i class="material-icons">mode_edit</i></a>
-                                <a class="btn-floating waves-light blue" ng-click="excluirCritica(resumo.id)"><i class="material-icons">delete</i></a>
+                                <a class="btn-floating waves-light blue" data-target='modalConf' modal ng-click="modalConfirma(resumo.id)"><i class="material-icons">delete</i></a>
                                 <br/>
                                 <br/>
                                 <div class="divider"></div>
@@ -30,6 +30,19 @@
             </div>
             <pagination class="center-align" page="1" page-size="4" total="qtdCriticas" show-prev-next="true" use-simple-prev-next="false" dots="...." hide-if-empty="false" adjacent="2" scroll-top="false" pagination-action="changePage(page)" />
         </div>
+    </div>
+</div>
+
+<!-- Modal confirma -->
+<div id="modalConf" class="modal modal modal-fixed-footer teal lighten-5" style="height: 120px; width: 215px">
+    <div class="modal-content">
+        <div class="container center-align">
+            <span>Deseja excluir a crítica?</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="" ng-click="excluirCritica()" class="modal-action modal-close waves-effect waves-green btn">Sim</a>
+        <a href="" ng-click="fecharModal()" class="modal-action modal-close waves-effect waves-green btn">Não</a>
     </div>
 </div>
 
@@ -91,9 +104,9 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="input-field col s12" style="height: 250px !important">
+                <div class="input-field col s12" >
                     <i class="material-icons prefix">mode_edit</i>
-                    <textarea id="texto" ng-model="critica.texto" class="materialize-textarea" ></textarea>
+                    <textarea id="texto" ng-model="critica.texto" style="height: 250px !important" class="materialize-textarea" ></textarea>
                     <label for="texto">Seu texto...</label>
                 </div>
                 </div>

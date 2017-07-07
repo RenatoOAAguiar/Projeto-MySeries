@@ -24,9 +24,10 @@ public class Usuario implements Serializable {
 	private String email;
 	private String login;
 	private String senha;
+	private String endereco;
 
-//	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private Perfil perfil;
+	// @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	// private Perfil perfil;
 
 	@Column(nullable = true)
 	private Date dataNasc;
@@ -79,16 +80,24 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
-//	public Perfil getPerfil() {
-//		return perfil;
-//	}
-//
-//	public void setPerfil(Perfil perfil) {
-//		this.perfil = perfil;
-//	}
+	// public Perfil getPerfil() {
+	// return perfil;
+	// }
+	//
+	// public void setPerfil(Perfil perfil) {
+	// this.perfil = perfil;
+	// }
 
 	public Date getDataNasc() {
 		return dataNasc;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public void setDataNasc(Date dataNasc) {
