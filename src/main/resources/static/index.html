@@ -135,16 +135,15 @@
     </div>
 
     <!-- Modal Structure -->
-    <div id="modaldetalhe" class="modal modal modal-fixed-footer" style="width: 1000px; height: 1000px" ng-controller="DetalheSerieCtrl">
+    <div id="modaldetalhe" class="modal modal modal-fixed-footer" style="width: 700px; height: 400px" ng-controller="DetalheSerieCtrl">
         <div class="modal-content">
 
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="card">
-                        <div class="card-image">
-                            <img class="hoverable" src="{{posterEpisodio}}">
-                            <span class="card-title">{{tituloEpisodio}}</span>
-                        </div>
+            <div class="col s12 m7">
+                <div class="card horizontal">
+                    <div class="card-image">
+                        <img class="hoverable" img src="{{posterEpisodio}}">
+                    </div>
+                    <div class="card-stacked">
                         <div class="card-content">
                             <span><h6 class="titulosDescritivos"> Sinopse: </h6>{{sinopseEpisodio}}</span>
                         </div>
