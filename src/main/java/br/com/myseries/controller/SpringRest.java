@@ -94,11 +94,29 @@ public class SpringRest {
 		return result;
 	}
 
+	@RequestMapping("/listaCriticaFiltro")
+	@ResponseBody
+	public String listaCriticaFiltro(@RequestBody String pesquisa) {
+		List<Critica> listaCritica = new ArrayList<Critica>();
+		Gson gson = new Gson();
+		try {
+			for (Critica critica : criticaDao.findBySerie(pesquisa)) {
+				critica.setNomeUsuario(usuarioDao.findOne(critica.getUsuario().getId()).getNome());
+				critica.setUsuario(null);
+				listaCritica.add(critica);
+			}
+		} catch (Exception e) {
+			LOGGER.info(e.getMessage());
+		}
+		String result = gson.toJson(listaCritica);
+		return result;
+	}
+
 	@RequestMapping("/cadastroCritica")
 	@ResponseBody
 	public ResponseEntity<Critica> cadastroCritica(@RequestBody Critica critica) {
 		try {
-			if(critica != null){
+			if (critica != null) {
 				Usuario usuario = new Usuario();
 				usuario = usuarioDao.findOne(critica.getUsuario().getId());
 				critica.setUsuario(usuario);
@@ -110,14 +128,14 @@ public class SpringRest {
 		}
 		return new ResponseEntity<Critica>(HttpStatus.OK);
 	}
-	
+
 	@RequestMapping("/abrirCritica/{id}")
 	@ResponseBody
 	public String abrirCritica(@PathVariable Long id) {
 		Critica critica = null;
 		Gson gson = new Gson();
 		try {
-			if(id != null){
+			if (id != null) {
 				critica = criticaDao.findOne(id);
 				critica.setNomeUsuario(usuarioDao.findOne(critica.getUsuario().getId()).getNome());
 				critica.setUsuario(null);
@@ -133,11 +151,11 @@ public class SpringRest {
 	@ResponseBody
 	public ResponseEntity<Critica> alterarCritica(@RequestBody Critica critica) {
 		try {
-			if(critica != null){
+			if (critica != null) {
 				Usuario usuario = new Usuario();
 				usuario = usuarioDao.findOne(critica.getUsuario().getId());
 				critica.setUsuario(usuario);
-				criticaDao.save(critica);				
+				criticaDao.save(critica);
 			}
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
@@ -150,7 +168,8 @@ public class SpringRest {
 	@ResponseBody
 	public ResponseEntity<Critica> excluirCritica(@PathVariable Long id) {
 		try {
-			criticaDao.delete(id);;
+			criticaDao.delete(id);
+			;
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
 			return new ResponseEntity<Critica>(HttpStatus.FORBIDDEN);

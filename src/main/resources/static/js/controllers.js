@@ -172,7 +172,8 @@ angular.module('MySeries')
 
 .controller('LoginCtrl', function($scope, $timeout, cfpLoadingBar, $location, $rootScope, UrlPostService) {
     $scope.login = {};
-    
+    $('#username').focus();
+
     $scope.doLogin = function() {
         cfpLoadingBar.start();
         var url = "http://localhost:9090/Projeto-MySeries/login";
@@ -268,6 +269,7 @@ angular.module('MySeries')
             $('.modal-overlay').hide();
             $location.url("/");
             $('#btnIncluirCritica').addClass("hide");
+            $scope.scroolTop();
         });
 
     }
@@ -292,6 +294,7 @@ angular.module('MySeries')
             $('#modalCritica').modal('close');
             $('.modal-overlay').hide();
             $window.location.href = "/Projeto-MySeries/#/";
+            $scope.scroolTop();
         });
 
     }
@@ -312,8 +315,25 @@ angular.module('MySeries')
             $('#modalCritica').modal('close');
             $('.modal-overlay').hide();
             $window.location.href = "/Projeto-MySeries/#/";
+            $scope.scroolTop();
         });
 
+    }
+
+    $scope.pesquisar = function(){
+        var url = "http://localhost:9090/Projeto-MySeries/listaCriticaFiltro";        
+        UrlPostService.getUrl(url, $scope.pesquisa).then(function(response) {
+            if(response.data.length == 0){
+                $('#notFound').removeClass('hide');
+                $('html, body').animate({
+                    scrollTop: $("#titleCritica").offset().top
+                }, 2000);
+            } else{
+                $('#notFound').addClass('hide');
+            }
+            $scope.listaCritica = response.data;
+            $scope.qtdCriticas = response.data.length;
+        });
     }
 
     $scope.fecharModal = function() {
@@ -321,6 +341,10 @@ angular.module('MySeries')
         delete $scope.critica;
         $('#btnIncluirCritica').addClass("hide");
         $('#btnAlterarCritica').addClass("hide");
+    }
+
+    $scope.scroolTop = function(){
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     }
 })
 
@@ -352,6 +376,7 @@ angular.module('MySeries')
 .controller('CadastroCtrl', function($scope, $timeout, cfpLoadingBar, $location, $rootScope, UrlPostService) {
     $('#modal1').modal('close');
     $scope.titulo = "Cadastro";
+    $("html, body").animate({ scrollTop: 0 }, "slow");
     $scope.cadastro = {};
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month

@@ -1,11 +1,20 @@
 <div class="container">
     <div class="section z-depth-5 teal lighten-2 topSeries">
-        <h4 ng-bind="titulo" class="center titleEffect"></h4>
+        <h4 id="titleCritica" ng-bind="titulo" class="center titleEffect"></h4>
         <div class="divider"></div>
         <br/>
         <div class="container">
-            <a class="btn-floating btn-large waves-effect waves-light red" ng-click="abrirModalIncluir()" data-target='modalIncluirCritica' modal><i class="material-icons">add</i></a>
             <div class="row">
+                <div class="col s4 m4">
+                    <a class="btn-floating btn-large waves-effect waves-light red" ng-click="abrirModalIncluir()" data-target='modalIncluirCritica' modal><i class="material-icons">add</i></a>
+                </div>
+                <div class="col s8 m8">
+                    <input id="pesquisa" placeholder="Pesquisa por Série ..." name="pesquisa" class="campoPesquisa" type="text" ng-model="pesquisa">
+                    <a class="btn-floating btn-flat waves-effect waves-light blue" ng-click="pesquisar()"><i class="material-icons">search</i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div id="notFound" class="hide"><h2>Nenhum resultado encontrado!</h2></div>
                 <div ng-repeat="resumo in listaCritica">
                     <div class="col s12 m6">
                         <h6 ng-bind="resumo.tituloCritica" class="center white-text text-accent-4 titleEffectSub" style="font-size: 25pt;"></h6>

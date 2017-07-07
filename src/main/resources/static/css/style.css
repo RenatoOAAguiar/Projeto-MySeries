@@ -151,3 +151,11 @@ a#imdb {
     text-align: justify !important;
     text-align-last:center !important;
 }
+
+.campoPesquisa{
+    background-color: white !important;
+    margin-top: 8px !important;
+    width: 90% !important;
+    font-family: cursive !important;
+    font-size: 150% !important;
+}
